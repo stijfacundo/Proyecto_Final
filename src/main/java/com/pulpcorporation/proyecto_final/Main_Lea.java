@@ -1,8 +1,9 @@
 package com.pulpcorporation.proyecto_final;
 
-public class Proyecto_Final {
+public class Main_Lea {
 
     public static void main(String[] args) {
         
     }
+    
 }
