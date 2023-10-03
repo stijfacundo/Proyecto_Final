@@ -1,18 +1,18 @@
 package Entidades;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Reserva {
 
     private int idReserva;
     private Huesped huesped;
     private int numeroHabitacion;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     private double monto;
     private boolean estado;
 
-    public Reserva(int idReserva, Huesped huesped, int numeroHabitacion, Date fechaInicio, Date fechaFin, double monto, boolean estado) {
+    public Reserva(int idReserva, Huesped huesped, int numeroHabitacion, LocalDate fechaInicio, LocalDate fechaFin, double monto, boolean estado) {
         this.idReserva = idReserva;
         this.huesped = huesped;
         this.numeroHabitacion = numeroHabitacion;
@@ -20,6 +20,9 @@ public class Reserva {
         this.fechaFin = fechaFin;
         this.monto = monto;
         this.estado = estado;
+    }
+
+    public Reserva() {
     }
 
     public int getIdReserva() {
@@ -38,6 +41,14 @@ public class Reserva {
         this.huesped = huesped;
     }
 
+    public int getDniHuesped() {
+        return huesped.getDni();
+    }
+
+    public void setDniHuesped(int dni) {
+        huesped.setDni(dni);
+    }
+
     public int getNumeroHabitacion() {
         return numeroHabitacion;
     }
@@ -46,19 +57,19 @@ public class Reserva {
         this.numeroHabitacion = numeroHabitacion;
     }
 
-    public Date getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
     }
 
