@@ -8,7 +8,7 @@ public class HuespedData {
     private Connection con = null;
 
     public HuespedData() {
-        // con = Conexion.getConexion();
+        con = Conexion.getConexion();
     }
 
     public void altaHuesped(Huesped huesped) throws SQLException {
@@ -35,11 +35,12 @@ public class HuespedData {
         }
     }
 
-    public void modificarHuesped(Huesped huesped) throws SQLException {
+    public void modificarHuesped(Huesped huesped, int dni) throws SQLException {
         // Modificamos el huesped en la tabla 'huesped'
-        String sql = "UPDATE huesped SET nombre = ?, apellido = ?, dni = ?, "
-                + "domicilio = ?, correo = ?, celular = ?, estado = ? "
-                + "WHERE id_huesped = ?";
+        String sql = "UPDATE huesped "
+                + "SET nombre = ?, apellido = ?, dni = ?, domicilio = ?, "
+                + "correo = ?, celular = ?, estado = ? "
+                + "WHERE dni = ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, huesped.getNombre());
         ps.setString(2, huesped.getApellido());
@@ -48,12 +49,15 @@ public class HuespedData {
         ps.setString(5, huesped.getCorreo());
         ps.setString(6, huesped.getCelular());
         ps.setBoolean(7, huesped.isEstado());
+        ps.setInt(8, dni);
         ps.executeUpdate();
     }
 
     public void bajaHuesped(int dni) throws SQLException {
         // Damos de baja el huesped de la tabla 'huesped'
-        String sql = "UPDATE huesped SET estado = 0 WHERE dni = ?";
+        String sql = "UPDATE huesped "
+                + "SET estado = 0 "
+                + "WHERE dni = ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, dni);
         ps.executeUpdate();
