@@ -23,7 +23,7 @@ public class HabitacionesData {
             ps.setInt(1, habitacion.getNroHabitacion());
             ps.setInt(2, habitacion.getPiso());
             ps.setBoolean(3, habitacion.isOcupada());
-            ps.setInt(4, habitacion.getcodigoTipoHabitacion());
+            ps.setString(4, habitacion.getcodigoTipoHabitacion());
             ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
