@@ -1,23 +1,24 @@
 package Entidades;
 
-public class Habitaciones {
+public class Habitacion {
     int idHabitacion;
     int nroHabitacion;
     int piso;
     boolean ocupada;
     String codigoTipoHabitacion;
+    double precioPorNoche;
 
-    public Habitaciones() {
+    public Habitacion() {
     }
 
-    public Habitaciones(int nroHabitacion, int piso, boolean ocupada, String codigoTipoHabitacion) {
+    public Habitacion(int nroHabitacion, int piso, boolean ocupada, String codigoTipoHabitacion) {
         this.nroHabitacion = nroHabitacion;
         this.piso = piso;
         this.ocupada = ocupada;
         this.codigoTipoHabitacion = codigoTipoHabitacion;
     }
 
-    public Habitaciones(int idHabitacion, int nroHabitacion, int piso, boolean ocupada, String codigoTipoHabitacion) {
+    public Habitacion(int idHabitacion, int nroHabitacion, int piso, boolean ocupada, String codigoTipoHabitacion) {
         this.idHabitacion = idHabitacion;
         this.nroHabitacion = nroHabitacion;
         this.piso = piso;
@@ -65,6 +66,14 @@ public class Habitaciones {
         this.codigoTipoHabitacion = codigoTipoHabitacion;
     }
 
+    public double getPrecioPorNoche() {
+        return precioPorNoche;
+    }
+
+    public void setPrecioPorNoche(double precioPorNoche) {
+        this.precioPorNoche = precioPorNoche;
+    }
+    
     @Override
     public String toString() {
         return "Habitaciones{" + "idHabitacion=" + idHabitacion + 

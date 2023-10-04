@@ -1,6 +1,6 @@
 package Datas;
 
-import Entidades.Habitaciones;
+import Entidades.Habitacion;
 import Entidades.Huesped;
 import Entidades.Reserva;
 import java.sql.*;
@@ -14,7 +14,7 @@ public class ReservaData {
     }
 
     public void altaReserva(Reserva reserva, Huesped huesped,
-            Habitaciones habitacion) throws SQLException {
+            Habitacion habitacion) throws SQLException {
         // Damos de alta la reserva en la tabla 'reserva'
         String sql = "INSERT INTO reserva (dni_huesped, numero_habitacion, "
                 + "fecha_inicio, fecha_fin, monto, estado) "
@@ -38,7 +38,7 @@ public class ReservaData {
     }
 
     public void modificarReserva(Reserva reserva, Huesped huesped,
-            Habitaciones habitacion, int dni) throws SQLException {
+            Habitacion habitacion, int dni) throws SQLException {
         // Modificamos la reserva en la tabla 'reserva'
         String sql = "UPDATE reserva "
                 + "SET dni_huesped = ?, numero_habitacion = ?, fecha_inicio = ?, "
