@@ -12,7 +12,8 @@ public class Reserva {
     private double monto;
     private boolean estado;
 
-    public Reserva(int idReserva, Huesped huesped, int numeroHabitacion, LocalDate fechaInicio, LocalDate fechaFin, double monto, boolean estado) {
+    public Reserva(int idReserva, Huesped huesped, int numeroHabitacion,
+            LocalDate fechaInicio, LocalDate fechaFin, double monto, boolean estado) {
         this.idReserva = idReserva;
         this.huesped = huesped;
         this.numeroHabitacion = numeroHabitacion;
@@ -20,6 +21,11 @@ public class Reserva {
         this.fechaFin = fechaFin;
         this.monto = monto;
         this.estado = estado;
+    }
+
+    public Reserva(int idHuesped, int numeroHabitacion, LocalDate fechaInicio,
+            LocalDate fechaFin, double monto, boolean estado) {
+        this.huesped = new Huesped(idHuesped); // Creamos el objeto Huesped con el ID proporcionado
     }
 
     public Reserva() {
@@ -91,7 +97,10 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "Reserva{" + "idReserva=" + idReserva + ", huesped=" + huesped + ", numeroHabitacion=" + numeroHabitacion + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", monto=" + monto + ", estado=" + estado + '}';
+        return "Reserva{" + "idReserva=" + idReserva + ", huesped=" + huesped
+                + ", numeroHabitacion=" + numeroHabitacion + ", fechaInicio="
+                + fechaInicio + ", fechaFin=" + fechaFin + ", monto=" + monto
+                + ", estado=" + estado + '}';
     }
 
 }
