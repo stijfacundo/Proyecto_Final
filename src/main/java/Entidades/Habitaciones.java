@@ -5,24 +5,24 @@ public class Habitaciones {
     int nroHabitacion;
     int piso;
     boolean ocupada;
-    int idTipoHabitacion;
+    String codigoTipoHabitacion;
 
     public Habitaciones() {
     }
 
-    public Habitaciones(int nroHabitacion, int piso, boolean ocupada, int idTipoHabitacion) {
+    public Habitaciones(int nroHabitacion, int piso, boolean ocupada, String codigoTipoHabitacion) {
         this.nroHabitacion = nroHabitacion;
         this.piso = piso;
         this.ocupada = ocupada;
-        this.idTipoHabitacion = idTipoHabitacion;
+        this.codigoTipoHabitacion = codigoTipoHabitacion;
     }
 
-    public Habitaciones(int idHabitacion, int nroHabitacion, int piso, boolean ocupada, int idTipoHabitacion) {
+    public Habitaciones(int idHabitacion, int nroHabitacion, int piso, boolean ocupada, String codigoTipoHabitacion) {
         this.idHabitacion = idHabitacion;
         this.nroHabitacion = nroHabitacion;
         this.piso = piso;
         this.ocupada = ocupada;
-        this.idTipoHabitacion = idTipoHabitacion;
+        this.codigoTipoHabitacion = codigoTipoHabitacion;
     }
 
     public int getIdHabitacion() {
@@ -57,20 +57,20 @@ public class Habitaciones {
         this.ocupada = ocupada;
     }
 
-    public int getIdTipoHabitacion() {
-        return idTipoHabitacion;
+    public String getcodigoTipoHabitacion() {
+        return codigoTipoHabitacion;
     }
 
-    public void setIdTipoHabitacion(int idTipoHabitacion) {
-        this.idTipoHabitacion = idTipoHabitacion;
+    public void setcodigoTipoHabitacion(String codigoTipoHabitacion) {
+        this.codigoTipoHabitacion = codigoTipoHabitacion;
     }
 
     @Override
     public String toString() {
         return "Habitaciones{" + "idHabitacion=" + idHabitacion + 
                 ", nroHabitacion=" + nroHabitacion + ", piso=" + piso + 
-                ", ocupada=" + ocupada + ", idTipoHabitacion=" + 
-                idTipoHabitacion + '}';
+                ", ocupada=" + ocupada + ", codigoTipoHabitacion=" + 
+                codigoTipoHabitacion + '}';
     }
     
     
