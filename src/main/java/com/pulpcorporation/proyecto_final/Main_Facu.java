@@ -2,11 +2,14 @@ package com.pulpcorporation.proyecto_final;
 
 import Datas.HabitacionData;
 import Datas.HuespedData;
+import Datas.ReservaData;
 import Datas.TipoHabitacionData;
 import Entidades.Habitacion;
 import Entidades.Huesped;
+import Entidades.Reserva;
 import Entidades.TipoHabitacion;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
 public class Main_Facu {
@@ -23,9 +26,9 @@ public class Main_Facu {
 //            tipoHabitacionData.altaTipoHabitacion(tipoHabitacion1);
             
             // Modificamos un tipo de habitación
-//            TipoHabitacion tipoHabitacion2 = new TipoHabitacion("SE", 
-//                    "Suite Ejecutiva", 4, 2, 
-//                    "x2 2 plazas", 500000);
+            TipoHabitacion tipoHabitacion2 = new TipoHabitacion("SE", 
+                    "Suite Ejecutiva", 4, 2, 
+                    "x2 2 plazas", 500000);
 //            tipoHabitacionData.modificarTipoHabitacion(tipoHabitacion2, "SE");
 
             
@@ -42,22 +45,23 @@ public class Main_Facu {
             
             
             // Creamos un Huesped y un HuespedData
-//            Huesped huesped1 = new Huesped("Facundo", "Stij",
-//                    40952310, "Av. Alberdi", "facundostij@correo.com",
-//                    "3764928124", true);
-//            HuespedData huespedData = new HuespedData();
+            Huesped huesped1 = new Huesped("Facundo", "Stij",
+                    40952310, "Av. Alberdi", "facundostij@correo.com",
+                    "3764928124", true);
+            HuespedData huespedData = new HuespedData();
             
             // Cargamos el Huesped a la base de datos
 //            huespedData.altaHuesped(huesped1);
 
             // Modificamos un huesped
-//            Huesped huesped2 = new Huesped("Facundo", "Stij",
-//                    40952310, "Av. Alberdi", "stijfacundo@correo.com",
-//                    "3764928124", true);
-//            huespedData.modificarHuesped(huesped2, 40952310);
+            Huesped huesped2 = new Huesped("Facundo", "Stij",
+                    40952310, "Av. Alberdi", "stijfacundo@correo.com",
+                    "3764928124", true);
+            huespedData.modificarHuesped(huesped2, 40952310);
             
             // Damos de baja un huesped
 //            huespedData.bajaHuesped(40952310);
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error SQL: " + ex.getMessage());
         }

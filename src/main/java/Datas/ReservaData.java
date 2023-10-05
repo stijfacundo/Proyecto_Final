@@ -58,7 +58,6 @@ public class ReservaData {
         ps.executeUpdate();
     }
 
-    // Método en principio no utilizable
     public void bajaReserva(int dni) throws SQLException {
         // Damos de baja la reserva de la tabla 'reserva'
         String sql = "UPDATE reserva "

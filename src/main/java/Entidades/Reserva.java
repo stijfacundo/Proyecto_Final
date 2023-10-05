@@ -12,9 +12,8 @@ public class Reserva {
     private double monto;
     private boolean estado;
 
-    public Reserva(int idReserva, Huesped huesped, int numeroHabitacion,
+    public Reserva(Huesped huesped, int numeroHabitacion,
             LocalDate fechaInicio, LocalDate fechaFin, double monto, boolean estado) {
-        this.idReserva = idReserva;
         this.huesped = huesped;
         this.numeroHabitacion = numeroHabitacion;
         this.fechaInicio = fechaInicio;
