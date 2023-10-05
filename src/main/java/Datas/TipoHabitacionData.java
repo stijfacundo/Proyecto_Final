@@ -78,19 +78,19 @@ public class TipoHabitacionData {
         }
     }
 
-    public void modificarHuesped(TipoHabitacion tipohabitacion, int id_tipo_habitacion) throws SQLException {
+    public void modificarTipoHabitacion(TipoHabitacion tipohabitacion, int id_tipo_habitacion) throws SQLException {
         // Modificamos el tipohabitacion
         String sql = "UPDATE tipo_habitacion "
                 + "SET codigo = ?, nombre = ?, capacidadMaxima = ?, cantidadCamas = ?, "
                 + "tipoCamas = ?, precioPorNoche = ? "
                 + "WHERE id_tipo_habitacion = ?";
         PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(2, tipohabitacion.getCodigo());
-            ps.setString(3, tipohabitacion.getNombre());
-            ps.setInt(4, tipohabitacion.getCapacidadMaxima());
-            ps.setInt(5, tipohabitacion.getCantidadCamas());
-            ps.setString(6, tipohabitacion.getTipoCama());
-            ps.setDouble(7, tipohabitacion.getPrecioPorNoche());
-            ps.executeUpdate();
+        ps.setString(2, tipohabitacion.getCodigo());
+        ps.setString(3, tipohabitacion.getNombre());
+        ps.setInt(4, tipohabitacion.getCapacidadMaxima());
+        ps.setInt(5, tipohabitacion.getCantidadCamas());
+        ps.setString(6, tipohabitacion.getTipoCama());
+        ps.setDouble(7, tipohabitacion.getPrecioPorNoche());
+        ps.executeUpdate();
     }
 }
