@@ -17,7 +17,7 @@ public class HabitacionData {
 
     public void guardarHabitacion(Habitacion habitacion) throws SQLException {
 
-        String sql = "INSERT INTO habitacion (numero, piso, ocupada) VALUES (?, ?, ?) WHERE codigo_tipo_habitacion = ?";
+        String sql = "INSERT INTO habitacion (numero, piso, ocupada, codigo_tipo_habitacion) VALUES (?, ?, ?, ?) ";
 
         try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, habitacion.getNroHabitacion());
@@ -33,31 +33,9 @@ public class HabitacionData {
         }
     }
     
-    public Habitacion buscarHabitacionPorID(int id) throws SQLException {
-        
-        String sql = "SELECT idHabitaciones, numero, piso,  ocupada  FROM habitacion WHERE codigo_tipo_habitacion = ?";
-        Habitacion habitacion = null;
-        try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-
-            
-            if (rs.next()) {
-                habitacion = new Habitacion();
-                habitacion.setIdHabitacion(rs.getInt(id));
-                habitacion.setNroHabitacion(rs.getInt("numero"));
-                habitacion.setPiso(rs.getInt("piso"));
-                habitacion.setOcupada(rs.getBoolean("ocupada"));
-                habitacion.setcodigoTipoHabitacion(rs.getString("codigo_tipo_habitacion"));
-               
-            }
-        }
-        return habitacion;
-    }
-    
     public Habitacion buscarHabitacionPorNro(int nroHabitacion) throws SQLException {
         
-        String sql = "SELECT idHabitacion, piso,  ocupada, codigo_tipo_habitacion FROM habitacion WHERE numero = ?";
+        String sql = "SELECT id_habitacion, numero, piso,  ocupada, codigo_tipo_habitacion FROM habitacion WHERE numero = ?";
         Habitacion habitacion = null;
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, nroHabitacion);
@@ -66,8 +44,8 @@ public class HabitacionData {
             
             if (rs.next()) {
                 habitacion = new Habitacion();
-                habitacion.setIdHabitacion(rs.getInt(rs.getInt("idHabitacion")));
-                habitacion.setNroHabitacion(rs.getInt(nroHabitacion));
+                habitacion.setIdHabitacion(rs.getInt("id_habitacion"));
+                habitacion.setNroHabitacion(rs.getInt("numero"));
                 habitacion.setPiso(rs.getInt("piso"));
                 habitacion.setOcupada(rs.getBoolean("ocupada"));
                 habitacion.setcodigoTipoHabitacion(rs.getString("codigo_tipo_habitacion"));
@@ -79,7 +57,7 @@ public class HabitacionData {
     
     public Habitacion buscarHabitacionPorEstado(boolean estado) throws SQLException {
         
-        String sql = "SELECT idHabitacion, piso,  ocupada, codigo_tipo_habitacion FROM habitacion WHERE ocupada = ?";
+        String sql = "SELECT id_habitacion, numero, piso,  ocupada, codigo_tipo_habitacion FROM habitacion WHERE ocupada = ?";
         Habitacion habitacion = null;
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setBoolean(1, estado);
@@ -88,8 +66,8 @@ public class HabitacionData {
             
             if (rs.next()) {
                 habitacion = new Habitacion();
-                habitacion.setIdHabitacion(rs.getInt(rs.getInt("idHabitacion")));
-                habitacion.setNroHabitacion(rs.getInt(rs.getInt("nroDeHabitacion")));
+                habitacion.setIdHabitacion(rs.getInt(rs.getInt("id_habitacion")));
+                habitacion.setNroHabitacion(rs.getInt(rs.getInt("numero")));
                 habitacion.setPiso(rs.getInt("piso"));
                 habitacion.setOcupada(estado);
                 habitacion.setcodigoTipoHabitacion(rs.getString("codigo_tipo_habitacion"));
@@ -100,18 +78,17 @@ public class HabitacionData {
     }
     
     
-    public void eliminarHabitacion(int id) throws SQLException {
+    public void eliminarHabitacion(int nro) throws SQLException {
         
-        String sql = "UPDATE habitacion SET estado = 0 WHERE codigo_tipo_habitacion = ?";
+        String sql = "UPDATE habitacion SET ocupada = 0 WHERE numero = ?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, id);
+        ps.setInt(1, nro);
         ps.executeUpdate();
     }
     
     public void modificarHabitacion(Habitacion habitacion) throws SQLException {
         
-        String sql = "UPDATE habitacion SET numero = ?, piso = ?, ocupada = ?, codigo_tipo_habitacion = ? "
-                + "WHERE id_habitacion= ?";
+        String sql = "UPDATE habitacion SET numero = ?, piso = ?, ocupada = ?, codigo_tipo_habitacion = ? WHERE numero = ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, habitacion.getNroHabitacion());
         ps.setInt(2, habitacion.getPiso());
@@ -119,4 +96,5 @@ public class HabitacionData {
         ps.setString(4, habitacion.getcodigoTipoHabitacion());
         ps.executeUpdate();
     }
+    
 }
