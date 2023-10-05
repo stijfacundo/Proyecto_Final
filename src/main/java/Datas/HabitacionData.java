@@ -77,26 +77,6 @@ public class HabitacionData {
         return habitacion;
     }
     
-    public void eliminarHabitacion(int id) throws SQLException {
-        
-        String sql = "UPDATE habitacion SET estado = 0 WHERE codigo_tipo_habitacion = ?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, id);
-        ps.executeUpdate();
-    }
-    
-    public void modificarHabitacion(Habitacion habitacion) throws SQLException {
-        
-        String sql = "UPDATE habitacion SET numero = ?, piso = ?, ocupada = ?, codigo_tipo_habitacion = ? "
-                + "WHERE id_habitacion= ?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, habitacion.getNroHabitacion());
-        ps.setInt(2, habitacion.getPiso());
-        ps.setBoolean(3, habitacion.isOcupada());
-        ps.setString(4, habitacion.getcodigoTipoHabitacion());
-        ps.executeUpdate();
-    }
-    
     public Habitacion buscarHabitacionPorEstado(boolean estado) throws SQLException {
         
         String sql = "SELECT idHabitacion, piso,  ocupada, codigo_tipo_habitacion FROM habitacion WHERE ocupada = ?";
@@ -119,4 +99,24 @@ public class HabitacionData {
         return habitacion;
     }
     
+    
+    public void eliminarHabitacion(int id) throws SQLException {
+        
+        String sql = "UPDATE habitacion SET estado = 0 WHERE codigo_tipo_habitacion = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, id);
+        ps.executeUpdate();
+    }
+    
+    public void modificarHabitacion(Habitacion habitacion) throws SQLException {
+        
+        String sql = "UPDATE habitacion SET numero = ?, piso = ?, ocupada = ?, codigo_tipo_habitacion = ? "
+                + "WHERE id_habitacion= ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, habitacion.getNroHabitacion());
+        ps.setInt(2, habitacion.getPiso());
+        ps.setBoolean(3, habitacion.isOcupada());
+        ps.setString(4, habitacion.getcodigoTipoHabitacion());
+        ps.executeUpdate();
+    }
 }
