@@ -86,14 +86,17 @@ public class HabitacionData {
         ps.executeUpdate();
     }
     
-    public void modificarHabitacion(Habitacion habitacion) throws SQLException {
+    public void modificarHabitacion(Habitacion habitacion, int numero) throws SQLException {
         
-        String sql = "UPDATE habitacion SET numero = ?, piso = ?, ocupada = ?, codigo_tipo_habitacion = ? WHERE numero = ?";
+        String sql = "UPDATE habitacion "
+                + "SET numero = ?, piso = ?, ocupada = ?, codigo_tipo_habitacion = ? "
+                + "WHERE numero = ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, habitacion.getNroHabitacion());
         ps.setInt(2, habitacion.getPiso());
         ps.setBoolean(3, habitacion.isOcupada());
         ps.setString(4, habitacion.getcodigoTipoHabitacion());
+        ps.setInt(5, numero);
         ps.executeUpdate();
     }
     

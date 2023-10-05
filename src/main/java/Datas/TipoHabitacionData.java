@@ -1,6 +1,5 @@
 package Datas;
 
-import Entidades.Huesped;
 import Entidades.TipoHabitacion;
 import java.sql.*;
 
@@ -58,16 +57,16 @@ public class TipoHabitacionData {
 
     public void altaTipoHabitacion(TipoHabitacion tipohabitacion) throws SQLException {
         // Damos de alta el TipoHabitacion 
-        String sql = "INSERT INTO tipo_habitacion (id_tipo_habitacion, codigo, nombre, capacidadMaxima, cantidadCamas, tipoCamas, precioPorNoche)"
-                + " VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO tipo_habitacion (codigo, nombre, capacidadMaxima, cantidadCamas, tipoCamas, precioPorNoche)"
+                + " VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = con.prepareStatement(sql,
                 Statement.RETURN_GENERATED_KEYS)) {
-            ps.setString(2, tipohabitacion.getCodigo());
-            ps.setString(3, tipohabitacion.getNombre());
-            ps.setInt(4, tipohabitacion.getCapacidadMaxima());
-            ps.setInt(5, tipohabitacion.getCantidadCamas());
-            ps.setString(6, tipohabitacion.getTipoCama());
-            ps.setDouble(7, tipohabitacion.getPrecioPorNoche());
+            ps.setString(1, tipohabitacion.getCodigo());
+            ps.setString(2, tipohabitacion.getNombre());
+            ps.setInt(3, tipohabitacion.getCapacidadMaxima());
+            ps.setInt(4, tipohabitacion.getCantidadCamas());
+            ps.setString(5, tipohabitacion.getTipoCama());
+            ps.setDouble(6, tipohabitacion.getPrecioPorNoche());
             ps.executeUpdate();
 
             // Guardamos el 'id_tipo_habitacion' en el tipohabitacion generado
@@ -78,19 +77,20 @@ public class TipoHabitacionData {
         }
     }
 
-    public void modificarTipoHabitacion(TipoHabitacion tipohabitacion, int id_tipo_habitacion) throws SQLException {
+    public void modificarTipoHabitacion(TipoHabitacion tipohabitacion, String codigo) throws SQLException {
         // Modificamos el tipohabitacion
         String sql = "UPDATE tipo_habitacion "
                 + "SET codigo = ?, nombre = ?, capacidadMaxima = ?, cantidadCamas = ?, "
                 + "tipoCamas = ?, precioPorNoche = ? "
-                + "WHERE id_tipo_habitacion = ?";
+                + "WHERE codigo = ?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(2, tipohabitacion.getCodigo());
-        ps.setString(3, tipohabitacion.getNombre());
-        ps.setInt(4, tipohabitacion.getCapacidadMaxima());
-        ps.setInt(5, tipohabitacion.getCantidadCamas());
-        ps.setString(6, tipohabitacion.getTipoCama());
-        ps.setDouble(7, tipohabitacion.getPrecioPorNoche());
+        ps.setString(1, tipohabitacion.getCodigo());
+        ps.setString(2, tipohabitacion.getNombre());
+        ps.setInt(3, tipohabitacion.getCapacidadMaxima());
+        ps.setInt(4, tipohabitacion.getCantidadCamas());
+        ps.setString(5, tipohabitacion.getTipoCama());
+        ps.setDouble(6, tipohabitacion.getPrecioPorNoche());
+        ps.setString(7, codigo);
         ps.executeUpdate();
     }
 }

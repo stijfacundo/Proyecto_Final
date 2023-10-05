@@ -25,7 +25,8 @@ public class HuespedData {
             ps.setString(5, huesped.getCorreo());
             ps.setString(6, huesped.getCelular());
             ps.setBoolean(7, huesped.isEstado());
-            ps.executeUpdate();
+            int registro = ps.executeUpdate();
+            System.out.println("Campos afectados: " + registro);
 
             // Guardamos el 'id_huesped' en el huesped generado
             ResultSet rs = ps.getGeneratedKeys();
@@ -50,7 +51,8 @@ public class HuespedData {
         ps.setString(6, huesped.getCelular());
         ps.setBoolean(7, huesped.isEstado());
         ps.setInt(8, dni);
-        ps.executeUpdate();
+        int registro = ps.executeUpdate();
+        System.out.println("Campos afectados: " + registro);
     }
 
     public void bajaHuesped(int dni) throws SQLException {
@@ -60,7 +62,8 @@ public class HuespedData {
                 + "WHERE dni = ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, dni);
-        ps.executeUpdate();
+        int registro = ps.executeUpdate();
+        System.out.println("Campos afectados: " + registro);
     }
 
 }

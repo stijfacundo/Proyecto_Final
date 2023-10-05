@@ -19,7 +19,7 @@ public class Main_Dani {
         
         //nueva.eliminarHabitacion(1);
         
-        nueva.modificarHabitacion(habita2);
+        nueva.modificarHabitacion(habita2, 1);
         
         
         System.out.println(habita);

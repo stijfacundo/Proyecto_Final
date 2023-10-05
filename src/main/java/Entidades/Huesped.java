@@ -22,6 +22,17 @@ public class Huesped {
         this.celular = celular;
     }
 
+    public Huesped(String nombre, String apellido, int dni,
+            String domicilio, String correo, String celular, boolean estado) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.domicilio = domicilio;
+        this.correo = correo;
+        this.celular = celular;
+        this.estado = estado;
+    }
+
     public Huesped(int idHuesped) {
         this.idHuesped = idHuesped;
     }
