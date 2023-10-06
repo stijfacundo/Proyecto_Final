@@ -7,7 +7,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class InicioTesting extends javax.swing.JFrame {
 
-    private GestionReservas gestionReservas;
+    private CreacionReservas gestionReservas;
 
     public InicioTesting() {
         initComponents();
@@ -18,9 +18,6 @@ public class InicioTesting extends javax.swing.JFrame {
     private void initComponents() {
 
         jdpEscritorio = new javax.swing.JDesktopPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmClientes = new javax.swing.JMenu();
         jmiGestionarClientes = new javax.swing.JMenuItem();
@@ -31,46 +28,17 @@ public class InicioTesting extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jButton1.setText("jButton1");
-
-        jdpEscritorio.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdpEscritorio.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpEscritorio.setBackground(new java.awt.Color(242, 242, 242));
 
         javax.swing.GroupLayout jdpEscritorioLayout = new javax.swing.GroupLayout(jdpEscritorio);
         jdpEscritorio.setLayout(jdpEscritorioLayout);
         jdpEscritorioLayout.setHorizontalGroup(
             jdpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdpEscritorioLayout.createSequentialGroup()
-                .addGroup(jdpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jdpEscritorioLayout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jdpEscritorioLayout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addComponent(jButton1)))
-                .addContainerGap(277, Short.MAX_VALUE))
+            .addGap(0, 900, Short.MAX_VALUE)
         );
         jdpEscritorioLayout.setVerticalGroup(
             jdpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdpEscritorioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(jButton1)
-                .addContainerGap(168, Short.MAX_VALUE))
+            .addGap(0, 677, Short.MAX_VALUE)
         );
 
         jmClientes.setText("Clientes");
@@ -118,7 +86,7 @@ public class InicioTesting extends javax.swing.JFrame {
     private void jmiGestionarReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiGestionarReservasActionPerformed
         jdpEscritorio.removeAll();
         jdpEscritorio.repaint();
-        gestionReservas = new GestionReservas();
+        gestionReservas = new CreacionReservas();
 
         // Centramos el JInternalFrame
         centrarInternalFrame(gestionReservas);
@@ -135,7 +103,6 @@ public class InicioTesting extends javax.swing.JFrame {
             System.err.println("Failed to initialize LaF");
         }
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new InicioTesting().setVisible(true);
@@ -144,10 +111,7 @@ public class InicioTesting extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JDesktopPane jdpEscritorio;
     private javax.swing.JMenu jmClientes;
     private javax.swing.JMenu jmHabitaciones;
