@@ -251,6 +251,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
 
         jlCostoTotalNro.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jlCostoTotalNro.setForeground(new java.awt.Color(23, 23, 23));
+        jlCostoTotalNro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlCostoTotalNro.setText("$500.000");
 
         jbRealizarReserva.setBackground(new java.awt.Color(229, 229, 229));
@@ -280,9 +281,9 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                             .addGap(39, 39, 39)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jlCostoTotalNro)
-                                .addComponent(jlCostoTotal))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jlCostoTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jlCostoTotalNro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(176, 176, 176))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(24, 24, 24)
