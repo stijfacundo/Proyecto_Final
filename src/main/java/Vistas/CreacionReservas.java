@@ -200,11 +200,11 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
 
         jlFechaIngreso.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlFechaIngreso.setForeground(new java.awt.Color(23, 23, 23));
-        jlFechaIngreso.setText("Fecha de Ingreso");
+        jlFechaIngreso.setText("Fecha de ingreso");
 
         jlFechaEgreso.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
-        jlFechaEgreso.setText("Fecha de Egreso");
+        jlFechaEgreso.setText("Fecha de egreso");
 
         jtHabitaciones.setBackground(new java.awt.Color(229, 229, 229));
         jtHabitaciones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -257,7 +257,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jbRealizarReserva.setBackground(new java.awt.Color(229, 229, 229));
         jbRealizarReserva.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jbRealizarReserva.setForeground(new java.awt.Color(23, 23, 23));
-        jbRealizarReserva.setText("Realizar la Reserva");
+        jbRealizarReserva.setText("Realizar la reserva");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

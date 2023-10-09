@@ -459,7 +459,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="17" green="17" red="17" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Fecha de Ingreso"/>
+                <Property name="text" type="java.lang.String" value="Fecha de ingreso"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jlFechaEgreso">
@@ -470,7 +470,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="17" green="17" red="17" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Fecha de Egreso"/>
+                <Property name="text" type="java.lang.String" value="Fecha de egreso"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -591,7 +591,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="17" green="17" red="17" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Realizar la Reserva"/>
+                <Property name="text" type="java.lang.String" value="Realizar la reserva"/>
               </Properties>
             </Component>
           </SubComponents>
