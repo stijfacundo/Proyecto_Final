@@ -492,22 +492,12 @@
                       <Color blue="17" green="17" red="17" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="1">
-                        <Column editable="false" title="Nro." type="java.lang.Object">
-                          <Data value="25"/>
-                        </Column>
-                        <Column editable="false" title="Piso" type="java.lang.Object">
-                          <Data value="3"/>
-                        </Column>
-                        <Column editable="false" title="C&#xf3;digo" type="java.lang.Object">
-                          <Data value="HD01"/>
-                        </Column>
-                        <Column editable="false" title="Costo por noche" type="java.lang.Object">
-                          <Data value="$500.000"/>
-                        </Column>
-                        <Column editable="false" title="Estado" type="java.lang.Object">
-                          <Data value="Libre"/>
-                        </Column>
+                      <Table columnCount="5" rowCount="0">
+                        <Column editable="false" title="Nro." type="java.lang.Object"/>
+                        <Column editable="false" title="Piso" type="java.lang.Object"/>
+                        <Column editable="false" title="C&#xf3;digo" type="java.lang.Object"/>
+                        <Column editable="false" title="Costo por noche" type="java.lang.Object"/>
+                        <Column editable="false" title="Estado" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -577,7 +567,7 @@
                   <Color blue="17" green="17" red="17" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="$500.000"/>
+                <Property name="text" type="java.lang.String" value="$0"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jbRealizarReserva">

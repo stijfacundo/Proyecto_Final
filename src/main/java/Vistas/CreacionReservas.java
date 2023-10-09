@@ -211,7 +211,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jtHabitaciones.setForeground(new java.awt.Color(23, 23, 23));
         jtHabitaciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"25", "3", "HD01", "$500.000", "Libre"}
+
             },
             new String [] {
                 "Nro.", "Piso", "Código", "Costo por noche", "Estado"
@@ -252,7 +252,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlCostoTotalNro.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jlCostoTotalNro.setForeground(new java.awt.Color(23, 23, 23));
         jlCostoTotalNro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlCostoTotalNro.setText("$500.000");
+        jlCostoTotalNro.setText("$0");
 
         jbRealizarReserva.setBackground(new java.awt.Color(229, 229, 229));
         jbRealizarReserva.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
