@@ -26,21 +26,127 @@ public class habitaciones extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jpback = new javax.swing.JPanel();
+        jltitulo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jlestado = new javax.swing.JLabel();
+        jlpreciohabitacion = new javax.swing.JLabel();
+        jtpreciohabitacion = new javax.swing.JTextField();
+        jrbestado = new javax.swing.JRadioButton();
+        jltipohabitacion1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jctipohabitacion = new javax.swing.JComboBox<>();
+        jccodigoth = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jtnrohabitacion1 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+
+        jpback.setBackground(new java.awt.Color(255, 255, 255));
+        jpback.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jltitulo.setBackground(new java.awt.Color(255, 255, 255));
+        jltitulo.setFont(new java.awt.Font("Roboto Mono", 1, 24)); // NOI18N
+        jltitulo.setForeground(new java.awt.Color(0, 0, 0));
+        jltitulo.setText("HABITACIONES");
+        jpback.add(jltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 170, 40));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Roboto Mono Medium", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Código T.H.");
+        jpback.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+
+        jlestado.setBackground(new java.awt.Color(255, 255, 255));
+        jlestado.setFont(new java.awt.Font("Roboto Mono Medium", 0, 14)); // NOI18N
+        jlestado.setForeground(new java.awt.Color(0, 0, 0));
+        jlestado.setText("Estado");
+        jpback.add(jlestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, -1, -1));
+
+        jlpreciohabitacion.setBackground(new java.awt.Color(255, 255, 255));
+        jlpreciohabitacion.setFont(new java.awt.Font("Roboto Mono Medium", 0, 14)); // NOI18N
+        jlpreciohabitacion.setForeground(new java.awt.Color(0, 0, 0));
+        jlpreciohabitacion.setText("Precio x Noche");
+        jpback.add(jlpreciohabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, -1, -1));
+
+        jtpreciohabitacion.setBackground(new java.awt.Color(204, 204, 204));
+        jpback.add(jtpreciohabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, 80, -1));
+
+        jrbestado.setBackground(new java.awt.Color(255, 255, 255));
+        jrbestado.setForeground(new java.awt.Color(204, 204, 204));
+        jpback.add(jrbestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
+
+        jltipohabitacion1.setBackground(new java.awt.Color(255, 255, 255));
+        jltipohabitacion1.setFont(new java.awt.Font("Roboto Mono Medium", 0, 14)); // NOI18N
+        jltipohabitacion1.setForeground(new java.awt.Color(0, 0, 0));
+        jltipohabitacion1.setText("Tipo");
+        jpback.add(jltipohabitacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(51, 102, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jpback.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 70, -1));
+
+        jctipohabitacion.setBackground(new java.awt.Color(204, 204, 204));
+        jpback.add(jctipohabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, -1));
+
+        jccodigoth.setBackground(new java.awt.Color(204, 204, 204));
+        jpback.add(jccodigoth, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Roboto Mono Medium", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Nro de Habitación");
+        jpback.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
+
+        jtnrohabitacion1.setBackground(new java.awt.Color(204, 204, 204));
+        jpback.add(jtnrohabitacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 80, -1));
+
+        jButton3.setText("GRABAR");
+        jpback.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, -1, -1));
+
+        jLabel4.setText("Para CREAR, MODIFICAR o ELIMINAR una habitacion la buscamos por nro para ver si existe");
+        jpback.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 480, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addComponent(jpback, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addComponent(jpback, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JComboBox<String> jccodigoth;
+    private javax.swing.JComboBox<String> jctipohabitacion;
+    private javax.swing.JLabel jlestado;
+    private javax.swing.JLabel jlpreciohabitacion;
+    private javax.swing.JLabel jltipohabitacion1;
+    private javax.swing.JLabel jltitulo;
+    private javax.swing.JPanel jpback;
+    private javax.swing.JRadioButton jrbestado;
+    private javax.swing.JTextField jtnrohabitacion1;
+    private javax.swing.JTextField jtpreciohabitacion;
     // End of variables declaration//GEN-END:variables
 }
