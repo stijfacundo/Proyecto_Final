@@ -26,6 +26,7 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jlModificacionReservas = new javax.swing.JLabel();
         jlDescripcionModificacionReservas = new javax.swing.JLabel();
@@ -36,6 +37,9 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jbBuscarCliente1 = new javax.swing.JButton();
+        jlDocumentoCliente1 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
 
@@ -78,7 +82,15 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
             new String [] {
                 "Nro. Habitación", "Fecha de ingreso", "Fecha de egreso", "Monto", "Estado"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.getTableHeader().setResizingAllowed(false);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
@@ -94,6 +106,18 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
         jbBuscarCliente1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jbBuscarCliente1.setForeground(new java.awt.Color(23, 23, 23));
         jbBuscarCliente1.setText("Guardar cambios");
+
+        jlDocumentoCliente1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jlDocumentoCliente1.setForeground(new java.awt.Color(23, 23, 23));
+        jlDocumentoCliente1.setText("Estado de la reserva:");
+
+        jRadioButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(23, 23, 23));
+        jRadioButton1.setText("Activa");
+
+        jRadioButton2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(23, 23, 23));
+        jRadioButton2.setText("Inactiva");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -111,12 +135,19 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jbBuscarCliente)))))
+                                .addComponent(jbBuscarCliente))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(286, 286, 286)
+                        .addComponent(jlDocumentoCliente1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton2)
+                            .addComponent(jRadioButton1))))
                 .addContainerGap(91, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jbBuscarCliente1)
-                .addGap(315, 315, 315))
+                .addGap(318, 318, 318))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,10 +159,17 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
                     .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlDocumentoCliente1)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jRadioButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jbBuscarCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -181,14 +219,18 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jbBuscarCliente;
     private javax.swing.JButton jbBuscarCliente1;
     private javax.swing.JLabel jlDescripcionModificacionReservas;
     private javax.swing.JLabel jlDocumentoCliente;
+    private javax.swing.JLabel jlDocumentoCliente1;
     private javax.swing.JLabel jlModificacionReservas;
     private javax.swing.JTextField jtfDocumentoCliente;
     // End of variables declaration//GEN-END:variables
