@@ -54,7 +54,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         jLBajaReserva = new javax.swing.JLabel();
         jPCopyRight = new Recursos.JPanelRedondeado();
         jLCopyRight = new javax.swing.JLabel();
-        jPPrograma = new Recursos.JPanelRedondeado();
+        jDPPrograma = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1024, 768));
@@ -498,21 +498,17 @@ public class menuPrincipal extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
-        jPPrograma.setBackground(new java.awt.Color(255, 255, 255));
-        jPPrograma.setRoundBottomLeft(30);
-        jPPrograma.setRoundBottomRight(30);
-        jPPrograma.setRoundTopLeft(30);
-        jPPrograma.setRoundTopRight(30);
+        jDPPrograma.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPProgramaLayout = new javax.swing.GroupLayout(jPPrograma);
-        jPPrograma.setLayout(jPProgramaLayout);
-        jPProgramaLayout.setHorizontalGroup(
-            jPProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 838, Short.MAX_VALUE)
+        javax.swing.GroupLayout jDPProgramaLayout = new javax.swing.GroupLayout(jDPPrograma);
+        jDPPrograma.setLayout(jDPProgramaLayout);
+        jDPProgramaLayout.setHorizontalGroup(
+            jDPProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 845, Short.MAX_VALUE)
         );
-        jPProgramaLayout.setVerticalGroup(
-            jPProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 746, Short.MAX_VALUE)
+        jDPProgramaLayout.setVerticalGroup(
+            jDPProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPFondoLayout = new javax.swing.GroupLayout(jPFondo);
@@ -522,16 +518,16 @@ public class menuPrincipal extends javax.swing.JFrame {
             .addGroup(jPFondoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(749, 749, 749))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jDPPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPFondoLayout.setVerticalGroup(
             jPFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPFondoLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPFondoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPPrograma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jDPPrograma)
                     .addComponent(jPMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -540,7 +536,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, Short.MAX_VALUE)
+            .addComponent(jPFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -557,12 +553,12 @@ public class menuPrincipal extends javax.swing.JFrame {
             altaHuespedAbierta = false;
         } else {
             // La ventana está cerrada, así que la abrimos
-            jPPrograma.removeAll();
-            jPPrograma.repaint();
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
             // La ventana está cerrada, así que la abrimos
             centrarInternalFrame(altaHuesped);
             altaHuesped.setVisible(true);
-            jPPrograma.add(altaHuesped);
+            jDPPrograma.add(altaHuesped);
             //jPPrograma.moveToFront(altaHuesped);
             altaHuespedAbierta = true;
 
@@ -631,6 +627,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane jDPPrograma;
     private javax.swing.JLabel jLAltaHabitacion;
     private javax.swing.JLabel jLAltaHuesped;
     private javax.swing.JLabel jLAltaReserva;
@@ -658,7 +655,6 @@ public class menuPrincipal extends javax.swing.JFrame {
     private Recursos.JPanelRedondeado jPModificacionHabitacion;
     private Recursos.JPanelRedondeado jPModificacionHuesped;
     private Recursos.JPanelRedondeado jPModificacionReserva;
-    private Recursos.JPanelRedondeado jPPrograma;
     private Recursos.JPanelRedondeado jPReserva;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -666,8 +662,8 @@ public class menuPrincipal extends javax.swing.JFrame {
  private void centrarInternalFrame(JInternalFrame frame) {
 
         // Obtenemos el tamaño del JDesktopPane
-        int anchoDesktop = jPPrograma.getWidth();
-        int altoDesktop = jPPrograma.getHeight();
+        int anchoDesktop = jDPPrograma.getWidth();
+        int altoDesktop = jDPPrograma.getHeight();
 
         // Obtenemos el tamaño del JInternalFrame
         int anchoFrame = frame.getWidth();
