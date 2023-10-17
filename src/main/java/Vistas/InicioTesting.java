@@ -9,6 +9,8 @@ public class InicioTesting extends javax.swing.JFrame {
 
     private CreacionReservas creacionReservas;
     private ModificacionReservas modificacionReservas;
+    private habitaciones habitaciones;
+    private AltaHuesped altaHuesped;
 
     public InicioTesting() {
         initComponents();
@@ -21,9 +23,9 @@ public class InicioTesting extends javax.swing.JFrame {
         jdpEscritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmClientes = new javax.swing.JMenu();
-        jmiGestionarClientes = new javax.swing.JMenuItem();
+        jmiClientes = new javax.swing.JMenuItem();
         jmHabitaciones = new javax.swing.JMenu();
-        jmiGestionarHabitaciones = new javax.swing.JMenuItem();
+        jmiHabitaciones = new javax.swing.JMenuItem();
         jmReservas = new javax.swing.JMenu();
         jmiCreacionReservas = new javax.swing.JMenuItem();
         jmiModificacionReservas = new javax.swing.JMenuItem();
@@ -36,24 +38,34 @@ public class InicioTesting extends javax.swing.JFrame {
         jdpEscritorio.setLayout(jdpEscritorioLayout);
         jdpEscritorioLayout.setHorizontalGroup(
             jdpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGap(0, 1100, Short.MAX_VALUE)
         );
         jdpEscritorioLayout.setVerticalGroup(
             jdpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 677, Short.MAX_VALUE)
+            .addGap(0, 827, Short.MAX_VALUE)
         );
 
         jmClientes.setText("Clientes");
 
-        jmiGestionarClientes.setText("Gestionar clientes");
-        jmClientes.add(jmiGestionarClientes);
+        jmiClientes.setText("Clientes (en construcción)");
+        jmiClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiClientesActionPerformed(evt);
+            }
+        });
+        jmClientes.add(jmiClientes);
 
         jMenuBar1.add(jmClientes);
 
         jmHabitaciones.setText("Habitaciones");
 
-        jmiGestionarHabitaciones.setText("Gestionar habitaciones");
-        jmHabitaciones.add(jmiGestionarHabitaciones);
+        jmiHabitaciones.setText("Habitaciones (en construcción)");
+        jmiHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiHabitacionesActionPerformed(evt);
+            }
+        });
+        jmHabitaciones.add(jmiHabitaciones);
 
         jMenuBar1.add(jmHabitaciones);
 
@@ -120,6 +132,32 @@ public class InicioTesting extends javax.swing.JFrame {
         jdpEscritorio.moveToFront(modificacionReservas);
     }//GEN-LAST:event_jmiModificacionReservasActionPerformed
 
+    private void jmiHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiHabitacionesActionPerformed
+        jdpEscritorio.removeAll();
+        jdpEscritorio.repaint();
+        habitaciones = new habitaciones();
+
+        // Centramos el JInternalFrame
+        centrarInternalFrame(habitaciones);
+
+        habitaciones.setVisible(true);
+        jdpEscritorio.add(habitaciones);
+        jdpEscritorio.moveToFront(habitaciones);
+    }//GEN-LAST:event_jmiHabitacionesActionPerformed
+
+    private void jmiClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiClientesActionPerformed
+        jdpEscritorio.removeAll();
+        jdpEscritorio.repaint();
+        altaHuesped = new AltaHuesped();
+
+        // Centramos el JInternalFrame
+        centrarInternalFrame(altaHuesped);
+
+        altaHuesped.setVisible(true);
+        jdpEscritorio.add(altaHuesped);
+        jdpEscritorio.moveToFront(altaHuesped);
+    }//GEN-LAST:event_jmiClientesActionPerformed
+
     public static void main(String args[]) {
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
@@ -140,9 +178,9 @@ public class InicioTesting extends javax.swing.JFrame {
     private javax.swing.JMenu jmClientes;
     private javax.swing.JMenu jmHabitaciones;
     private javax.swing.JMenu jmReservas;
+    private javax.swing.JMenuItem jmiClientes;
     private javax.swing.JMenuItem jmiCreacionReservas;
-    private javax.swing.JMenuItem jmiGestionarClientes;
-    private javax.swing.JMenuItem jmiGestionarHabitaciones;
+    private javax.swing.JMenuItem jmiHabitaciones;
     private javax.swing.JMenuItem jmiModificacionReservas;
     // End of variables declaration//GEN-END:variables
 

@@ -9,10 +9,13 @@
             <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jmiGestionarClientes">
+            <MenuItem class="javax.swing.JMenuItem" name="jmiClientes">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Gestionar clientes"/>
+                <Property name="text" type="java.lang.String" value="Clientes (en construcci&#xf3;n)"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiClientesActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -21,10 +24,13 @@
             <Property name="text" type="java.lang.String" value="Habitaciones"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jmiGestionarHabitaciones">
+            <MenuItem class="javax.swing.JMenuItem" name="jmiHabitaciones">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Gestionar habitaciones"/>
+                <Property name="text" type="java.lang.String" value="Habitaciones (en construcci&#xf3;n)"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiHabitacionesActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -97,12 +103,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="900" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="1100" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="677" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="827" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
