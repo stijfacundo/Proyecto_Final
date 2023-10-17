@@ -6,29 +6,13 @@ import javax.swing.JInternalFrame;
 public class menuPrincipal extends javax.swing.JFrame {
 
     private AltaHuesped altaHuesped;
-    private ModificacionHuesped modificacionHuesped;
-    private BajaHuesped bajaHuesped;
-    private AltaHabitacion altaHabitacion;
-    private ModificacionHabitacion modificacionHabitacion;
-    private BajaHabitacion bajaHabitacion;
-    private AltaReserva altaReserva;
-    private ModificacionReserva modificacionReserva;
-    private BajaReserva bajaReserva;
 
     private boolean altaHuespedAbierta = false;
-    private boolean modificacionHuespedAbierta = false;
-    private boolean bajaHuespedAbierta = false;
-    private boolean altaHabitacionAbierta = false;
-    private boolean modificacionHabitacionAbierta = false;
-    private boolean bajaHabitacionAbierta = false;
-    private boolean altaReservaAbierta = false;
-    private boolean modificacionReservaAbierta = false;
-    private boolean bajaReservaAbierta = false;
+
 
     public menuPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
-
     }
 
     /**
@@ -169,34 +153,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         jPModificacionHuesped.setRoundBottomRight(20);
         jPModificacionHuesped.setRoundTopLeft(20);
         jPModificacionHuesped.setRoundTopRight(20);
-        jPModificacionHuesped.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPModificacionHuespedMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPModificacionHuespedMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPModificacionHuespedMouseExited(evt);
-            }
-        });
 
         jLModificacionHuesped.setBackground(new java.awt.Color(0, 0, 0));
         jLModificacionHuesped.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLModificacionHuesped.setForeground(new java.awt.Color(0, 0, 0));
         jLModificacionHuesped.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLModificacionHuesped.setText("Modificaion");
-        jLModificacionHuesped.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLModificacionHuespedMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLModificacionHuespedMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLModificacionHuespedMouseExited(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPModificacionHuespedLayout = new javax.swing.GroupLayout(jPModificacionHuesped);
         jPModificacionHuesped.setLayout(jPModificacionHuespedLayout);
@@ -217,34 +179,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         jPBajaHuesped.setRoundBottomRight(20);
         jPBajaHuesped.setRoundTopLeft(20);
         jPBajaHuesped.setRoundTopRight(20);
-        jPBajaHuesped.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPBajaHuespedMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPBajaHuespedMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPBajaHuespedMouseExited(evt);
-            }
-        });
 
         jLBajaHuesped.setBackground(new java.awt.Color(0, 0, 0));
         jLBajaHuesped.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLBajaHuesped.setForeground(new java.awt.Color(0, 0, 0));
         jLBajaHuesped.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLBajaHuesped.setText("Baja");
-        jLBajaHuesped.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLBajaHuespedMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLBajaHuespedMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLBajaHuespedMouseExited(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPBajaHuespedLayout = new javax.swing.GroupLayout(jPBajaHuesped);
         jPBajaHuesped.setLayout(jPBajaHuespedLayout);
@@ -293,34 +233,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         jPAltaHabitacion.setRoundBottomRight(20);
         jPAltaHabitacion.setRoundTopLeft(20);
         jPAltaHabitacion.setRoundTopRight(20);
-        jPAltaHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPAltaHabitacionMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPAltaHabitacionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPAltaHabitacionMouseExited(evt);
-            }
-        });
 
         jLAltaHabitacion.setBackground(new java.awt.Color(0, 0, 0));
         jLAltaHabitacion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLAltaHabitacion.setForeground(new java.awt.Color(0, 0, 0));
         jLAltaHabitacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLAltaHabitacion.setText("Alta");
-        jLAltaHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLAltaHabitacionMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLAltaHabitacionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLAltaHabitacionMouseExited(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPAltaHabitacionLayout = new javax.swing.GroupLayout(jPAltaHabitacion);
         jPAltaHabitacion.setLayout(jPAltaHabitacionLayout);
@@ -341,34 +259,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         jPModificacionHabitacion.setRoundBottomRight(20);
         jPModificacionHabitacion.setRoundTopLeft(20);
         jPModificacionHabitacion.setRoundTopRight(20);
-        jPModificacionHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPModificacionHabitacionMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPModificacionHabitacionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPModificacionHabitacionMouseExited(evt);
-            }
-        });
 
         jLModificacionHabitacion.setBackground(new java.awt.Color(0, 0, 0));
         jLModificacionHabitacion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLModificacionHabitacion.setForeground(new java.awt.Color(0, 0, 0));
         jLModificacionHabitacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLModificacionHabitacion.setText("Modificaion");
-        jLModificacionHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLModificacionHabitacionMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLModificacionHabitacionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLModificacionHabitacionMouseExited(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPModificacionHabitacionLayout = new javax.swing.GroupLayout(jPModificacionHabitacion);
         jPModificacionHabitacion.setLayout(jPModificacionHabitacionLayout);
@@ -389,34 +285,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         jPBajaHabitacion.setRoundBottomRight(20);
         jPBajaHabitacion.setRoundTopLeft(20);
         jPBajaHabitacion.setRoundTopRight(20);
-        jPBajaHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPBajaHabitacionMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPBajaHabitacionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPBajaHabitacionMouseExited(evt);
-            }
-        });
 
         jLBajaHabitacion.setBackground(new java.awt.Color(0, 0, 0));
         jLBajaHabitacion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLBajaHabitacion.setForeground(new java.awt.Color(0, 0, 0));
         jLBajaHabitacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLBajaHabitacion.setText("Baja");
-        jLBajaHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLBajaHabitacionMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLBajaHabitacionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLBajaHabitacionMouseExited(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPBajaHabitacionLayout = new javax.swing.GroupLayout(jPBajaHabitacion);
         jPBajaHabitacion.setLayout(jPBajaHabitacionLayout);
@@ -463,34 +337,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         jPAltaReserva.setRoundBottomRight(20);
         jPAltaReserva.setRoundTopLeft(20);
         jPAltaReserva.setRoundTopRight(20);
-        jPAltaReserva.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPAltaReservaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPAltaReservaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPAltaReservaMouseExited(evt);
-            }
-        });
 
         jLAltaReserva.setBackground(new java.awt.Color(0, 0, 0));
         jLAltaReserva.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLAltaReserva.setForeground(new java.awt.Color(0, 0, 0));
         jLAltaReserva.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLAltaReserva.setText("Alta");
-        jLAltaReserva.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLAltaReservaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLAltaReservaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLAltaReservaMouseExited(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPAltaReservaLayout = new javax.swing.GroupLayout(jPAltaReserva);
         jPAltaReserva.setLayout(jPAltaReservaLayout);
@@ -511,34 +363,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         jPModificacionReserva.setRoundBottomRight(20);
         jPModificacionReserva.setRoundTopLeft(20);
         jPModificacionReserva.setRoundTopRight(20);
-        jPModificacionReserva.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPModificacionReservaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPModificacionReservaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPModificacionReservaMouseExited(evt);
-            }
-        });
 
         jLModificacionReserva.setBackground(new java.awt.Color(0, 0, 0));
         jLModificacionReserva.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLModificacionReserva.setForeground(new java.awt.Color(0, 0, 0));
         jLModificacionReserva.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLModificacionReserva.setText("Modificaion");
-        jLModificacionReserva.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLModificacionReservaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLModificacionReservaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLModificacionReservaMouseExited(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPModificacionReservaLayout = new javax.swing.GroupLayout(jPModificacionReserva);
         jPModificacionReserva.setLayout(jPModificacionReservaLayout);
@@ -559,34 +389,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         jPBajaReserva.setRoundBottomRight(20);
         jPBajaReserva.setRoundTopLeft(20);
         jPBajaReserva.setRoundTopRight(20);
-        jPBajaReserva.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPBajaReservaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPBajaReservaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPBajaReservaMouseExited(evt);
-            }
-        });
 
         jLBajaReserva.setBackground(new java.awt.Color(0, 0, 0));
         jLBajaReserva.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLBajaReserva.setForeground(new java.awt.Color(0, 0, 0));
         jLBajaReserva.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLBajaReserva.setText("Baja");
-        jLBajaReserva.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLBajaReservaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLBajaReservaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLBajaReservaMouseExited(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPBajaReservaLayout = new javax.swing.GroupLayout(jPBajaReserva);
         jPBajaReserva.setLayout(jPBajaReservaLayout);
@@ -785,198 +593,6 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jPAltaHuesped.setBackground(new Color(230, 232, 235));
     }//GEN-LAST:event_jPAltaHuespedMouseExited
-
-    private void jLModificacionHuespedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificacionHuespedMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLModificacionHuespedMouseClicked
-
-    private void jLModificacionHuespedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificacionHuespedMouseEntered
-        jPModificacionHuesped.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jLModificacionHuespedMouseEntered
-
-    private void jLModificacionHuespedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificacionHuespedMouseExited
-        jPModificacionHuesped.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jLModificacionHuespedMouseExited
-
-    private void jPModificacionHuespedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificacionHuespedMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPModificacionHuespedMouseClicked
-
-    private void jPModificacionHuespedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificacionHuespedMouseEntered
-        jPModificacionHuesped.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPModificacionHuespedMouseEntered
-
-    private void jPModificacionHuespedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificacionHuespedMouseExited
-        jPModificacionHuesped.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jPModificacionHuespedMouseExited
-
-    private void jLBajaHuespedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBajaHuespedMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLBajaHuespedMouseClicked
-
-    private void jLBajaHuespedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBajaHuespedMouseEntered
-        jPBajaHuesped.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jLBajaHuespedMouseEntered
-
-    private void jLBajaHuespedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBajaHuespedMouseExited
-        jPBajaHuesped.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jLBajaHuespedMouseExited
-
-    private void jPBajaHuespedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPBajaHuespedMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPBajaHuespedMouseClicked
-
-    private void jPBajaHuespedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPBajaHuespedMouseEntered
-        jPBajaHuesped.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPBajaHuespedMouseEntered
-
-    private void jPBajaHuespedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPBajaHuespedMouseExited
-        jPBajaHuesped.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jPBajaHuespedMouseExited
-
-    private void jLAltaHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLAltaHabitacionMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLAltaHabitacionMouseClicked
-
-    private void jLAltaHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLAltaHabitacionMouseEntered
-        jPAltaHabitacion.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jLAltaHabitacionMouseEntered
-
-    private void jLAltaHabitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLAltaHabitacionMouseExited
-        jPAltaHabitacion.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jLAltaHabitacionMouseExited
-
-    private void jPAltaHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAltaHabitacionMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPAltaHabitacionMouseClicked
-
-    private void jPAltaHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAltaHabitacionMouseEntered
-        jPAltaHabitacion.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPAltaHabitacionMouseEntered
-
-    private void jPAltaHabitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAltaHabitacionMouseExited
-        jPAltaHabitacion.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jPAltaHabitacionMouseExited
-
-    private void jLModificacionHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificacionHabitacionMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLModificacionHabitacionMouseClicked
-
-    private void jLModificacionHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificacionHabitacionMouseEntered
-        jPModificacionHabitacion.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jLModificacionHabitacionMouseEntered
-
-    private void jLModificacionHabitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificacionHabitacionMouseExited
-        jPBajaHabitacion.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jLModificacionHabitacionMouseExited
-
-    private void jPModificacionHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificacionHabitacionMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPModificacionHabitacionMouseClicked
-
-    private void jPModificacionHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificacionHabitacionMouseEntered
-        jPModificacionHabitacion.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPModificacionHabitacionMouseEntered
-
-    private void jPModificacionHabitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificacionHabitacionMouseExited
-        jPModificacionHabitacion.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jPModificacionHabitacionMouseExited
-
-    private void jLBajaHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBajaHabitacionMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLBajaHabitacionMouseClicked
-
-    private void jLBajaHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBajaHabitacionMouseEntered
-        jPBajaHabitacion.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jLBajaHabitacionMouseEntered
-
-    private void jLBajaHabitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBajaHabitacionMouseExited
-        jPBajaHabitacion.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jLBajaHabitacionMouseExited
-
-    private void jPBajaHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPBajaHabitacionMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPBajaHabitacionMouseClicked
-
-    private void jPBajaHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPBajaHabitacionMouseEntered
-        jPBajaHabitacion.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPBajaHabitacionMouseEntered
-
-    private void jPBajaHabitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPBajaHabitacionMouseExited
-        jPBajaHabitacion.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jPBajaHabitacionMouseExited
-
-    private void jLAltaReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLAltaReservaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLAltaReservaMouseClicked
-
-    private void jLAltaReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLAltaReservaMouseEntered
-        jPAltaReserva.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jLAltaReservaMouseEntered
-
-    private void jLAltaReservaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLAltaReservaMouseExited
-        jPAltaReserva.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jLAltaReservaMouseExited
-
-    private void jPAltaReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAltaReservaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPAltaReservaMouseClicked
-
-    private void jPAltaReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAltaReservaMouseEntered
-        jPAltaReserva.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPAltaReservaMouseEntered
-
-    private void jPAltaReservaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAltaReservaMouseExited
-        jPAltaReserva.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jPAltaReservaMouseExited
-
-    private void jLModificacionReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificacionReservaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLModificacionReservaMouseClicked
-
-    private void jLModificacionReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificacionReservaMouseEntered
-        jPModificacionReserva.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jLModificacionReservaMouseEntered
-
-    private void jLModificacionReservaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificacionReservaMouseExited
-        jPModificacionReserva.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jLModificacionReservaMouseExited
-
-    private void jPModificacionReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificacionReservaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPModificacionReservaMouseClicked
-
-    private void jPModificacionReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificacionReservaMouseEntered
-        jPModificacionReserva.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPModificacionReservaMouseEntered
-
-    private void jPModificacionReservaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificacionReservaMouseExited
-        jPModificacionReserva.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jPModificacionReservaMouseExited
-
-    private void jLBajaReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBajaReservaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLBajaReservaMouseClicked
-
-    private void jLBajaReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBajaReservaMouseEntered
-        jPBajaReserva.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jLBajaReservaMouseEntered
-
-    private void jLBajaReservaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBajaReservaMouseExited
-        jPBajaReserva.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jLBajaReservaMouseExited
-
-    private void jPBajaReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPBajaReservaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPBajaReservaMouseClicked
-
-    private void jPBajaReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPBajaReservaMouseEntered
-        jPBajaReserva.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPBajaReservaMouseEntered
-
-    private void jPBajaReservaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPBajaReservaMouseExited
-        jPBajaReserva.setBackground(new Color(230, 232, 235));
-    }//GEN-LAST:event_jPBajaReservaMouseExited
 
     /**
      * @param args the command line arguments
