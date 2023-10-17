@@ -8,12 +8,12 @@ package Vistas;
  *
  * @author Leandro
  */
-public class huespedes extends javax.swing.JInternalFrame {
+public class AltaHuesped extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form huespedes
+     * Creates new form AltaHuesped
      */
-    public huespedes() {
+    public AltaHuesped() {
         initComponents();
     }
 
