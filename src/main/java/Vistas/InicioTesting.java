@@ -7,7 +7,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class InicioTesting extends javax.swing.JFrame {
 
-    private CreacionReservas gestionReservas;
+    private CreacionReservas creacionReservas;
+    private ModificacionReservas modificacionReservas;
 
     public InicioTesting() {
         initComponents();
@@ -24,7 +25,8 @@ public class InicioTesting extends javax.swing.JFrame {
         jmHabitaciones = new javax.swing.JMenu();
         jmiGestionarHabitaciones = new javax.swing.JMenuItem();
         jmReservas = new javax.swing.JMenu();
-        jmiGestionarReservas = new javax.swing.JMenuItem();
+        jmiCreacionReservas = new javax.swing.JMenuItem();
+        jmiModificacionReservas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,13 +59,21 @@ public class InicioTesting extends javax.swing.JFrame {
 
         jmReservas.setText("Reservas");
 
-        jmiGestionarReservas.setText("Gestionar reservas");
-        jmiGestionarReservas.addActionListener(new java.awt.event.ActionListener() {
+        jmiCreacionReservas.setText("Crear reservas");
+        jmiCreacionReservas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiGestionarReservasActionPerformed(evt);
+                jmiCreacionReservasActionPerformed(evt);
             }
         });
-        jmReservas.add(jmiGestionarReservas);
+        jmReservas.add(jmiCreacionReservas);
+
+        jmiModificacionReservas.setText("jMenuItem1");
+        jmiModificacionReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiModificacionReservasActionPerformed(evt);
+            }
+        });
+        jmReservas.add(jmiModificacionReservas);
 
         jMenuBar1.add(jmReservas);
 
@@ -84,18 +94,31 @@ public class InicioTesting extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmiGestionarReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiGestionarReservasActionPerformed
+    private void jmiCreacionReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCreacionReservasActionPerformed
         jdpEscritorio.removeAll();
         jdpEscritorio.repaint();
-        gestionReservas = new CreacionReservas();
+        creacionReservas = new CreacionReservas();
 
         // Centramos el JInternalFrame
-        centrarInternalFrame(gestionReservas);
+        centrarInternalFrame(creacionReservas);
 
-        gestionReservas.setVisible(true);
-        jdpEscritorio.add(gestionReservas);
-        jdpEscritorio.moveToFront(gestionReservas);
-    }//GEN-LAST:event_jmiGestionarReservasActionPerformed
+        creacionReservas.setVisible(true);
+        jdpEscritorio.add(creacionReservas);
+        jdpEscritorio.moveToFront(creacionReservas);
+    }//GEN-LAST:event_jmiCreacionReservasActionPerformed
+
+    private void jmiModificacionReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiModificacionReservasActionPerformed
+        jdpEscritorio.removeAll();
+        jdpEscritorio.repaint();
+        modificacionReservas = new ModificacionReservas();
+
+        // Centramos el JInternalFrame
+        centrarInternalFrame(modificacionReservas);
+
+        modificacionReservas.setVisible(true);
+        jdpEscritorio.add(modificacionReservas);
+        jdpEscritorio.moveToFront(modificacionReservas);
+    }//GEN-LAST:event_jmiModificacionReservasActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -117,9 +140,10 @@ public class InicioTesting extends javax.swing.JFrame {
     private javax.swing.JMenu jmClientes;
     private javax.swing.JMenu jmHabitaciones;
     private javax.swing.JMenu jmReservas;
+    private javax.swing.JMenuItem jmiCreacionReservas;
     private javax.swing.JMenuItem jmiGestionarClientes;
     private javax.swing.JMenuItem jmiGestionarHabitaciones;
-    private javax.swing.JMenuItem jmiGestionarReservas;
+    private javax.swing.JMenuItem jmiModificacionReservas;
     // End of variables declaration//GEN-END:variables
 
     private void centrarInternalFrame(JInternalFrame frame) {
