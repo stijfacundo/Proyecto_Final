@@ -67,7 +67,7 @@ public class InicioTesting extends javax.swing.JFrame {
         });
         jmReservas.add(jmiCreacionReservas);
 
-        jmiModificacionReservas.setText("jMenuItem1");
+        jmiModificacionReservas.setText("Modificar reservas");
         jmiModificacionReservas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiModificacionReservasActionPerformed(evt);
