@@ -8,12 +8,12 @@ package Vistas;
  *
  * @author stijf
  */
-public class ModificacionReservas extends javax.swing.JInternalFrame {
+public class ListadoReservas extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ModificacionReservas
+     * Creates new form ListadoReservas
      */
-    public ModificacionReservas() {
+    public ListadoReservas() {
         initComponents();
     }
 
@@ -26,29 +26,27 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jlModificacionReservas = new javax.swing.JLabel();
-        jlDescripcionModificacionReservas = new javax.swing.JLabel();
+        jlListadoReservas = new javax.swing.JLabel();
+        jlDescripcionListadoReservas = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jlDocumentoCliente = new javax.swing.JLabel();
         jtfDocumentoCliente = new javax.swing.JTextField();
-        jbBuscarCliente = new javax.swing.JButton();
+        jlFechaIngreso = new javax.swing.JLabel();
+        jdcFechaIngreso = new com.toedter.calendar.JDateChooser();
+        jlFechaEgreso = new javax.swing.JLabel();
+        jdcFechaEgreso = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtReservas = new javax.swing.JTable();
-        jbGuardarCambios = new javax.swing.JButton();
-        jlEstadoReserva = new javax.swing.JLabel();
-        jrbActiva = new javax.swing.JRadioButton();
-        jrbInactiva = new javax.swing.JRadioButton();
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
 
-        jlModificacionReservas.setFont(new java.awt.Font("Segoe UI Semibold", 0, 20)); // NOI18N
-        jlModificacionReservas.setForeground(new java.awt.Color(23, 23, 23));
-        jlModificacionReservas.setText("Modificación de reservas existentes");
+        jlListadoReservas.setFont(new java.awt.Font("Segoe UI Semibold", 0, 20)); // NOI18N
+        jlListadoReservas.setForeground(new java.awt.Color(23, 23, 23));
+        jlListadoReservas.setText("Listado de reservas existentes");
 
-        jlDescripcionModificacionReservas.setForeground(new java.awt.Color(23, 23, 23));
-        jlDescripcionModificacionReservas.setText("Puede realizar la modificación de las reservas existentes mediante el DNI del cliente");
+        jlDescripcionListadoReservas.setForeground(new java.awt.Color(23, 23, 23));
+        jlDescripcionListadoReservas.setText("Puede filtrar el listado de las reservas existentes mediante el DNI del cliente o una fecha específica");
 
         jPanel2.setBackground(new java.awt.Color(242, 242, 242));
 
@@ -66,10 +64,21 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        jbBuscarCliente.setBackground(new java.awt.Color(229, 229, 229));
-        jbBuscarCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jbBuscarCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jbBuscarCliente.setText("Buscar");
+        jlFechaIngreso.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jlFechaIngreso.setForeground(new java.awt.Color(23, 23, 23));
+        jlFechaIngreso.setText("Fecha de ingreso");
+
+        jdcFechaIngreso.setBackground(new java.awt.Color(229, 229, 229));
+        jdcFechaIngreso.setForeground(new java.awt.Color(23, 23, 23));
+        jdcFechaIngreso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jlFechaEgreso.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jlFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
+        jlFechaEgreso.setText("Fecha de egreso");
+
+        jdcFechaEgreso.setBackground(new java.awt.Color(229, 229, 229));
+        jdcFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
+        jdcFechaEgreso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jtReservas.setBackground(new java.awt.Color(229, 229, 229));
         jtReservas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -98,30 +107,6 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
         jtReservas.getTableHeader().setResizingAllowed(false);
         jtReservas.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtReservas);
-        if (jtReservas.getColumnModel().getColumnCount() > 0) {
-            jtReservas.getColumnModel().getColumn(0).setResizable(false);
-            jtReservas.getColumnModel().getColumn(1).setResizable(false);
-            jtReservas.getColumnModel().getColumn(2).setResizable(false);
-            jtReservas.getColumnModel().getColumn(3).setResizable(false);
-            jtReservas.getColumnModel().getColumn(4).setResizable(false);
-        }
-
-        jbGuardarCambios.setBackground(new java.awt.Color(229, 229, 229));
-        jbGuardarCambios.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jbGuardarCambios.setForeground(new java.awt.Color(23, 23, 23));
-        jbGuardarCambios.setText("Guardar cambios");
-
-        jlEstadoReserva.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jlEstadoReserva.setForeground(new java.awt.Color(23, 23, 23));
-        jlEstadoReserva.setText("Estado de la reserva:");
-
-        jrbActiva.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jrbActiva.setForeground(new java.awt.Color(23, 23, 23));
-        jrbActiva.setText("Activa");
-
-        jrbInactiva.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jrbInactiva.setForeground(new java.awt.Color(23, 23, 23));
-        jrbInactiva.setText("Inactiva");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -133,49 +118,45 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
+                        .addGap(19, 19, 19)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlDocumentoCliente)
+                            .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbBuscarCliente))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(204, 204, 204)
+                                .addGap(12, 12, 12)
+                                .addComponent(jlDocumentoCliente)))
+                        .addGap(50, 50, 50)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jdcFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(jbGuardarCambios)
-                                .addGap(32, 32, 32))
+                                .addComponent(jlFechaIngreso)
+                                .addGap(25, 25, 25)))
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jdcFechaEgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jlEstadoReserva)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jrbInactiva)
-                                    .addComponent(jrbActiva))))))
+                                .addGap(23, 23, 23)
+                                .addComponent(jlFechaEgreso)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jlDocumentoCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlFechaIngreso)
+                            .addComponent(jlFechaEgreso))
+                        .addGap(5, 5, 5)
+                        .addComponent(jdcFechaEgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jdcFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jlDocumentoCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlEstadoReserva)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jrbActiva)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jrbInactiva)))
-                .addGap(18, 18, 18)
-                .addComponent(jbGuardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -183,11 +164,11 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlDescripcionModificacionReservas)
-                    .addComponent(jlModificacionReservas))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jlDescripcionListadoReservas)
+                    .addComponent(jlListadoReservas))
+                .addContainerGap(99, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -197,9 +178,9 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jlModificacionReservas)
+                .addComponent(jlListadoReservas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlDescripcionModificacionReservas)
+                .addComponent(jlDescripcionListadoReservas)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -225,18 +206,16 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jbBuscarCliente;
-    private javax.swing.JButton jbGuardarCambios;
-    private javax.swing.JLabel jlDescripcionModificacionReservas;
+    private com.toedter.calendar.JDateChooser jdcFechaEgreso;
+    private com.toedter.calendar.JDateChooser jdcFechaIngreso;
+    private javax.swing.JLabel jlDescripcionListadoReservas;
     private javax.swing.JLabel jlDocumentoCliente;
-    private javax.swing.JLabel jlEstadoReserva;
-    private javax.swing.JLabel jlModificacionReservas;
-    private javax.swing.JRadioButton jrbActiva;
-    private javax.swing.JRadioButton jrbInactiva;
+    private javax.swing.JLabel jlFechaEgreso;
+    private javax.swing.JLabel jlFechaIngreso;
+    private javax.swing.JLabel jlListadoReservas;
     private javax.swing.JTable jtReservas;
     private javax.swing.JTextField jtfDocumentoCliente;
     // End of variables declaration//GEN-END:variables

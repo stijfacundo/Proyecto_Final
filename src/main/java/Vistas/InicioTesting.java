@@ -9,6 +9,7 @@ public class InicioTesting extends javax.swing.JFrame {
 
     private CreacionReservas creacionReservas;
     private ModificacionReservas modificacionReservas;
+    private ListadoReservas listadoReservas;
     private habitaciones habitaciones;
     private AltaHuesped altaHuesped;
 
@@ -29,6 +30,7 @@ public class InicioTesting extends javax.swing.JFrame {
         jmReservas = new javax.swing.JMenu();
         jmiCreacionReservas = new javax.swing.JMenuItem();
         jmiModificacionReservas = new javax.swing.JMenuItem();
+        jmiListadoReservas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +88,14 @@ public class InicioTesting extends javax.swing.JFrame {
             }
         });
         jmReservas.add(jmiModificacionReservas);
+
+        jmiListadoReservas.setText("Listar reservas");
+        jmiListadoReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiListadoReservasActionPerformed(evt);
+            }
+        });
+        jmReservas.add(jmiListadoReservas);
 
         jMenuBar1.add(jmReservas);
 
@@ -158,6 +168,19 @@ public class InicioTesting extends javax.swing.JFrame {
         jdpEscritorio.moveToFront(altaHuesped);
     }//GEN-LAST:event_jmiClientesActionPerformed
 
+    private void jmiListadoReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiListadoReservasActionPerformed
+        jdpEscritorio.removeAll();
+        jdpEscritorio.repaint();
+        listadoReservas = new ListadoReservas();
+
+        // Centramos el JInternalFrame
+        centrarInternalFrame(listadoReservas);
+
+        listadoReservas.setVisible(true);
+        jdpEscritorio.add(listadoReservas);
+        jdpEscritorio.moveToFront(listadoReservas);
+    }//GEN-LAST:event_jmiListadoReservasActionPerformed
+
     public static void main(String args[]) {
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
@@ -181,6 +204,7 @@ public class InicioTesting extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiClientes;
     private javax.swing.JMenuItem jmiCreacionReservas;
     private javax.swing.JMenuItem jmiHabitaciones;
+    private javax.swing.JMenuItem jmiListadoReservas;
     private javax.swing.JMenuItem jmiModificacionReservas;
     // End of variables declaration//GEN-END:variables
 
