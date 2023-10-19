@@ -1,6 +1,7 @@
 package Datas;
 
 import Entidades.Habitacion;
+import Entidades.TipoHabitacion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -72,6 +73,27 @@ public class HabitacionData {
                 habitacion.setOcupada(estado);
                 habitacion.setcodigoTipoHabitacion(rs.getString("codigo_tipo_habitacion"));
                
+            }
+        }
+        return habitacion;
+    }
+    
+    public TipoHabitacion buscarHabitacionPorTipo(String nombre) throws SQLException {
+        
+        String sql = "SELECT id_tipo_habitacion, codigo, nombre, capacidadMaxima, cantidadCamas, tipoCamas, precioPorNoche FROM tipo_habitacion WHERE nombre = ?";
+        TipoHabitacion habitacion = null;
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, nombre);
+            ResultSet rs = ps.executeQuery();
+
+            
+            if (rs.next()) {
+                habitacion = new TipoHabitacion();
+                habitacion.setIdTipoHabitacion(rs.getInt("id_tipo_habitacion"));
+                habitacion.setCodigo(rs.getString("codigo"));
+                habitacion.setNombre(rs.getString("nombre"));
+                habitacion.setCapacidadMaxima(rs.getInt("capacidadMaxima"));
+                habitacion.setCantidadCamas(rs.getInt("cantidadCamas"));  
             }
         }
         return habitacion;
