@@ -39,6 +39,7 @@ public class InicioTesting extends javax.swing.JFrame {
         jmiListadoReservas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jdpEscritorio.setBackground(new java.awt.Color(242, 242, 242));
 
