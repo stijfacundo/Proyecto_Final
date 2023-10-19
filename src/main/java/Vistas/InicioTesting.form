@@ -24,12 +24,36 @@
             <Property name="text" type="java.lang.String" value="Habitaciones"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jmiHabitaciones">
+            <MenuItem class="javax.swing.JMenuItem" name="jmiAdministrarHabitaciones">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Habitaciones (en construcci&#xf3;n)"/>
+                <Property name="text" type="java.lang.String" value="Administrar habitaciones"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiHabitacionesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiAdministrarHabitacionesActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiCrearHabitaciones">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear habitaciones"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiCrearHabitacionesActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiAdministrarTiposHabitaciones">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Administrar tipos de habitaciones"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiAdministrarTiposHabitacionesActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiCrearTiposHabitaciones">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear tipos de habitaciones"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiCrearTiposHabitacionesActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

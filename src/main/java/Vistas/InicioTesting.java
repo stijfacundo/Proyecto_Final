@@ -11,6 +11,9 @@ public class InicioTesting extends javax.swing.JFrame {
     private ModificacionReservas modificacionReservas;
     private ListadoReservas listadoReservas;
     private habitaciones habitaciones;
+    private AgregarHabitacion agregarHabitacion;
+    private TipoHabitacion tipoHabitacion;
+    private AgregarTipoHabitacion agregarTipoHabitacion;
     private AltaHuesped altaHuesped;
 
     public InicioTesting() {
@@ -26,7 +29,10 @@ public class InicioTesting extends javax.swing.JFrame {
         jmClientes = new javax.swing.JMenu();
         jmiClientes = new javax.swing.JMenuItem();
         jmHabitaciones = new javax.swing.JMenu();
-        jmiHabitaciones = new javax.swing.JMenuItem();
+        jmiAdministrarHabitaciones = new javax.swing.JMenuItem();
+        jmiCrearHabitaciones = new javax.swing.JMenuItem();
+        jmiAdministrarTiposHabitaciones = new javax.swing.JMenuItem();
+        jmiCrearTiposHabitaciones = new javax.swing.JMenuItem();
         jmReservas = new javax.swing.JMenu();
         jmiCreacionReservas = new javax.swing.JMenuItem();
         jmiModificacionReservas = new javax.swing.JMenuItem();
@@ -61,13 +67,37 @@ public class InicioTesting extends javax.swing.JFrame {
 
         jmHabitaciones.setText("Habitaciones");
 
-        jmiHabitaciones.setText("Habitaciones (en construcción)");
-        jmiHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+        jmiAdministrarHabitaciones.setText("Administrar habitaciones");
+        jmiAdministrarHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiHabitacionesActionPerformed(evt);
+                jmiAdministrarHabitacionesActionPerformed(evt);
             }
         });
-        jmHabitaciones.add(jmiHabitaciones);
+        jmHabitaciones.add(jmiAdministrarHabitaciones);
+
+        jmiCrearHabitaciones.setText("Crear habitaciones");
+        jmiCrearHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCrearHabitacionesActionPerformed(evt);
+            }
+        });
+        jmHabitaciones.add(jmiCrearHabitaciones);
+
+        jmiAdministrarTiposHabitaciones.setText("Administrar tipos de habitaciones");
+        jmiAdministrarTiposHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAdministrarTiposHabitacionesActionPerformed(evt);
+            }
+        });
+        jmHabitaciones.add(jmiAdministrarTiposHabitaciones);
+
+        jmiCrearTiposHabitaciones.setText("Crear tipos de habitaciones");
+        jmiCrearTiposHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCrearTiposHabitacionesActionPerformed(evt);
+            }
+        });
+        jmHabitaciones.add(jmiCrearTiposHabitaciones);
 
         jMenuBar1.add(jmHabitaciones);
 
@@ -142,7 +172,7 @@ public class InicioTesting extends javax.swing.JFrame {
         jdpEscritorio.moveToFront(modificacionReservas);
     }//GEN-LAST:event_jmiModificacionReservasActionPerformed
 
-    private void jmiHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiHabitacionesActionPerformed
+    private void jmiAdministrarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAdministrarHabitacionesActionPerformed
         jdpEscritorio.removeAll();
         jdpEscritorio.repaint();
         habitaciones = new habitaciones();
@@ -153,7 +183,7 @@ public class InicioTesting extends javax.swing.JFrame {
         habitaciones.setVisible(true);
         jdpEscritorio.add(habitaciones);
         jdpEscritorio.moveToFront(habitaciones);
-    }//GEN-LAST:event_jmiHabitacionesActionPerformed
+    }//GEN-LAST:event_jmiAdministrarHabitacionesActionPerformed
 
     private void jmiClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiClientesActionPerformed
         jdpEscritorio.removeAll();
@@ -181,6 +211,45 @@ public class InicioTesting extends javax.swing.JFrame {
         jdpEscritorio.moveToFront(listadoReservas);
     }//GEN-LAST:event_jmiListadoReservasActionPerformed
 
+    private void jmiAdministrarTiposHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAdministrarTiposHabitacionesActionPerformed
+        jdpEscritorio.removeAll();
+        jdpEscritorio.repaint();
+        tipoHabitacion = new TipoHabitacion();
+
+        // Centramos el JInternalFrame
+        centrarInternalFrame(tipoHabitacion);
+
+        tipoHabitacion.setVisible(true);
+        jdpEscritorio.add(tipoHabitacion);
+        jdpEscritorio.moveToFront(tipoHabitacion);
+    }//GEN-LAST:event_jmiAdministrarTiposHabitacionesActionPerformed
+
+    private void jmiCrearTiposHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCrearTiposHabitacionesActionPerformed
+        jdpEscritorio.removeAll();
+        jdpEscritorio.repaint();
+        agregarTipoHabitacion = new AgregarTipoHabitacion();
+
+        // Centramos el JInternalFrame
+        centrarInternalFrame(agregarTipoHabitacion);
+
+        agregarTipoHabitacion.setVisible(true);
+        jdpEscritorio.add(agregarTipoHabitacion);
+        jdpEscritorio.moveToFront(agregarTipoHabitacion);
+    }//GEN-LAST:event_jmiCrearTiposHabitacionesActionPerformed
+
+    private void jmiCrearHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCrearHabitacionesActionPerformed
+        jdpEscritorio.removeAll();
+        jdpEscritorio.repaint();
+        agregarHabitacion = new AgregarHabitacion();
+
+        // Centramos el JInternalFrame
+        centrarInternalFrame(agregarHabitacion);
+
+        agregarHabitacion.setVisible(true);
+        jdpEscritorio.add(agregarHabitacion);
+        jdpEscritorio.moveToFront(agregarHabitacion);
+    }//GEN-LAST:event_jmiCrearHabitacionesActionPerformed
+
     public static void main(String args[]) {
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
@@ -201,9 +270,12 @@ public class InicioTesting extends javax.swing.JFrame {
     private javax.swing.JMenu jmClientes;
     private javax.swing.JMenu jmHabitaciones;
     private javax.swing.JMenu jmReservas;
+    private javax.swing.JMenuItem jmiAdministrarHabitaciones;
+    private javax.swing.JMenuItem jmiAdministrarTiposHabitaciones;
     private javax.swing.JMenuItem jmiClientes;
     private javax.swing.JMenuItem jmiCreacionReservas;
-    private javax.swing.JMenuItem jmiHabitaciones;
+    private javax.swing.JMenuItem jmiCrearHabitaciones;
+    private javax.swing.JMenuItem jmiCrearTiposHabitaciones;
     private javax.swing.JMenuItem jmiListadoReservas;
     private javax.swing.JMenuItem jmiModificacionReservas;
     // End of variables declaration//GEN-END:variables
