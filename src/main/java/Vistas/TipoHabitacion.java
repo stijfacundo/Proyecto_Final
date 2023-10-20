@@ -4,21 +4,17 @@
  */
 package Vistas;
 
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Leandro
  */
 public class TipoHabitacion extends javax.swing.JInternalFrame {
-private DefaultTableModel modelo = new DefaultTableModel();
-
+    
     /**
      * Creates new form BajaHabitacion
      */
     public TipoHabitacion() {
         initComponents();
-        armarCabecera();
     }
 
     /**
@@ -35,9 +31,9 @@ private DefaultTableModel modelo = new DefaultTableModel();
         jbAgregar = new javax.swing.JButton();
         jtfBuscar = new javax.swing.JTextField();
         jbBuscar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtTipoHab = new javax.swing.JTable();
         jbGuardar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtHabitaciones = new javax.swing.JTable();
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 255));
         jLabel1.setFont(new java.awt.Font("Roboto Mono SemiBold", 0, 18)); // NOI18N
@@ -49,19 +45,6 @@ private DefaultTableModel modelo = new DefaultTableModel();
 
         jbBuscar.setText("BUSCAR");
 
-        jtTipoHab.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jtTipoHab);
-
         jbGuardar.setText("GUARDAR");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,52 +52,81 @@ private DefaultTableModel modelo = new DefaultTableModel();
             }
         });
 
+        jtHabitaciones.setBackground(new java.awt.Color(229, 229, 229));
+        jtHabitaciones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtHabitaciones.setForeground(new java.awt.Color(23, 23, 23));
+        jtHabitaciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo", "Nombre", "Max. Pesonas", "Cant. Camas", "Tipo Cama", "Precio"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtHabitaciones.setGridColor(new java.awt.Color(209, 209, 209));
+        jtHabitaciones.setRowHeight(25);
+        jtHabitaciones.setSelectionBackground(new java.awt.Color(52, 52, 52));
+        jtHabitaciones.setSelectionForeground(new java.awt.Color(229, 229, 229));
+        jtHabitaciones.setShowGrid(true);
+        jtHabitaciones.getTableHeader().setResizingAllowed(false);
+        jtHabitaciones.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jtHabitaciones);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
+                .addGap(244, 244, 244)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(223, 223, 223))
+                        .addGap(49, 49, 49))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jbAgregar)
-                        .addGap(256, 256, 256))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jtfBuscar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbBuscar))
-                            .addComponent(jLabel1))
-                        .addGap(174, 174, 174))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jbGuardar)
-                        .addGap(247, 247, 247))))
+                        .addGap(82, 82, 82))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jtfBuscar)
+                            .addGap(18, 18, 18)
+                            .addComponent(jbBuscar))
+                        .addComponent(jLabel1)))
+                .addContainerGap(182, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbGuardar)
+                .addGap(267, 267, 267))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jbAgregar)
-                .addGap(33, 33, 33)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbBuscar))
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(jbGuardar)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,20 +144,8 @@ private DefaultTableModel modelo = new DefaultTableModel();
     private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbGuardar;
-    private javax.swing.JTable jtTipoHab;
+    private javax.swing.JTable jtHabitaciones;
     private javax.swing.JTextField jtfBuscar;
     // End of variables declaration//GEN-END:variables
-
-    private void armarCabecera (){
-        
-        modelo.addColumn("CODIGO");
-        modelo.addColumn("NOMBRE");
-        modelo.addColumn("CAPAC. MAX.");
-        modelo.addColumn("CANT. CAMAS");
-        modelo.addColumn("TIPO DE CAMAS");
-        modelo.addColumn("PRECIOxNOCHE");
-        jtTipoHab.setModel(modelo);
-        
-    }
 
 }

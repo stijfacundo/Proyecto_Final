@@ -93,7 +93,7 @@ public class HabitacionData {
                 habitacion.setCodigo(rs.getString("codigo"));
                 habitacion.setNombre(rs.getString("nombre"));
                 habitacion.setCapacidadMaxima(rs.getInt("capacidadMaxima"));
-                habitacion.setCantidadCamas(rs.getInt("cantidadCamas"));  
+                habitacion.setCantidadCamas(rs.getInt("cantidadCamas")); 
             }
         }
         return habitacion;
@@ -121,5 +121,7 @@ public class HabitacionData {
         ps.setInt(5, numero);
         ps.executeUpdate();
     }
+    
+    
     
 }

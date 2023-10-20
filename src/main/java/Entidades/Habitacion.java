@@ -8,6 +8,8 @@ public class Habitacion {
     String codigoTipoHabitacion;
     double precioPorNoche;
     boolean estado;
+    String nombreTipoHabitacion;
+    int capacidadMaxima;
 
     public Habitacion() {
     }
@@ -70,14 +72,6 @@ public class Habitacion {
         this.codigoTipoHabitacion = codigoTipoHabitacion;
     }
 
-        public String getCodigoTipoHabitacion() {
-        return codigoTipoHabitacion;
-    }
-
-    public void setCodigoTipoHabitacion(String codigoTipoHabitacion) {
-        this.codigoTipoHabitacion = codigoTipoHabitacion;
-    }
-
     public boolean isEstado() {
         return estado;
     }
@@ -93,15 +87,27 @@ public class Habitacion {
     public void setPrecioPorNoche(double precioPorNoche) {
         this.precioPorNoche = precioPorNoche;
     }
-       
+
+    public String getNombreTipoHabitacion() {
+        return nombreTipoHabitacion;
+    }
+
+    public void setNombreTipoHabitacion(String nombreTipoHabitacion) {
+        this.nombreTipoHabitacion = nombreTipoHabitacion;
+    }
+
+    public int getCapacidadMaxima() {
+        return capacidadMaxima;
+    }
+
+    public void setCapacidadMaxima(int capacidadMaxima) {
+        this.capacidadMaxima = capacidadMaxima;
+    }
+
     @Override
     public String toString() {
-        return "Habitaciones{" + "idHabitacion=" + idHabitacion + 
-                ", nroHabitacion=" + nroHabitacion + ", piso=" + piso + 
-                ", ocupada=" + ocupada + ", codigoTipoHabitacion=" + 
-                codigoTipoHabitacion + '}';
+        return "Habitacion{" + "idHabitacion=" + idHabitacion + ", nroHabitacion=" + nroHabitacion + ", piso=" + piso + ", ocupada=" + ocupada + ", codigoTipoHabitacion=" + codigoTipoHabitacion + ", precioPorNoche=" + precioPorNoche + ", estado=" + estado + ", nombreTipoHabitacion=" + nombreTipoHabitacion + ", capacidadMaxima=" + capacidadMaxima + '}';
     }
+       
     
-    
-
 }

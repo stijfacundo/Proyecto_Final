@@ -4,21 +4,19 @@
  */
 package Vistas;
 
-import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
  * @author Daniel
  */
 public class habitaciones extends javax.swing.JInternalFrame {
-private DefaultTableModel modelo = new DefaultTableModel();
 
     /**
      * Creates new form habitaciones
      */
     public habitaciones() {
         initComponents();
-        armarCabecera();
     }
 
     /**
@@ -34,9 +32,9 @@ private DefaultTableModel modelo = new DefaultTableModel();
         jbAgregar = new javax.swing.JButton();
         jtfBuscar = new javax.swing.JTextField();
         jbBuscar = new javax.swing.JButton();
+        jbGuardar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtHabitaciones = new javax.swing.JTable();
-        jbGuardar = new javax.swing.JButton();
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 255));
         jLabel1.setFont(new java.awt.Font("Roboto Mono SemiBold", 0, 18)); // NOI18N
@@ -46,47 +44,53 @@ private DefaultTableModel modelo = new DefaultTableModel();
 
         jbBuscar.setText("BUSCAR");
 
+        jbGuardar.setText("GUARDAR");
+
+        jtHabitaciones.setBackground(new java.awt.Color(229, 229, 229));
+        jtHabitaciones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtHabitaciones.setForeground(new java.awt.Color(23, 23, 23));
         jtHabitaciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nro", "Piso", "Ocupada", "Código", "Estado"
             }
         ));
+        jtHabitaciones.setGridColor(new java.awt.Color(209, 209, 209));
+        jtHabitaciones.setRowHeight(25);
+        jtHabitaciones.setSelectionBackground(new java.awt.Color(52, 52, 52));
+        jtHabitaciones.setSelectionForeground(new java.awt.Color(229, 229, 229));
+        jtHabitaciones.setShowGrid(true);
+        jtHabitaciones.getTableHeader().setResizingAllowed(false);
+        jtHabitaciones.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtHabitaciones);
-
-        jbGuardar.setText("GUARDAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jtfBuscar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbBuscar))
-                            .addComponent(jbAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(113, 113, 113)))
-                .addGap(40, 40, 40))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(jbGuardar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(199, 199, 199)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(223, 223, 223)
+                                .addComponent(jbGuardar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(171, 171, 171)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jtfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jbBuscar))
+                                    .addComponent(jbAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,9 +103,9 @@ private DefaultTableModel modelo = new DefaultTableModel();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbBuscar))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jbGuardar)
                 .addGap(29, 29, 29))
         );
@@ -120,14 +124,6 @@ private DefaultTableModel modelo = new DefaultTableModel();
     private javax.swing.JTextField jtfBuscar;
     // End of variables declaration//GEN-END:variables
 
-private void armarCabecera (){
-    
-    modelo.addColumn("NRO");
-    modelo.addColumn("PISO");
-    modelo.addColumn("OCUPADA");
-    modelo.addColumn("COD TIPO HABIT.");
-    modelo.addColumn("ESTADO");
-    jtHabitaciones.setModel(modelo);
-    
-}
+   
+
 }
