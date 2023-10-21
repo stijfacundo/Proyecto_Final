@@ -1,4 +1,5 @@
 package Vistas;
+
 import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.JInternalFrame;
 import javax.swing.UIManager;
@@ -64,9 +65,6 @@ public class menuPrincipal extends javax.swing.JFrame {
         jLTHabitacion = new javax.swing.JLabel();
         jPCrearTHabitacion = new javax.swing.JPanel();
         jLCrearTHabitacion = new javax.swing.JLabel();
-        jPModificarTHabitacion = new javax.swing.JPanel();
-        jLModificarTHabitacion = new javax.swing.JLabel();
-        jS3 = new javax.swing.JSeparator();
         jPReserva = new javax.swing.JPanel();
         jLReserva = new javax.swing.JLabel();
         jPCrearReserva = new javax.swing.JPanel();
@@ -77,6 +75,9 @@ public class menuPrincipal extends javax.swing.JFrame {
         jLListarReserva = new javax.swing.JLabel();
         jPCopyright = new javax.swing.JPanel();
         jLCopyright = new javax.swing.JLabel();
+        jPModificarTHabitacion = new javax.swing.JPanel();
+        jLModificarTHabitacion = new javax.swing.JLabel();
+        jS3 = new javax.swing.JSeparator();
         jDPPrograma = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,7 +103,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         jPUsuario.setLayout(jPUsuarioLayout);
         jPUsuarioLayout.setHorizontalGroup(
             jPUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLNombreUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+            .addComponent(jLNombreUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
             .addGroup(jPUsuarioLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
@@ -111,14 +112,14 @@ public class menuPrincipal extends javax.swing.JFrame {
         jPUsuarioLayout.setVerticalGroup(
             jPUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPUsuarioLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
 
         jPHuesped.setBackground(new java.awt.Color(230, 232, 235));
+        jPHuesped.setPreferredSize(new java.awt.Dimension(112, 30));
 
         jLHuespued1.setBackground(new java.awt.Color(0, 0, 0));
         jLHuespued1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
@@ -138,10 +139,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         );
         jPHuespedLayout.setVerticalGroup(
             jPHuespedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPHuespedLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLHuespued1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLHuespued1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         jPCrearHuesped.setBackground(new java.awt.Color(230, 232, 235));
@@ -455,55 +453,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         );
         jPCrearTHabitacionLayout.setVerticalGroup(
             jPCrearTHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLCrearTHabitacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        jPModificarTHabitacion.setBackground(new java.awt.Color(230, 232, 235));
-        jPModificarTHabitacion.setPreferredSize(new java.awt.Dimension(183, 30));
-        jPModificarTHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPModificarTHabitacionMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPModificarTHabitacionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPModificarTHabitacionMouseExited(evt);
-            }
-        });
-
-        jLModificarTHabitacion.setBackground(new java.awt.Color(0, 0, 0));
-        jLModificarTHabitacion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLModificarTHabitacion.setForeground(new java.awt.Color(0, 0, 0));
-        jLModificarTHabitacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLModificarTHabitacion.setText("Modificar");
-        jLModificarTHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLModificarTHabitacionMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLModificarTHabitacionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLModificarTHabitacionMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPModificarTHabitacionLayout = new javax.swing.GroupLayout(jPModificarTHabitacion);
-        jPModificarTHabitacion.setLayout(jPModificarTHabitacionLayout);
-        jPModificarTHabitacionLayout.setHorizontalGroup(
-            jPModificarTHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPModificarTHabitacionLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLModificarTHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPModificarTHabitacionLayout.setVerticalGroup(
-            jPModificarTHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPModificarTHabitacionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLModificarTHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLCrearTHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         jPReserva.setBackground(new java.awt.Color(230, 232, 235));
@@ -677,14 +627,62 @@ public class menuPrincipal extends javax.swing.JFrame {
         jPCopyright.setLayout(jPCopyrightLayout);
         jPCopyrightLayout.setHorizontalGroup(
             jPCopyrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCopyrightLayout.createSequentialGroup()
+            .addGroup(jPCopyrightLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLCopyright, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLCopyright, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPCopyrightLayout.setVerticalGroup(
             jPCopyrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLCopyright, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPModificarTHabitacion.setBackground(new java.awt.Color(230, 232, 235));
+        jPModificarTHabitacion.setPreferredSize(new java.awt.Dimension(183, 30));
+        jPModificarTHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPModificarTHabitacionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPModificarTHabitacionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPModificarTHabitacionMouseExited(evt);
+            }
+        });
+
+        jLModificarTHabitacion.setBackground(new java.awt.Color(0, 0, 0));
+        jLModificarTHabitacion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLModificarTHabitacion.setForeground(new java.awt.Color(0, 0, 0));
+        jLModificarTHabitacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLModificarTHabitacion.setText("Modificar");
+        jLModificarTHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLModificarTHabitacionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLModificarTHabitacionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLModificarTHabitacionMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPModificarTHabitacionLayout = new javax.swing.GroupLayout(jPModificarTHabitacion);
+        jPModificarTHabitacion.setLayout(jPModificarTHabitacionLayout);
+        jPModificarTHabitacionLayout.setHorizontalGroup(
+            jPModificarTHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPModificarTHabitacionLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLModificarTHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPModificarTHabitacionLayout.setVerticalGroup(
+            jPModificarTHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPModificarTHabitacionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLModificarTHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPMenuLayout = new javax.swing.GroupLayout(jPMenu);
@@ -693,34 +691,37 @@ public class menuPrincipal extends javax.swing.JFrame {
             jPMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jS1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPCrearHuesped, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPModificarHuesped, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPEliminarHuesped, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                    .addComponent(jPHuesped, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPCopyright, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPModificarReserva, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                    .addComponent(jPCrearReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPListarReserva, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPCrearHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPModificarHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jS2)
-                    .addComponent(jPTHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                    .addComponent(jPCrearTHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPModificarTHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                    .addComponent(jS3)
-                    .addComponent(jPUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPMenuLayout.createSequentialGroup()
+                        .addGroup(jPMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jS1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPCrearHuesped, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPModificarHuesped, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPEliminarHuesped, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(jPHuesped, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(jPCopyright, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPModificarReserva, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(jPCrearReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPListarReserva, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPCrearHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPModificarHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jS2)
+                            .addComponent(jPTHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(jPUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPCrearTHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(jPModificarTHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jS3))
+                .addContainerGap())
         );
         jPMenuLayout.setVerticalGroup(
             jPMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPCrearHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -728,24 +729,24 @@ public class menuPrincipal extends javax.swing.JFrame {
                 .addComponent(jPModificarHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPEliminarHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jS1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jS1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPCrearHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPModificarHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jS2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jS2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPTHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPCrearTHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPModificarTHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jS3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jS3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -754,8 +755,9 @@ public class menuPrincipal extends javax.swing.JFrame {
                 .addComponent(jPModificarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPListarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 829, Short.MAX_VALUE)
-                .addComponent(jPCopyright, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jPCopyright, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jDPPrograma.setBackground(new java.awt.Color(255, 255, 255));
@@ -764,7 +766,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         jDPPrograma.setLayout(jDPProgramaLayout);
         jDPProgramaLayout.setHorizontalGroup(
             jDPProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1091, Short.MAX_VALUE)
+            .addGap(0, 1055, Short.MAX_VALUE)
         );
         jDPProgramaLayout.setVerticalGroup(
             jDPProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -783,12 +785,10 @@ public class menuPrincipal extends javax.swing.JFrame {
         );
         jPFondoLayout.setVerticalGroup(
             jPFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPFondoLayout.createSequentialGroup()
-                .addGroup(jPFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPFondoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jDPPrograma)))
+                .addContainerGap()
+                .addComponent(jDPPrograma)
                 .addContainerGap())
         );
 
@@ -879,7 +879,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLEliminarHuespedMouseExited
 
     private void jPCrearHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPCrearHabitacionMouseClicked
-        // TODO add your handling code here:
+        if (agregarHabitacionOn) {
+            // La ventana está abierta, así que la cerramos
+            agregarHabitacion.dispose();
+            agregarHabitacionOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            agregarHabitacion = new AgregarHabitacion();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(agregarHabitacion);
+
+            agregarHabitacion.setVisible(true);
+            jDPPrograma.add(agregarHabitacion);
+            jDPPrograma.moveToFront(agregarHabitacion);
+
+            agregarHabitacionOn = true;
+        }
     }//GEN-LAST:event_jPCrearHabitacionMouseClicked
 
     private void jPCrearHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPCrearHabitacionMouseEntered
@@ -891,7 +909,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPCrearHabitacionMouseExited
 
     private void jLCrearHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLCrearHabitacionMouseClicked
-        // TODO add your handling code here:
+        if (agregarHabitacionOn) {
+            // La ventana está abierta, así que la cerramos
+            agregarHabitacion.dispose();
+            agregarHabitacionOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            agregarHabitacion = new AgregarHabitacion();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(agregarHabitacion);
+
+            agregarHabitacion.setVisible(true);
+            jDPPrograma.add(agregarHabitacion);
+            jDPPrograma.moveToFront(agregarHabitacion);
+
+            agregarHabitacionOn = true;
+        }
     }//GEN-LAST:event_jLCrearHabitacionMouseClicked
 
     private void jLCrearHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLCrearHabitacionMouseEntered
@@ -903,7 +939,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLCrearHabitacionMouseExited
 
     private void jPModificarHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificarHabitacionMouseClicked
-        // TODO add your handling code here:
+        if (habitacionOn) {
+            // La ventana está abierta, así que la cerramos
+            habitacion.dispose();
+            habitacionOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            habitacion = new habitaciones();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(habitacion);
+
+            habitacion.setVisible(true);
+            jDPPrograma.add(habitacion);
+            jDPPrograma.moveToFront(habitacion);
+
+            habitacionOn = true;
+        }
     }//GEN-LAST:event_jPModificarHabitacionMouseClicked
 
     private void jPModificarHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificarHabitacionMouseEntered
@@ -915,7 +969,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPModificarHabitacionMouseExited
 
     private void jLModificarHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificarHabitacionMouseClicked
-        // TODO add your handling code here:
+          if (habitacionOn) {
+            // La ventana está abierta, así que la cerramos
+            habitacion.dispose();
+            habitacionOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            habitacion = new habitaciones();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(habitacion);
+
+            habitacion.setVisible(true);
+            jDPPrograma.add(habitacion);
+            jDPPrograma.moveToFront(habitacion);
+
+            habitacionOn = true;
+        }
     }//GEN-LAST:event_jLModificarHabitacionMouseClicked
 
     private void jLModificarHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificarHabitacionMouseEntered
@@ -927,7 +999,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLModificarHabitacionMouseExited
 
     private void jPCrearTHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPCrearTHabitacionMouseClicked
-        // TODO add your handling code here:
+        if (agregarTipoHabitacionOn) {
+            // La ventana está abierta, así que la cerramos
+            agregarTipoHabitacion.dispose();
+            agregarTipoHabitacionOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            agregarTipoHabitacion = new AgregarTipoHabitacion();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(agregarTipoHabitacion);
+
+            agregarTipoHabitacion.setVisible(true);
+            jDPPrograma.add(agregarTipoHabitacion);
+            jDPPrograma.moveToFront(agregarTipoHabitacion);
+
+            agregarTipoHabitacionOn = true;
+        }
     }//GEN-LAST:event_jPCrearTHabitacionMouseClicked
 
     private void jPCrearTHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPCrearTHabitacionMouseEntered
@@ -939,7 +1029,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPCrearTHabitacionMouseExited
 
     private void jLCrearTHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLCrearTHabitacionMouseClicked
-        // TODO add your handling code here:
+        if (agregarTipoHabitacionOn) {
+            // La ventana está abierta, así que la cerramos
+            agregarTipoHabitacion.dispose();
+            agregarTipoHabitacionOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            agregarTipoHabitacion = new AgregarTipoHabitacion();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(agregarTipoHabitacion);
+
+            agregarTipoHabitacion.setVisible(true);
+            jDPPrograma.add(agregarTipoHabitacion);
+            jDPPrograma.moveToFront(agregarTipoHabitacion);
+
+            agregarTipoHabitacionOn = true;
+        }
     }//GEN-LAST:event_jLCrearTHabitacionMouseClicked
 
     private void jLCrearTHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLCrearTHabitacionMouseEntered
@@ -951,7 +1059,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLCrearTHabitacionMouseExited
 
     private void jPModificarTHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificarTHabitacionMouseClicked
-        // TODO add your handling code here:
+        if (tipoHabitacionOn) {
+            // La ventana está abierta, así que la cerramos
+            tipoHabitacion.dispose();
+            tipoHabitacionOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            tipoHabitacion = new TipoHabitacion();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(tipoHabitacion);
+
+            tipoHabitacion.setVisible(true);
+            jDPPrograma.add(tipoHabitacion);
+            jDPPrograma.moveToFront(tipoHabitacion);
+
+            tipoHabitacionOn = true;
+        }
     }//GEN-LAST:event_jPModificarTHabitacionMouseClicked
 
     private void jPModificarTHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificarTHabitacionMouseEntered
@@ -963,7 +1089,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPModificarTHabitacionMouseExited
 
     private void jLModificarTHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificarTHabitacionMouseClicked
-        // TODO add your handling code here:
+        if (tipoHabitacionOn) {
+            // La ventana está abierta, así que la cerramos
+            tipoHabitacion.dispose();
+            tipoHabitacionOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            tipoHabitacion = new TipoHabitacion();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(tipoHabitacion);
+
+            tipoHabitacion.setVisible(true);
+            jDPPrograma.add(tipoHabitacion);
+            jDPPrograma.moveToFront(tipoHabitacion);
+
+            tipoHabitacionOn = true;
+        }
     }//GEN-LAST:event_jLModificarTHabitacionMouseClicked
 
     private void jLModificarTHabitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificarTHabitacionMouseEntered
@@ -975,7 +1119,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLModificarTHabitacionMouseExited
 
     private void jPCrearReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPCrearReservaMouseClicked
-       /* if (creacionReservasOn) {
+        if (creacionReservasOn) {
             // La ventana está abierta, así que la cerramos
             creacionReservas.dispose();
             creacionReservasOn = false;
@@ -983,7 +1127,6 @@ public class menuPrincipal extends javax.swing.JFrame {
             // La ventana está cerrada, así que la abrimos
             jDPPrograma.removeAll();
             jDPPrograma.repaint();
-            establecerFondo("Recursos/fondo.jpg"); // Reestablecemos el fondo personalizado
             creacionReservas = new CreacionReservas();
 
             // Centramos el JInternalFrame
@@ -994,7 +1137,7 @@ public class menuPrincipal extends javax.swing.JFrame {
             jDPPrograma.moveToFront(creacionReservas);
 
             creacionReservasOn = true;
-        }*/
+        }
     }//GEN-LAST:event_jPCrearReservaMouseClicked
 
     private void jPCrearReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPCrearReservaMouseEntered
@@ -1006,7 +1149,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPCrearReservaMouseExited
 
     private void jLCrearReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLCrearReservaMouseClicked
-        // TODO add your handling code here:
+        if (creacionReservasOn) {
+            // La ventana está abierta, así que la cerramos
+            creacionReservas.dispose();
+            creacionReservasOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            creacionReservas = new CreacionReservas();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(creacionReservas);
+
+            creacionReservas.setVisible(true);
+            jDPPrograma.add(creacionReservas);
+            jDPPrograma.moveToFront(creacionReservas);
+
+            creacionReservasOn = true;
+        }
     }//GEN-LAST:event_jLCrearReservaMouseClicked
 
     private void jLCrearReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLCrearReservaMouseEntered
@@ -1018,7 +1179,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLCrearReservaMouseExited
 
     private void jPModificarReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificarReservaMouseClicked
-        // TODO add your handling code here:
+        if (modificacionReservasOn) {
+            // La ventana está abierta, así que la cerramos
+            modificacionReservas.dispose();
+            modificacionReservasOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            modificacionReservas = new ModificacionReservas();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(modificacionReservas);
+
+            modificacionReservas.setVisible(true);
+            jDPPrograma.add(modificacionReservas);
+            jDPPrograma.moveToFront(modificacionReservas);
+
+            modificacionReservasOn = true;
+        }
     }//GEN-LAST:event_jPModificarReservaMouseClicked
 
     private void jPModificarReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificarReservaMouseEntered
@@ -1030,7 +1209,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPModificarReservaMouseExited
 
     private void jLModificarReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificarReservaMouseClicked
-        // TODO add your handling code here:
+        if (modificacionReservasOn) {
+            // La ventana está abierta, así que la cerramos
+            modificacionReservas.dispose();
+            modificacionReservasOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            modificacionReservas = new ModificacionReservas();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(modificacionReservas);
+
+            modificacionReservas.setVisible(true);
+            jDPPrograma.add(modificacionReservas);
+            jDPPrograma.moveToFront(modificacionReservas);
+
+            modificacionReservasOn = true;
+        }
     }//GEN-LAST:event_jLModificarReservaMouseClicked
 
     private void jLModificarReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificarReservaMouseEntered
@@ -1042,7 +1239,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLModificarReservaMouseExited
 
     private void jPListarReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPListarReservaMouseClicked
-        // TODO add your handling code here:
+        if (listadoReservasOn) {
+            // La ventana está abierta, así que la cerramos
+            listadoReservas.dispose();
+            listadoReservasOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            listadoReservas = new ListadoReservas();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(listadoReservas);
+
+            listadoReservas.setVisible(true);
+            jDPPrograma.add(listadoReservas);
+            jDPPrograma.moveToFront(listadoReservas);
+
+            listadoReservasOn = true;
+        }
     }//GEN-LAST:event_jPListarReservaMouseClicked
 
     private void jPListarReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPListarReservaMouseEntered
@@ -1054,7 +1269,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPListarReservaMouseExited
 
     private void jLListarReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLListarReservaMouseClicked
-        // TODO add your handling code here:
+        if (listadoReservasOn) {
+            // La ventana está abierta, así que la cerramos
+            listadoReservas.dispose();
+            listadoReservasOn = false;
+        } else {
+            // La ventana está cerrada, así que la abrimos
+            jDPPrograma.removeAll();
+            jDPPrograma.repaint();
+            listadoReservas = new ListadoReservas();
+
+            // Centramos el JInternalFrame
+            centrarInternalFrame(listadoReservas);
+
+            listadoReservas.setVisible(true);
+            jDPPrograma.add(listadoReservas);
+            jDPPrograma.moveToFront(listadoReservas);
+
+            listadoReservasOn = true;
+        }
     }//GEN-LAST:event_jLListarReservaMouseClicked
 
     private void jLListarReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLListarReservaMouseEntered
@@ -1074,7 +1307,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-     try {
+        try {
             UIManager.setLookAndFeel(new FlatLightLaf());
         } catch (UnsupportedLookAndFeelException ex) {
             System.err.println("Failed to initialize LaF");
@@ -1149,35 +1382,5 @@ public class menuPrincipal extends javax.swing.JFrame {
         // Establecemos la ubicación del JInternalFrame
         frame.setLocation(x, y);
     }
-// Método para establecer el fondo del JDesktopPane
-    /*private void establecerFondo(String rutaImagen) {
-        // Obtenemos las dimensiones del JDesktopPane
-        int anchoDesktop = jDPPrograma.getWidth();
-        int altoDesktop = jDPPrograma.getHeight();
 
-        // Verificamos que las dimensiones sean válidas y mayor a 0
-        if (anchoDesktop > 0 && altoDesktop > 0) {
-            // Cargamos la imagen original
-            ImageIcon fondoIcon = new ImageIcon(this.getClass().getResource(rutaImagen));
-            Image fondoImageOriginal = fondoIcon.getImage();
-
-            // Redimensionamos la imagen para que se ajuste al tamaño del JDesktopPane
-            Image fondoImageRedimensionado = fondoImageOriginal.getScaledInstance(anchoDesktop, altoDesktop, Image.SCALE_SMOOTH);
-
-            // Creamos un nuevo ImageIcon con la imagen redimensionada
-            ImageIcon fondoIconRedimensionado = new ImageIcon(fondoImageRedimensionado);
-
-            // Creamos un JLabel con el ImageIcon redimensionado como fondo
-            JLabel fondoLabel = new JLabel(fondoIconRedimensionado);
-
-            // Establecemos el tamaño del JLabel para que coincida con el JDesktopPane
-            fondoLabel.setBounds(0, 0, anchoDesktop, altoDesktop);
-
-            // Añadimos el JLabel como fondo
-            jDPPrograma.add(fondoLabel, Integer.valueOf(Integer.MIN_VALUE)); // Colocamos el JLabel en el fondo
-            jDPPrograma.setOpaque(false); // Establecemos el JDesktopPane como no opaco
-        } else {
-            JOptionPane.showMessageDialog(this, "Las dimensiones del JDesktopPane no son válidas.");
-        }
-    }*/
 }
