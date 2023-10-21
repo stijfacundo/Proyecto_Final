@@ -87,10 +87,10 @@
                           <Component id="jS1" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPCrearHuesped" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPModificarHuesped" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPEliminarHuesped" alignment="0" pref="186" max="32767" attributes="0"/>
+                          <Component id="jPEliminarHuesped" alignment="0" pref="187" max="32767" attributes="0"/>
                           <Component id="jPHuesped" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPCopyright" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPModificarReserva" alignment="0" pref="186" max="32767" attributes="0"/>
+                          <Component id="jPModificarReserva" alignment="0" pref="187" max="32767" attributes="0"/>
                           <Component id="jPCrearReserva" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPReserva" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPListarReserva" alignment="1" max="32767" attributes="0"/>
@@ -98,9 +98,9 @@
                           <Component id="jPCrearHabitacion" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPModificarHabitacion" alignment="0" max="32767" attributes="0"/>
                           <Component id="jS2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPTHabitacion" alignment="0" pref="186" max="32767" attributes="0"/>
+                          <Component id="jPTHabitacion" alignment="0" pref="187" max="32767" attributes="0"/>
                           <Component id="jPCrearTHabitacion" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPModificarTHabitacion" alignment="0" pref="186" max="32767" attributes="0"/>
+                          <Component id="jPModificarTHabitacion" alignment="0" pref="187" max="32767" attributes="0"/>
                           <Component id="jS3" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPUsuario" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -147,7 +147,7 @@
                       <Component id="jPModificarReserva" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPListarReserva" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="33" max="32767" attributes="0"/>
+                      <EmptySpace pref="829" max="32767" attributes="0"/>
                       <Component id="jPCopyright" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -164,20 +164,20 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLNombreUsuario" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jLNombreUsuario" alignment="1" pref="187" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="15" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLNombreUsuario" min="-2" pref="20" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       </Group>
@@ -203,7 +203,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Recursos/imagenPerfil.png"/>
