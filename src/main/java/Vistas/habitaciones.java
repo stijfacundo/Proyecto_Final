@@ -79,9 +79,6 @@ public class habitaciones extends javax.swing.JInternalFrame {
                                 .addGap(199, 199, 199)
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(223, 223, 223)
-                                .addComponent(jbGuardar))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(171, 171, 171)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -91,6 +88,10 @@ public class habitaciones extends javax.swing.JInternalFrame {
                                     .addComponent(jbAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(249, 249, 249)
+                .addComponent(jbGuardar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

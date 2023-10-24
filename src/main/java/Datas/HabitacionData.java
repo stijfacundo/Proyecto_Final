@@ -2,11 +2,14 @@ package Datas;
 
 import Entidades.Habitacion;
 import Entidades.TipoHabitacion;
+import Vistas.habitaciones;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HabitacionData {
 
@@ -23,7 +26,7 @@ public class HabitacionData {
         try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, habitacion.getNroHabitacion());
             ps.setInt(2, habitacion.getPiso());
-            ps.setBoolean(3, habitacion.isOcupada());
+            ps.setBoolean(3, habitacion.isEstado());
             ps.setString(4, habitacion.getcodigoTipoHabitacion());
             ps.executeUpdate();
 
@@ -123,5 +126,22 @@ public class HabitacionData {
     }
     
     
-    
+ public List<Habitacion> listarHabitacion() throws SQLException {
+        // Buscamos todas las materias de  la tabla 'materia'
+        String sql = "SELECT codigo_tipo_habitacion FROM habitacion";
+        ArrayList<Habitacion> habitaciones = new ArrayList<>();
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+
+            // Guardamos las materias en la lista Materia
+            while (rs.next()) {
+                Habitacion habitacion = new Habitacion();
+                
+                habitacion.setcodigoTipoHabitacion(rs.getString("codigo_tipo_habitacion"));
+                
+                habitaciones.add(habitacion);
+            }
+        }
+        return habitaciones;
+    }   
 }
