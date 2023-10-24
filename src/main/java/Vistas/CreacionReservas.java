@@ -1,9 +1,44 @@
 package Vistas;
 
+import Datas.ReservaData;
+import Entidades.Habitacion;
+import Entidades.Huesped;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
+
 public class CreacionReservas extends javax.swing.JInternalFrame {
+
+    private ReservaData reservaData;
+    private double costoTotal = 0.0;
+    private LocalDate fechaIngreso;
+    private LocalDate fechaEgreso;
+
+    // Obtenemos la fecha actual para configurar la fecha mínima de los JDateChooser
+    Calendar cal = Calendar.getInstance();
+    Date fechaActual = cal.getTime();
 
     public CreacionReservas() {
         initComponents();
+
+        // Establecemos el JInternalFrame sin bordes y cabecera
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI bui = (BasicInternalFrameUI) this.getUI();
+        bui.setNorthPane(null);
+
+        // Inicializamos las instancias necesarias
+        reservaData = new ReservaData();
+
+        // Establecemos el dollar renderer en la columna del costo por noche
+        DefaultTableModel modelo = (DefaultTableModel) jtHabitaciones.getModel();
+        jtHabitaciones.setDefaultRenderer(Object.class, new DollarRenderer());
     }
 
     @SuppressWarnings("unchecked")
@@ -35,31 +70,37 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlCostoTotal = new javax.swing.JLabel();
         jlCostoTotalNro = new javax.swing.JLabel();
         jbRealizarReserva = new javax.swing.JButton();
+        jbLimpiar = new javax.swing.JButton();
         jlCreacionReservas = new javax.swing.JLabel();
         jlDescripcionCreacionReservas = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jlDocumentoCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlDocumentoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlDocumentoCliente.setText("Documento del cliente");
 
-        jtfDocumentoCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jtfDocumentoCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfDocumentoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfDocumentoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfDocumentoCliente.setBorder(null);
-        jtfDocumentoCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfDocumentoClienteActionPerformed(evt);
+        jtfDocumentoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfDocumentoClienteKeyTyped(evt);
             }
         });
 
-        jbBuscarCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jbBuscarCliente.setBackground(new java.awt.Color(230, 232, 235));
         jbBuscarCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jbBuscarCliente.setForeground(new java.awt.Color(23, 23, 23));
         jbBuscarCliente.setText("Buscar");
+        jbBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarClienteActionPerformed(evt);
+            }
+        });
 
         jlNombreCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlNombreCliente.setForeground(new java.awt.Color(23, 23, 23));
@@ -69,23 +110,23 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlApellidoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlApellidoCliente.setText("Apellido");
 
-        jtfNombreCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jtfNombreCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfNombreCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfNombreCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfNombreCliente.setBorder(null);
-        jtfNombreCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfNombreClienteActionPerformed(evt);
+        jtfNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfNombreClienteKeyTyped(evt);
             }
         });
 
-        jtfApellidoCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jtfApellidoCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfApellidoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfApellidoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfApellidoCliente.setBorder(null);
-        jtfApellidoCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfApellidoClienteActionPerformed(evt);
+        jtfApellidoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfApellidoClienteKeyTyped(evt);
             }
         });
 
@@ -93,13 +134,13 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlDomicilioCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlDomicilioCliente.setText("Domicilio");
 
-        jtfDomicilioCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jtfDomicilioCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfDomicilioCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfDomicilioCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfDomicilioCliente.setBorder(null);
-        jtfDomicilioCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfDomicilioClienteActionPerformed(evt);
+        jtfDomicilioCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfDomicilioClienteKeyTyped(evt);
             }
         });
 
@@ -107,13 +148,13 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlCorreoElectronicoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlCorreoElectronicoCliente.setText("Correo electrónico");
 
-        jtfCorreoElectronicoCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jtfCorreoElectronicoCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfCorreoElectronicoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfCorreoElectronicoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfCorreoElectronicoCliente.setBorder(null);
-        jtfCorreoElectronicoCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfCorreoElectronicoClienteActionPerformed(evt);
+        jtfCorreoElectronicoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfCorreoElectronicoClienteKeyTyped(evt);
             }
         });
 
@@ -121,13 +162,13 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlCelularCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlCelularCliente.setText("Celular / Teléfono");
 
-        jtfCelularCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jtfCelularCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfCelularCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfCelularCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfCelularCliente.setBorder(null);
-        jtfCelularCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfCelularClienteActionPerformed(evt);
+        jtfCelularCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfCelularClienteKeyTyped(evt);
             }
         });
 
@@ -152,9 +193,9 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
                             .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtfNombreCliente, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtfApellidoCliente, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbBuscarCliente)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +205,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(jlNombreCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -188,15 +229,27 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jdcFechaIngreso.setBackground(new java.awt.Color(229, 229, 229));
+        jdcFechaIngreso.setBackground(new java.awt.Color(230, 232, 235));
         jdcFechaIngreso.setForeground(new java.awt.Color(23, 23, 23));
         jdcFechaIngreso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jdcFechaIngreso.setMinSelectableDate(fechaActual);
+        jdcFechaIngreso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdcFechaIngresoPropertyChange(evt);
+            }
+        });
 
-        jdcFechaEgreso.setBackground(new java.awt.Color(229, 229, 229));
+        jdcFechaEgreso.setBackground(new java.awt.Color(230, 232, 235));
         jdcFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
         jdcFechaEgreso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jdcFechaEgreso.setMinSelectableDate(fechaActual);
+        jdcFechaEgreso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdcFechaEgresoPropertyChange(evt);
+            }
+        });
 
         jlFechaIngreso.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlFechaIngreso.setForeground(new java.awt.Color(23, 23, 23));
@@ -206,7 +259,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
         jlFechaEgreso.setText("Fecha de egreso");
 
-        jtHabitaciones.setBackground(new java.awt.Color(229, 229, 229));
+        jtHabitaciones.setBackground(new java.awt.Color(230, 232, 235));
         jtHabitaciones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtHabitaciones.setForeground(new java.awt.Color(23, 23, 23));
         jtHabitaciones.setModel(new javax.swing.table.DefaultTableModel(
@@ -214,11 +267,11 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Nro.", "Piso", "Estado", "Tipo", "Capacidad", "Costo por noche"
+                "Nro.", "Piso", "Tipo", "Capacidad", "Costo por noche"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -229,22 +282,26 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jtHabitaciones.setRowHeight(25);
         jtHabitaciones.setSelectionBackground(new java.awt.Color(52, 52, 52));
         jtHabitaciones.setSelectionForeground(new java.awt.Color(229, 229, 229));
+        jtHabitaciones.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtHabitaciones.setShowGrid(true);
         jtHabitaciones.getTableHeader().setResizingAllowed(false);
         jtHabitaciones.getTableHeader().setReorderingAllowed(false);
+        jtHabitaciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtHabitacionesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtHabitaciones);
         if (jtHabitaciones.getColumnModel().getColumnCount() > 0) {
             jtHabitaciones.getColumnModel().getColumn(0).setResizable(false);
-            jtHabitaciones.getColumnModel().getColumn(0).setPreferredWidth(25);
+            jtHabitaciones.getColumnModel().getColumn(0).setPreferredWidth(10);
             jtHabitaciones.getColumnModel().getColumn(1).setResizable(false);
-            jtHabitaciones.getColumnModel().getColumn(1).setPreferredWidth(25);
+            jtHabitaciones.getColumnModel().getColumn(1).setPreferredWidth(10);
             jtHabitaciones.getColumnModel().getColumn(2).setResizable(false);
             jtHabitaciones.getColumnModel().getColumn(2).setPreferredWidth(50);
             jtHabitaciones.getColumnModel().getColumn(3).setResizable(false);
-            jtHabitaciones.getColumnModel().getColumn(3).setPreferredWidth(50);
+            jtHabitaciones.getColumnModel().getColumn(3).setPreferredWidth(10);
             jtHabitaciones.getColumnModel().getColumn(4).setResizable(false);
-            jtHabitaciones.getColumnModel().getColumn(4).setPreferredWidth(25);
-            jtHabitaciones.getColumnModel().getColumn(5).setResizable(false);
         }
 
         jlCostoTotal.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -256,10 +313,25 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlCostoTotalNro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlCostoTotalNro.setText("$0");
 
-        jbRealizarReserva.setBackground(new java.awt.Color(229, 229, 229));
+        jbRealizarReserva.setBackground(new java.awt.Color(230, 232, 235));
         jbRealizarReserva.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jbRealizarReserva.setForeground(new java.awt.Color(23, 23, 23));
         jbRealizarReserva.setText("Realizar la reserva");
+        jbRealizarReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRealizarReservaActionPerformed(evt);
+            }
+        });
+
+        jbLimpiar.setBackground(new java.awt.Color(230, 232, 235));
+        jbLimpiar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jbLimpiar.setForeground(new java.awt.Color(23, 23, 23));
+        jbLimpiar.setText("Limpiar");
+        jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -267,12 +339,17 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(156, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jlCostoTotal)
+                        .addGap(266, 266, 266))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jbLimpiar)
+                        .addGap(52, 52, 52)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jdcFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -280,33 +357,33 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
                                 .addGap(25, 25, 25)))
                         .addGap(50, 50, 50)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jdcFechaEgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(23, 23, 23)
-                                .addComponent(jlFechaEgreso)))
-                        .addGap(142, 142, 142))
+                                .addComponent(jlFechaEgreso))
+                            .addComponent(jdcFechaEgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(74, 74, 74))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jlCostoTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jlCostoTotalNro, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jbRealizarReserva))
-                        .addGap(240, 240, 240))))
+                            .addComponent(jbRealizarReserva)
+                            .addComponent(jlCostoTotalNro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(237, 237, 237))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jlFechaIngreso)
+                                .addComponent(jlFechaEgreso))
+                            .addGap(5, 5, 5)
+                            .addComponent(jdcFechaEgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jdcFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlFechaIngreso)
-                            .addComponent(jlFechaEgreso))
-                        .addGap(5, 5, 5)
-                        .addComponent(jdcFechaEgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jdcFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25)
+                        .addComponent(jbLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -315,7 +392,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
                 .addComponent(jlCostoTotalNro, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbRealizarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jlCreacionReservas.setFont(new java.awt.Font("Segoe UI Semibold", 0, 20)); // NOI18N
@@ -370,29 +447,171 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtfDocumentoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfDocumentoClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfDocumentoClienteActionPerformed
+    private void jbBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarClienteActionPerformed
+        String documento = jtfDocumentoCliente.getText();
+        if (!esNumeroValido(documento)) {
+            JOptionPane.showMessageDialog(this, "El documento debe contener solo números.");
+            return; // Detiene la ejecución
+        }
 
-    private void jtfNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNombreClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfNombreClienteActionPerformed
+        buscarCliente();
+    }//GEN-LAST:event_jbBuscarClienteActionPerformed
 
-    private void jtfApellidoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfApellidoClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfApellidoClienteActionPerformed
+    private void jdcFechaIngresoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdcFechaIngresoPropertyChange
+        if ("date".equals(evt.getPropertyName())) {
+            cargarHabitacionesDisponibles();
+        }
+    }//GEN-LAST:event_jdcFechaIngresoPropertyChange
 
-    private void jtfDomicilioClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfDomicilioClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfDomicilioClienteActionPerformed
+    private void jdcFechaEgresoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdcFechaEgresoPropertyChange
+        if ("date".equals(evt.getPropertyName())) {
+            cargarHabitacionesDisponibles();
+        }
+    }//GEN-LAST:event_jdcFechaEgresoPropertyChange
 
-    private void jtfCorreoElectronicoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCorreoElectronicoClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfCorreoElectronicoClienteActionPerformed
+    private void jtHabitacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtHabitacionesMouseClicked
+        int fila = jtHabitaciones.getSelectedRow();
+        if (fila != -1) {
+            // Obtenemos el costo por noche y las fechas de ingreso y egreso
+            double costoPorNoche = (Double) jtHabitaciones.getValueAt(fila, 4);
+            fechaIngreso = jdcFechaIngreso.getDate().toInstant()
+                    .atZone(ZoneId.systemDefault()).toLocalDate();
+            fechaEgreso = jdcFechaEgreso.getDate().toInstant()
+                    .atZone(ZoneId.systemDefault()).toLocalDate();
 
-    private void jtfCelularClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCelularClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfCelularClienteActionPerformed
+            // Calculamos la diferencia en días
+            long días = ChronoUnit.DAYS.between(fechaIngreso, fechaEgreso);
+
+            // Calculamos el costo total
+            costoTotal = costoPorNoche * días;
+
+            // Actualizamos el label jlCostoTotalNro
+            jlCostoTotalNro.setText("$" + String.format("%.2f", costoTotal));
+        }
+    }//GEN-LAST:event_jtHabitacionesMouseClicked
+
+    private void jbRealizarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRealizarReservaActionPerformed
+        try {
+            if (jtfDocumentoCliente.getText().isEmpty() || jtfNombreCliente.getText().isEmpty()
+                    || jtfApellidoCliente.getText().isEmpty() || jtfDomicilioCliente.getText().isEmpty()
+                    || jtfCorreoElectronicoCliente.getText().isEmpty() || jtfCelularCliente.getText().isEmpty()
+                    || jdcFechaIngreso.getDate() == null || jdcFechaEgreso.getDate() == null
+                    || jtHabitaciones.getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(this, "Por favor, completa todos los "
+                        + "campos antes de realizar la reserva.");
+                return;
+            }
+
+            String nombre = jtfNombreCliente.getText();
+            String apellido = jtfApellidoCliente.getText();
+            int dni = Integer.parseInt(jtfDocumentoCliente.getText());
+            String domicilio = jtfDomicilioCliente.getText();
+            String correo = jtfCorreoElectronicoCliente.getText();
+            String celular = jtfCelularCliente.getText();
+
+            if (!esTextoValido(nombre)) {
+                JOptionPane.showMessageDialog(this, "El nombre debe contener solo letras y espacios.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esTextoValido(apellido)) {
+                JOptionPane.showMessageDialog(this, "El apellido debe contener solo letras y espacios.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esNumeroValido(jtfDocumentoCliente.getText())) {
+                JOptionPane.showMessageDialog(this, "El documento debe contener solo números.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esTextoNumerosSimbolosValido(domicilio)) {
+                JOptionPane.showMessageDialog(this, "El domicilio debe contener letras, números y símbolos.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esTextoNumerosSimbolosValido(correo)) {
+                JOptionPane.showMessageDialog(this, "El correo electrónico debe contener letras, números y símbolos.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esNumeroValido(celular)) {
+                JOptionPane.showMessageDialog(this, "El número de celular debe contener solo números.");
+                return; // Detiene la ejecución
+            }
+
+            int filaSeleccionada = jtHabitaciones.getSelectedRow();
+            int numeroHabitacion = (Integer) jtHabitaciones.getValueAt(filaSeleccionada, 0);
+
+            String costoTotalStr = jlCostoTotalNro.getText().replace("$", ""); // Eliminamos el símbolo $ para poder convertir a double
+            double monto = Double.parseDouble(costoTotalStr);
+
+            fechaIngreso = jdcFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            fechaEgreso = jdcFechaEgreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            try {
+                boolean reservaExitosa = reservaData.realizarReserva(nombre, apellido, dni, domicilio, correo, celular, numeroHabitacion, monto, fechaIngreso, fechaEgreso);
+
+                if (reservaExitosa) {
+                    JOptionPane.showMessageDialog(this, "Reserva creada con éxito.");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error al crear la reserva.");
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+            }
+
+            // Limpiamos los campos tras realizar la reserva
+            limpiarCampos();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Ingrese un valor numérico correcto: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_jbRealizarReservaActionPerformed
+
+    private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
+        limpiarCampos();
+    }//GEN-LAST:event_jbLimpiarActionPerformed
+
+    private void jtfDocumentoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfDocumentoClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume los caracteres no numéricos
+        }
+    }//GEN-LAST:event_jtfDocumentoClienteKeyTyped
+
+    private void jtfNombreClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfNombreClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume(); // Consume los caracteres no alfabéticos
+        }
+    }//GEN-LAST:event_jtfNombreClienteKeyTyped
+
+    private void jtfApellidoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfApellidoClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume(); // Consume los caracteres no alfabéticos
+        }
+    }//GEN-LAST:event_jtfApellidoClienteKeyTyped
+
+    private void jtfDomicilioClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfDomicilioClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetterOrDigit(c) && !Character.isDefined(c)) {
+            evt.consume(); // Consume los caracteres no permitidos
+        }
+    }//GEN-LAST:event_jtfDomicilioClienteKeyTyped
+
+    private void jtfCorreoElectronicoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCorreoElectronicoClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetterOrDigit(c) && !Character.isDefined(c)) {
+            evt.consume(); // Consume los caracteres no permitidos
+        }
+    }//GEN-LAST:event_jtfCorreoElectronicoClienteKeyTyped
+
+    private void jtfCelularClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCelularClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume los caracteres no numéricos
+        }
+    }//GEN-LAST:event_jtfCelularClienteKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -401,6 +620,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbBuscarCliente;
+    private javax.swing.JButton jbLimpiar;
     private javax.swing.JButton jbRealizarReserva;
     private com.toedter.calendar.JDateChooser jdcFechaEgreso;
     private com.toedter.calendar.JDateChooser jdcFechaIngreso;
@@ -424,4 +644,99 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtfDomicilioCliente;
     private javax.swing.JTextField jtfNombreCliente;
     // End of variables declaration//GEN-END:variables
+
+    private void buscarCliente() {
+        try {
+            // Obtenemos el DNI ingresado en el campo jtfDocumentoCliente
+            int dni = Integer.parseInt(jtfDocumentoCliente.getText());
+
+            // Llamamos al método buscarHuespedPorDNI para obtener el cliente
+            Huesped huesped = reservaData.buscarHuespedPorDNI(dni);
+
+            if (huesped != null) {
+                // Cargamos los datos obtenidos en los respectivos campos
+                jtfNombreCliente.setText(huesped.getNombre());
+                jtfApellidoCliente.setText(huesped.getApellido());
+                jtfDomicilioCliente.setText(huesped.getDomicilio());
+                jtfCorreoElectronicoCliente.setText(huesped.getCorreo());
+                jtfCelularCliente.setText(huesped.getCelular());
+            } else {
+                JOptionPane.showMessageDialog(this,
+                        "El cliente no existe en la base de datos, ingresa "
+                        + "sus datos para crear la reserva.");
+                // Dejamos que el usuario ingrese los datos del cliente de forma manual
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error al buscar el "
+                    + "cliente en la base de datos: " + ex.getMessage());
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Ingrese datos válidos para el DNI: " + ex.getMessage());
+        }
+    }
+
+    private void cargarHabitacionesDisponibles() {
+        // Obtenemos las fechas de ingreso y egreso seleccionadas
+        Date fechaIngresoDate = jdcFechaIngreso.getDate();
+        Date fechaEgresoDate = jdcFechaEgreso.getDate();
+
+        // Si las dos fechas no están seleccionadas, no se muestra nada
+        if (fechaIngresoDate == null || fechaEgresoDate == null) {
+            return;
+        }
+
+        // Convertimos las fechas a LocalDate
+        fechaIngreso = new java.sql.Date(fechaIngresoDate.getTime()).toLocalDate();
+        fechaEgreso = new java.sql.Date(fechaEgresoDate.getTime()).toLocalDate();
+
+        try {
+            // Llamamos al método buscarHabitacionesLibres para obtener las habitaciones disponibles
+            List<Habitacion> habitacionesLibres = reservaData.
+                    buscarHabitacionesLibres(fechaIngreso, fechaEgreso);
+
+            // Limpiamos la tabla antes de cargar los nuevos datos
+            DefaultTableModel modelo = (DefaultTableModel) jtHabitaciones.getModel();
+            modelo.setRowCount(0);
+
+            // Llenamos la tabla con las habitaciones disponibles
+            for (Habitacion habitacion : habitacionesLibres) {
+                Object[] infoFila = {habitacion.getNroHabitacion(), habitacion.getPiso(),
+                    habitacion.getNombreTipoHabitacion(), habitacion.getCapacidadMaxima(),
+                    habitacion.getPrecioPorNoche()};
+                modelo.addRow(infoFila);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error al cargar las "
+                    + "habitaciones disponibles: " + ex.getMessage());
+        }
+    }
+
+    private void limpiarCampos() {
+        jtfDocumentoCliente.setText("");
+        jtfNombreCliente.setText("");
+        jtfApellidoCliente.setText("");
+        jtfDomicilioCliente.setText("");
+        jtfCorreoElectronicoCliente.setText("");
+        jtfCelularCliente.setText("");
+        jdcFechaIngreso.setDate(null);
+        jdcFechaEgreso.setDate(null);
+
+        DefaultTableModel modelo = (DefaultTableModel) jtHabitaciones.getModel();
+        modelo.setRowCount(0);
+
+        jlCostoTotalNro.setText("$0");
+    }
+
+    private boolean esNumeroValido(String texto) {
+        return texto.matches("\\d+"); // Acepta solo números
+    }
+
+    private boolean esTextoValido(String texto) {
+        return texto.matches("^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+$"); // Acepta solo letras y espacios
+    }
+
+    private boolean esTextoNumerosSimbolosValido(String texto) {
+        return texto.matches("^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9\\s\\p{Punct}]+$"); // Acepta letras, números y símbolos
+    }
 }
