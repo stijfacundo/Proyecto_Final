@@ -1,6 +1,5 @@
 package Vistas;
 
-import Datas.HuespedData;
 import Datas.ReservaData;
 import Entidades.Habitacion;
 import Entidades.Huesped;
@@ -8,25 +7,38 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 public class CreacionReservas extends javax.swing.JInternalFrame {
 
     private ReservaData reservaData;
     private double costoTotal = 0.0;
-    private HuespedData huespedData;
     private LocalDate fechaIngreso;
     private LocalDate fechaEgreso;
+
+    // Obtenemos la fecha actual para configurar la fecha mínima de los JDateChooser
+    Calendar cal = Calendar.getInstance();
+    Date fechaActual = cal.getTime();
 
     public CreacionReservas() {
         initComponents();
 
+        // Establecemos el JInternalFrame sin bordes y cabecera
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI bui = (BasicInternalFrameUI) this.getUI();
+        bui.setNorthPane(null);
+
         // Inicializamos las instancias necesarias
         reservaData = new ReservaData();
-        huespedData = new HuespedData();
+
+        // Establecemos el dollar renderer en la columna del costo por noche
+        DefaultTableModel modelo = (DefaultTableModel) jtHabitaciones.getModel();
+        jtHabitaciones.setDefaultRenderer(Object.class, new DollarRenderer());
     }
 
     @SuppressWarnings("unchecked")
@@ -62,20 +74,25 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlCreacionReservas = new javax.swing.JLabel();
         jlDescripcionCreacionReservas = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jlDocumentoCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlDocumentoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlDocumentoCliente.setText("Documento del cliente");
 
-        jtfDocumentoCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jtfDocumentoCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfDocumentoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfDocumentoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfDocumentoCliente.setBorder(null);
+        jtfDocumentoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfDocumentoClienteKeyTyped(evt);
+            }
+        });
 
-        jbBuscarCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jbBuscarCliente.setBackground(new java.awt.Color(230, 232, 235));
         jbBuscarCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jbBuscarCliente.setForeground(new java.awt.Color(23, 23, 23));
         jbBuscarCliente.setText("Buscar");
@@ -93,42 +110,67 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlApellidoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlApellidoCliente.setText("Apellido");
 
-        jtfNombreCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jtfNombreCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfNombreCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfNombreCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfNombreCliente.setBorder(null);
+        jtfNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfNombreClienteKeyTyped(evt);
+            }
+        });
 
-        jtfApellidoCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jtfApellidoCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfApellidoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfApellidoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfApellidoCliente.setBorder(null);
+        jtfApellidoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfApellidoClienteKeyTyped(evt);
+            }
+        });
 
         jlDomicilioCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlDomicilioCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlDomicilioCliente.setText("Domicilio");
 
-        jtfDomicilioCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jtfDomicilioCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfDomicilioCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfDomicilioCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfDomicilioCliente.setBorder(null);
+        jtfDomicilioCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfDomicilioClienteKeyTyped(evt);
+            }
+        });
 
         jlCorreoElectronicoCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlCorreoElectronicoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlCorreoElectronicoCliente.setText("Correo electrónico");
 
-        jtfCorreoElectronicoCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jtfCorreoElectronicoCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfCorreoElectronicoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfCorreoElectronicoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfCorreoElectronicoCliente.setBorder(null);
+        jtfCorreoElectronicoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfCorreoElectronicoClienteKeyTyped(evt);
+            }
+        });
 
         jlCelularCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlCelularCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlCelularCliente.setText("Celular / Teléfono");
 
-        jtfCelularCliente.setBackground(new java.awt.Color(229, 229, 229));
+        jtfCelularCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfCelularCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfCelularCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfCelularCliente.setBorder(null);
+        jtfCelularCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfCelularClienteKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -187,20 +229,22 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jdcFechaIngreso.setBackground(new java.awt.Color(229, 229, 229));
+        jdcFechaIngreso.setBackground(new java.awt.Color(230, 232, 235));
         jdcFechaIngreso.setForeground(new java.awt.Color(23, 23, 23));
         jdcFechaIngreso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jdcFechaIngreso.setMinSelectableDate(fechaActual);
         jdcFechaIngreso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jdcFechaIngresoPropertyChange(evt);
             }
         });
 
-        jdcFechaEgreso.setBackground(new java.awt.Color(229, 229, 229));
+        jdcFechaEgreso.setBackground(new java.awt.Color(230, 232, 235));
         jdcFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
         jdcFechaEgreso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jdcFechaEgreso.setMinSelectableDate(fechaActual);
         jdcFechaEgreso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jdcFechaEgresoPropertyChange(evt);
@@ -215,7 +259,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
         jlFechaEgreso.setText("Fecha de egreso");
 
-        jtHabitaciones.setBackground(new java.awt.Color(229, 229, 229));
+        jtHabitaciones.setBackground(new java.awt.Color(230, 232, 235));
         jtHabitaciones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtHabitaciones.setForeground(new java.awt.Color(23, 23, 23));
         jtHabitaciones.setModel(new javax.swing.table.DefaultTableModel(
@@ -238,6 +282,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jtHabitaciones.setRowHeight(25);
         jtHabitaciones.setSelectionBackground(new java.awt.Color(52, 52, 52));
         jtHabitaciones.setSelectionForeground(new java.awt.Color(229, 229, 229));
+        jtHabitaciones.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtHabitaciones.setShowGrid(true);
         jtHabitaciones.getTableHeader().setResizingAllowed(false);
         jtHabitaciones.getTableHeader().setReorderingAllowed(false);
@@ -268,7 +313,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlCostoTotalNro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlCostoTotalNro.setText("$0");
 
-        jbRealizarReserva.setBackground(new java.awt.Color(229, 229, 229));
+        jbRealizarReserva.setBackground(new java.awt.Color(230, 232, 235));
         jbRealizarReserva.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jbRealizarReserva.setForeground(new java.awt.Color(23, 23, 23));
         jbRealizarReserva.setText("Realizar la reserva");
@@ -278,7 +323,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        jbLimpiar.setBackground(new java.awt.Color(229, 229, 229));
+        jbLimpiar.setBackground(new java.awt.Color(230, 232, 235));
         jbLimpiar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jbLimpiar.setForeground(new java.awt.Color(23, 23, 23));
         jbLimpiar.setText("Limpiar campos");
@@ -402,6 +447,12 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarClienteActionPerformed
+        String documento = jtfDocumentoCliente.getText();
+        if (!esNumeroValido(documento)) {
+            JOptionPane.showMessageDialog(this, "El documento debe contener solo números.");
+            return; // Detiene la ejecución
+        }
+
         buscarCliente();
     }//GEN-LAST:event_jbBuscarClienteActionPerformed
 
@@ -439,51 +490,127 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtHabitacionesMouseClicked
 
     private void jbRealizarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRealizarReservaActionPerformed
-        if (jtfDocumentoCliente.getText().isEmpty() || jtfNombreCliente.getText().isEmpty()
-                || jtfApellidoCliente.getText().isEmpty() || jtfDomicilioCliente.getText().isEmpty()
-                || jtfCorreoElectronicoCliente.getText().isEmpty() || jtfCelularCliente.getText().isEmpty()
-                || jdcFechaIngreso.getDate() == null || jdcFechaEgreso.getDate() == null
-                || jtHabitaciones.getSelectedRow() == -1) {
-            JOptionPane.showMessageDialog(this, "Por favor, completa todos los "
-                    + "campos antes de realizar la reserva.");
-            return;
-        }
-
-        String nombre = jtfNombreCliente.getText();
-        String apellido = jtfApellidoCliente.getText();
-        int dni = Integer.parseInt(jtfDocumentoCliente.getText());
-        String domicilio = jtfDomicilioCliente.getText();
-        String correo = jtfCorreoElectronicoCliente.getText();
-        String celular = jtfCelularCliente.getText();
-
-        int filaSeleccionada = jtHabitaciones.getSelectedRow();
-        int numeroHabitacion = (Integer) jtHabitaciones.getValueAt(filaSeleccionada, 0);
-
-        String costoTotalStr = jlCostoTotalNro.getText().replace("$", ""); // Eliminamos el símbolo $ para poder convertir a double
-        double monto = Double.parseDouble(costoTotalStr);
-
-        fechaIngreso = jdcFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        fechaEgreso = jdcFechaEgreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
         try {
-            boolean reservaExitosa = reservaData.realizarReserva(nombre, apellido, dni, domicilio, correo, celular, numeroHabitacion, monto, fechaIngreso, fechaEgreso);
-
-            if (reservaExitosa) {
-                JOptionPane.showMessageDialog(this, "Reserva creada con éxito.");
-            } else {
-                JOptionPane.showMessageDialog(this, "Error al crear la reserva.");
+            if (jtfDocumentoCliente.getText().isEmpty() || jtfNombreCliente.getText().isEmpty()
+                    || jtfApellidoCliente.getText().isEmpty() || jtfDomicilioCliente.getText().isEmpty()
+                    || jtfCorreoElectronicoCliente.getText().isEmpty() || jtfCelularCliente.getText().isEmpty()
+                    || jdcFechaIngreso.getDate() == null || jdcFechaEgreso.getDate() == null
+                    || jtHabitaciones.getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(this, "Por favor, completa todos los "
+                        + "campos antes de realizar la reserva.");
+                return;
             }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
-        }
 
-        // Limpiamos los campos tras realizar la reserva
-        limpiarCampos();
+            String nombre = jtfNombreCliente.getText();
+            String apellido = jtfApellidoCliente.getText();
+            int dni = Integer.parseInt(jtfDocumentoCliente.getText());
+            String domicilio = jtfDomicilioCliente.getText();
+            String correo = jtfCorreoElectronicoCliente.getText();
+            String celular = jtfCelularCliente.getText();
+
+            if (!esTextoValido(nombre)) {
+                JOptionPane.showMessageDialog(this, "El nombre debe contener solo letras y espacios.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esTextoValido(apellido)) {
+                JOptionPane.showMessageDialog(this, "El apellido debe contener solo letras y espacios.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esNumeroValido(jtfDocumentoCliente.getText())) {
+                JOptionPane.showMessageDialog(this, "El documento debe contener solo números.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esTextoNumerosSimbolosValido(domicilio)) {
+                JOptionPane.showMessageDialog(this, "El domicilio debe contener letras, números y símbolos.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esTextoNumerosSimbolosValido(correo)) {
+                JOptionPane.showMessageDialog(this, "El correo electrónico debe contener letras, números y símbolos.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esNumeroValido(celular)) {
+                JOptionPane.showMessageDialog(this, "El número de celular debe contener solo números.");
+                return; // Detiene la ejecución
+            }
+
+            int filaSeleccionada = jtHabitaciones.getSelectedRow();
+            int numeroHabitacion = (Integer) jtHabitaciones.getValueAt(filaSeleccionada, 0);
+
+            String costoTotalStr = jlCostoTotalNro.getText().replace("$", ""); // Eliminamos el símbolo $ para poder convertir a double
+            double monto = Double.parseDouble(costoTotalStr);
+
+            fechaIngreso = jdcFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            fechaEgreso = jdcFechaEgreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            try {
+                boolean reservaExitosa = reservaData.realizarReserva(nombre, apellido, dni, domicilio, correo, celular, numeroHabitacion, monto, fechaIngreso, fechaEgreso);
+
+                if (reservaExitosa) {
+                    JOptionPane.showMessageDialog(this, "Reserva creada con éxito.");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error al crear la reserva.");
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+            }
+
+            // Limpiamos los campos tras realizar la reserva
+            limpiarCampos();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Ingrese un valor numérico correcto: " + ex.getMessage());
+        }
     }//GEN-LAST:event_jbRealizarReservaActionPerformed
 
     private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
         limpiarCampos();
     }//GEN-LAST:event_jbLimpiarActionPerformed
+
+    private void jtfDocumentoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfDocumentoClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume los caracteres no numéricos
+        }
+    }//GEN-LAST:event_jtfDocumentoClienteKeyTyped
+
+    private void jtfNombreClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfNombreClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume(); // Consume los caracteres no alfabéticos
+        }
+    }//GEN-LAST:event_jtfNombreClienteKeyTyped
+
+    private void jtfApellidoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfApellidoClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume(); // Consume los caracteres no alfabéticos
+        }
+    }//GEN-LAST:event_jtfApellidoClienteKeyTyped
+
+    private void jtfDomicilioClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfDomicilioClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetterOrDigit(c) && !Character.isDefined(c)) {
+            evt.consume(); // Consume los caracteres no permitidos
+        }
+    }//GEN-LAST:event_jtfDomicilioClienteKeyTyped
+
+    private void jtfCorreoElectronicoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCorreoElectronicoClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetterOrDigit(c) && !Character.isDefined(c)) {
+            evt.consume(); // Consume los caracteres no permitidos
+        }
+    }//GEN-LAST:event_jtfCorreoElectronicoClienteKeyTyped
+
+    private void jtfCelularClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCelularClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume los caracteres no numéricos
+        }
+    }//GEN-LAST:event_jtfCelularClienteKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -598,5 +725,17 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         modelo.setRowCount(0);
 
         jlCostoTotalNro.setText("$0");
+    }
+
+    private boolean esNumeroValido(String texto) {
+        return texto.matches("\\d+"); // Acepta solo números
+    }
+
+    private boolean esTextoValido(String texto) {
+        return texto.matches("^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+$"); // Acepta solo letras y espacios
+    }
+
+    private boolean esTextoNumerosSimbolosValido(String texto) {
+        return texto.matches("^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9\\s\\p{Punct}]+$"); // Acepta letras, números y símbolos
     }
 }
