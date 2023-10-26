@@ -4,6 +4,13 @@
  */
 package Vistas;
 
+import Datas.TipoHabitacionData;
+import Entidades.TipoHabitacion;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Leandro
@@ -57,8 +64,18 @@ public class AgregarTipoHabitacion extends javax.swing.JInternalFrame {
         jLabel6.setText("PRECIO x NOCHE");
 
         jbCancelar.setText("CANCELAR");
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setText("GUARDAR");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         jtfNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,6 +184,60 @@ public class AgregarTipoHabitacion extends javax.swing.JInternalFrame {
     private void jtfTipoCamasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfTipoCamasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfTipoCamasActionPerformed
+
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        
+        jtfCantPersonas.setText("");
+        jtfCodigo1.setText("");
+        jtfNombre.setText("");
+        jtfPrecio.setText("");
+        jtfTipoCamas.setText("");
+        jtfcantCamas1.setText("");
+        
+    }//GEN-LAST:event_jbCancelarActionPerformed
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        
+        if (!jtfCantPersonas.getText().isEmpty()
+            && jtfCantPersonas.getText().matches("[0-9]*")
+            && !jtfCodigo1.getText().isEmpty()
+            && !jtfNombre.getText().isEmpty()
+            && jtfNombre.getText().matches("^[a-zA-Z\\s]*$")
+            && jtfTipoCamas.getText().matches("^[a-zA-Z\\s]*$")
+            && jtfPrecio.getText().matches("^[a-zA-Z\\s]*$")
+            && jtfPrecio.getText().matches("[0-9]*")
+            && !jtfPrecio.getText().isEmpty()){
+        
+        TipoHabitacionData tipo = new TipoHabitacionData();
+        TipoHabitacion habitacion = new TipoHabitacion();
+        
+        try {
+
+            habitacion.setCodigo(jtfCodigo1.getText());
+            habitacion.setNombre(jtfNombre.getText());
+            habitacion.setCapacidadMaxima(Integer.parseInt(jtfCantPersonas.getText()));
+            habitacion.setCantidadCamas(Integer.parseInt(jtfcantCamas1.getText()));
+            habitacion.setTipoCama(jtfTipoCamas.getText());
+            habitacion.setPrecioPorNoche(Double.parseDouble(jtfPrecio.getText()));
+            
+            tipo.altaTipoHabitacion(habitacion);
+            JOptionPane.showMessageDialog(this, "Alta de Tipo de Habitacion Exitosa");
+             jtfCantPersonas.setText("");
+             jtfCodigo1.setText("");
+             jtfNombre.setText("");
+             jtfPrecio.setText("");
+             jtfTipoCamas.setText("");
+             jtfcantCamas1.setText("");
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,"Error en alta TH" + ex);
+        }
+      }
+        else {
+                JOptionPane.showMessageDialog(this, "Error en validación");
+                }        
+    }//GEN-LAST:event_jbGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

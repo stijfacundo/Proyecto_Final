@@ -4,6 +4,12 @@
  */
 package Vistas;
 
+import Datas.HabitacionData;
+import Entidades.Habitacion;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 
 
 /**
@@ -125,6 +131,12 @@ public class habitaciones extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtfBuscar;
     // End of variables declaration//GEN-END:variables
 
-   
-
+private void cargarTabla () throws SQLException{
+    
+    HabitacionData habitacionData = new HabitacionData();
+    DefaultTableModel modeloTabla = (DefaultTableModel) jtHabitaciones.getModel();
+    
+    habitacionData.buscarHabitacionPorNro(Integer.parseInt(jtfBuscar.getText()));
+    
+}
 }

@@ -176,8 +176,7 @@ public class AgregarHabitacion extends javax.swing.JInternalFrame {
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
 
         jtfNroHabitacion.setText("");
-        jtfPiso.setText("");
-
+        jtfPiso.setText("");       
 
     }//GEN-LAST:event_jbCancelarActionPerformed
 
@@ -191,69 +190,34 @@ public class AgregarHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jrbEstadoActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-
         
         if (!jtfNroHabitacion.getText().isEmpty()
-                && jtfNroHabitacion.getText().matches("[0-9]*")
-                && !jtfPiso.getText().isEmpty()
-                && jtfPiso.getText().matches("[0-9]*")
-                && jrbEstado.isSelected()
-                && jcbCodHab.getSelectedItem().equals("")) {
-
-            HabitacionData habitacionData = new HabitacionData();
-            Habitacion habitacionExistente = null;
-//
-//                try {
-//                    int nroBuscado = Integer.parseInt(jtfNroHabitacion.getText());
-//                    habitacionExistente = habitacionData.buscarHabitacionPorNro(nroBuscado);
-//                } catch (NumberFormatException ex) {
-//                    
-//                    int nroBuscado = Integer.parseInt(jtfNroHabitacion.getText());
-//                try {
-//                    habitacionExistente = habitacionData.buscarHabitacionPorNro(nroBuscado);
-//                } catch (SQLException ex1) {
-//                    JOptionPane.showMessageDialog(this, "Error");
-//                }
-//                } catch (SQLException ex) {
-//                JOptionPane.showMessageDialog(this, "Error 2");
-//            }
-                
-            if (habitacionExistente != null) {
-
-                habitacionExistente.setNroHabitacion(Integer.parseInt(jtfNroHabitacion.getText()));
-                habitacionExistente.setPiso(Integer.parseInt(jtfPiso.getText()));
-                habitacionExistente.setEstado(jrbEstado.isSelected());
-                habitacionExistente.setcodigoTipoHabitacion((String) jcbCodHab.getSelectedItem());
-
-                try {
-                    habitacionData.guardarHabitacion(habitacionExistente);
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(this, "vere");
-                }
-                JOptionPane.showMessageDialog(this, "Habitacion modificada correctamente.");
-                } 
-                    else {
-                 
-                    Habitacion habitacionNueva = new Habitacion();
-                    habitacionNueva.setNroHabitacion(Integer.parseInt(jtfNroHabitacion.getText()));
-                    habitacionNueva.setPiso(Integer.parseInt(jtfPiso.getText()));
-                    habitacionNueva.setEstado(jrbEstado.isSelected());
-                    habitacionNueva.setcodigoTipoHabitacion((String) jcbCodHab.getSelectedItem());
-
+            && jtfNroHabitacion.getText().matches("[0-9]*")
+            && !jtfPiso.getText().isEmpty()
+            && jtfPiso.getText().matches("[0-9]*")){
                     
-                try {
-                    habitacionData.guardarHabitacion(habitacionNueva);
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(this, ex);
-                }
-                    JOptionPane.showMessageDialog(this, "Habitacion guardado exitosamente.");
-                }
-             
-        } else {
-            JOptionPane.showMessageDialog(this, "Los Campos deben estar llenos");
+        HabitacionData nuevaHabitacion = new HabitacionData();
+        Habitacion habitacion = new Habitacion();
+        
+        habitacion.setNroHabitacion(Integer.parseInt(jtfNroHabitacion.getText()));
+        habitacion.setPiso(Integer.parseInt(jtfPiso.getText()));
+        habitacion.setEstado(jrbEstado.isSelected());
+        habitacion.setcodigoTipoHabitacion((String) (jcbCodHab.getSelectedItem()));
+        
+        try {
+            nuevaHabitacion.guardarHabitacion(habitacion);
+            JOptionPane.showMessageDialog(this, "Alta Exitosa");
+            
+            jtfNroHabitacion.setText("");
+            jtfPiso.setText("");
+            
+        
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error al cargar la habitacion");
         }
-
-
+        
+        } 
+       
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -275,7 +239,7 @@ public class AgregarHabitacion extends javax.swing.JInternalFrame {
         try {
 
             List<Habitacion> Habitaciones = new HabitacionData().listarHabitacion();
-            Habitacion habitacionDefault = new Habitacion(-1, -1, false, "");
+            Habitacion habitacionDefault = new Habitacion(-1, -1, false, "Seleccionar Tipo de Habitación");
 
             DefaultComboBoxModel<Habitacion> comboBoxModel = new DefaultComboBoxModel<>();
             comboBoxModel.addElement(habitacionDefault);

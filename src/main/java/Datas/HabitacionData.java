@@ -21,7 +21,7 @@ public class HabitacionData {
 
     public void guardarHabitacion(Habitacion habitacion) throws SQLException {
 
-        String sql = "INSERT INTO habitacion (numero, piso, ocupada, codigo_tipo_habitacion) VALUES (?, ?, ?, ?) ";
+        String sql = "INSERT INTO habitacion (numero, piso, codigo_tipo_habitacion, estado) VALUES (?, ?, ?, ?) ";
 
         try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, habitacion.getNroHabitacion());
@@ -127,13 +127,13 @@ public class HabitacionData {
     
     
  public List<Habitacion> listarHabitacion() throws SQLException {
-        // Buscamos todas las materias de  la tabla 'materia'
+        
         String sql = "SELECT codigo_tipo_habitacion FROM habitacion";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
 
-            // Guardamos las materias en la lista Materia
+            
             while (rs.next()) {
                 Habitacion habitacion = new Habitacion();
                 
@@ -144,4 +144,27 @@ public class HabitacionData {
         }
         return habitaciones;
     }   
+ 
+ public List<Habitacion> listarHabitacionxNro() throws SQLException {
+        
+        String sql = "SELECT numero, piso, ocupada, codigo_tipo_habitacion, estado FROM habitacion h JOIN tipo_habitacion t ON h.codigo_tipo_habitacion = t.codigo;";
+        ArrayList<Habitacion> habitaciones = new ArrayList<>();
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+
+            
+            while (rs.next()) {
+                Habitacion habitacion = new Habitacion();
+                habitacion.setNroHabitacion(rs.getInt("numero"));
+                habitacion.setPiso(rs.getInt("piso"));
+                habitacion.setOcupada(rs.getBoolean("ocupada"));
+                habitacion.setcodigoTipoHabitacion(rs.getString("codigo_tipo_habitacion"));
+                habitacion.setEstado(rs.getBoolean("estado"));
+ 
+                habitaciones.add(habitacion);
+            }
+        }
+        return habitaciones;
+    }   
+ 
 }
