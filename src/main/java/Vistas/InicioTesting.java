@@ -14,7 +14,7 @@ public class InicioTesting extends javax.swing.JFrame {
     private AgregarHabitacion agregarHabitacion;
     private TipoHabitacion tipoHabitacion;
     private AgregarTipoHabitacion agregarTipoHabitacion;
-    private AltaHuesped altaHuesped;
+    private GestionHuesped altaHuesped;
 
     public InicioTesting() {
         initComponents();
@@ -189,7 +189,7 @@ public class InicioTesting extends javax.swing.JFrame {
     private void jmiClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiClientesActionPerformed
         jdpEscritorio.removeAll();
         jdpEscritorio.repaint();
-        altaHuesped = new AltaHuesped();
+        altaHuesped = new GestionHuesped();
 
         // Centramos el JInternalFrame
         centrarInternalFrame(altaHuesped);

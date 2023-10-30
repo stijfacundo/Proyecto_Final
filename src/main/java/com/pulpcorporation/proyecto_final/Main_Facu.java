@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class Main_Facu {
 
     public static void main(String[] args) {
-        try {
+     //   try {
             // Creamos un TipoHabitacion y TipoHabitacionData
 //            TipoHabitacion tipoHabitacion1 = new TipoHabitacion("SE", 
 //                    "Suite Ejecutiva", 4, 2, 
@@ -57,13 +57,13 @@ public class Main_Facu {
             Huesped huesped2 = new Huesped("Facundo", "Stij",
                     40952310, "Av. Alberdi", "stijfacundo@correo.com",
                     "3764928124", true);
-            huespedData.modificarHuesped(huesped2, 40952310);
+    //        huespedData.modificarHuesped(huesped2, 40952310);
             
             // Damos de baja un huesped
 //            huespedData.bajaHuesped(40952310);
 
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error SQL: " + ex.getMessage());
+     //   } catch (SQLException ex) {
+     //       JOptionPane.showMessageDialog(null, "Error SQL: " + ex.getMessage());
         }
     }
-}
+//}

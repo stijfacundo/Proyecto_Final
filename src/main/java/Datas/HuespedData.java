@@ -64,7 +64,7 @@ public class HuespedData {
             ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery();
 
-            // Guardamos en un Huésped los datos obtenidos
+            // Guardamos en un huesped los datos obtenidos
             if (rs.next()) {
                 huesped = new Huesped(
                         rs.getInt("id_huesped"),
@@ -88,7 +88,7 @@ public class HuespedData {
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
 
-            // Guardamos las inscripciones en la lista de inscripciones
+            // Guardamos los huespedes en una lista
             while (rs.next()) {
                 Huesped huesped = new Huesped();
                 huesped.setNombre(rs.getString("nombre"));

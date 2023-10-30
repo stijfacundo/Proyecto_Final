@@ -20,6 +20,7 @@ public class Huesped {
         this.domicilio = domicilio;
         this.correo = correo;
         this.celular = celular;
+
     }
 
     public Huesped(String nombre, String apellido, int dni,
@@ -31,6 +32,9 @@ public class Huesped {
         this.correo = correo;
         this.celular = celular;
         this.estado = estado;
+    }
+
+    public Huesped() {
     }
 
     public Huesped(int idHuesped) {
@@ -109,4 +113,12 @@ public class Huesped {
                 + "estado=" + estado + '}';
     }
 
+    public String getEstado() {
+
+        if (isEstado()) {
+            return "Activo";
+        } else {
+            return "Inactivo";        }
+    }
+;
 }
