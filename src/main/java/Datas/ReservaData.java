@@ -122,38 +122,6 @@ public class ReservaData {
         ps.executeUpdate();
     }
 
-    public Reserva buscarReservaPorHuesped(int dni) throws SQLException {
-        // Buscamos una reserva mediante el DNI del huesped en la tabla 'reserva'
-        String sql = "SELECT id_reserva, dni_huesped, numero_habitacion, fecha_inicio, fecha_fin, monto, estado "
-                + "FROM reserva "
-                + "WHERE dni_huesped = ?";
-        Reserva reserva = null;
-        try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, dni);
-            ResultSet rs = ps.executeQuery();
-
-            // Guardamos en una Reserva los datos obtenidos
-            if (rs.next()) {
-                reserva = new Reserva();
-                reserva.setIdReserva(rs.getInt("id_reserva"));
-                reserva.setDniHuesped(rs.getInt("dni_huesped"));
-                reserva.setNumeroHabitacion(rs.getInt(
-                        "numero_habitacion"));
-                reserva.setFechaInicio(rs.getDate("fecha_inicio")
-                        .toLocalDate());
-                reserva.setFechaFin(rs.getDate("fecha_fin")
-                        .toLocalDate());
-                reserva.setMonto(rs.getDouble("monto"));
-                if (rs.getBoolean("estado") == true) {
-                    reserva.setEstado(true);
-                } else {
-                    reserva.setEstado(false);
-                }
-            }
-        }
-        return reserva;
-    }
-
     // Método adicional para liberar una habitación
     private void liberarHabitacion(int idReserva) throws SQLException {
         String sql = "UPDATE habitaciones SET estado = 0 "
@@ -165,24 +133,77 @@ public class ReservaData {
         }
     }
 
-    public void finReserva(Huesped huesped) throws SQLException {
-        // Primero buscamos la reserva activa del huesped
-        Reserva reserva = buscarReservaPorHuesped(huesped.getDni());
+    public void finReserva(int idReserva) throws SQLException {
+        // Buscamos la reserva por su ID
+        Reserva reserva = buscarReservaPorID(idReserva);
 
         if (reserva != null && reserva.isEstado()) {
             String sql = "UPDATE reserva SET estado = 0 "
                     + "WHERE id_reserva = ?";
             try (PreparedStatement ps = con.prepareStatement(sql)) {
-                ps.setInt(1, reserva.getIdReserva());
+                ps.setInt(1, idReserva);
                 ps.executeUpdate();
             }
         }
 
         // Luego liberamos la habitación asociada a la reserva
-        liberarHabitacion(reserva.getIdReserva());
+        liberarHabitacion(idReserva);
     }
 
-    public Reserva buscarReservaPorFecha(LocalDate fechaEntrada,
+    public List<Reserva> buscarReservasPorHuesped(int dni) throws SQLException {
+        //Creamos una lista para alamacenar las reservas encontradas
+        List<Reserva> reservas = new ArrayList<>();
+
+        // Buscamos una reserva mediante el DNI del huesped en la tabla 'reserva'
+        String sql = "SELECT id_reserva, dni_huesped, numero_habitacion, fecha_inicio, fecha_fin, monto, estado "
+                + "FROM reserva "
+                + "WHERE dni_huesped = ?";
+
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, dni);
+            ResultSet rs = ps.executeQuery();
+
+            // Guardamos en una Reserva los datos obtenidos y luego añadimos esa reserva a la List
+            while (rs.next()) {
+                Reserva reserva = new Reserva();
+                reserva.setIdReserva(rs.getInt("id_reserva"));
+                reserva.setDniHuesped(rs.getInt("dni_huesped"));
+                reserva.setNumeroHabitacion(rs.getInt("numero_habitacion"));
+                reserva.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+                reserva.setFechaFin(rs.getDate("fecha_fin").toLocalDate());
+                reserva.setMonto(rs.getDouble("monto"));
+                reserva.setEstado(rs.getBoolean("estado"));
+
+                reservas.add(reserva);
+            }
+        }
+        return reservas;
+    }
+
+    public Reserva buscarReservaPorID(int idReserva) throws SQLException {
+        String sql = "SELECT id_reserva, dni_huesped, numero_habitacion, fecha_inicio, fecha_fin, monto, estado "
+                + "FROM reserva "
+                + "WHERE id_reserva = ?";
+        Reserva reserva = null;
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, idReserva);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                reserva = new Reserva();
+                reserva.setIdReserva(rs.getInt("id_reserva"));
+                reserva.setDniHuesped(rs.getInt("dni_huesped"));
+                reserva.setNumeroHabitacion(rs.getInt("numero_habitacion"));
+                reserva.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+                reserva.setFechaFin(rs.getDate("fecha_fin").toLocalDate());
+                reserva.setMonto(rs.getDouble("monto"));
+                reserva.setEstado(rs.getBoolean("estado"));
+            }
+        }
+        return reserva;
+    }
+
+    public Reserva buscarReservasPorFecha(LocalDate fechaEntrada,
             LocalDate fechaSalida) throws SQLException {
         // Buscamos una reserva en basea la fecha de entrada y salida en la tabla 'reserva'
         String sql = "SELECT id_reserva, dni_huesped, numero_habitacion, fecha_inicio, fecha_fin, monto, estado "
