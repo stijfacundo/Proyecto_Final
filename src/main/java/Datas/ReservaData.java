@@ -62,7 +62,7 @@ public class ReservaData {
             // Si el huesped no existe, creamos uno nuevo
             huesped = new Huesped(nombre, apellido, dni, domicilio, correo, celular, true);
 
-            huespedData.altaHuesped(huesped); // Creamos el nuevo huésped en la base de datos
+            huespedData.guardarHuesped(huesped); // Creamos el nuevo huésped en la base de datos
         }
 
         // Creamos la reserva
