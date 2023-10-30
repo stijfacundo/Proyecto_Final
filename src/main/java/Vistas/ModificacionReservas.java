@@ -17,7 +17,7 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        grupoBotones = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jlModificacionReservas = new javax.swing.JLabel();
         jlDescripcionModificacionReservas = new javax.swing.JLabel();
@@ -51,16 +51,16 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
         jtfDocumentoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfDocumentoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jtfDocumentoCliente.setBorder(null);
-        jtfDocumentoCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfDocumentoClienteActionPerformed(evt);
-            }
-        });
 
         jbBuscarCliente.setBackground(new java.awt.Color(230, 232, 235));
         jbBuscarCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jbBuscarCliente.setForeground(new java.awt.Color(23, 23, 23));
         jbBuscarCliente.setText("Buscar");
+        jbBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarClienteActionPerformed(evt);
+            }
+        });
 
         jtReservas.setBackground(new java.awt.Color(230, 232, 235));
         jtReservas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -210,13 +210,13 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtfDocumentoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfDocumentoClienteActionPerformed
+    private void jbBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtfDocumentoClienteActionPerformed
+    }//GEN-LAST:event_jbBuscarClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup grupoBotones;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
