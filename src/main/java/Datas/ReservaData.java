@@ -263,4 +263,43 @@ public class ReservaData {
         }
         return huesped;
     }
+
+    public void actualizarReservas(List<Reserva> reservas) throws SQLException {
+        // Deshabilitamos el AutoCommit para controlar las transacciones manualmente
+        con.setAutoCommit(false);
+
+        try {
+            for (Reserva reserva : reservas) {
+                // Modificamos la reserva en la tabla 'reserva'
+                String sql = "UPDATE reserva "
+                        + "SET dni_huesped = ?, numero_habitacion = ?, fecha_inicio = ?, fecha_fin = ?, monto = ?, estado = ? "
+                        + "WHERE id_reserva = ?";
+                PreparedStatement ps = con.prepareStatement(sql);
+                ps.setInt(1, reserva.getHuesped().getDni());
+                ps.setInt(2, reserva.getNumeroHabitacion());
+                ps.setDate(3, Date.valueOf(reserva.getFechaInicio()));
+                ps.setDate(4, Date.valueOf(reserva.getFechaFin()));
+                ps.setDouble(5, reserva.getMonto());
+                ps.setBoolean(6, reserva.isEstado());
+                ps.setInt(7, reserva.getIdReserva());
+                int filasActualizadas = ps.executeUpdate();
+
+                if (filasActualizadas > 0) {
+                    System.out.println("Reserva actualizada correctamente");
+                } else {
+                    System.out.println("No se ha actualizado ninguna fila en la base de datos.");
+                }
+            }
+
+            // Confirmamos la transacción
+            con.commit();
+        } catch (SQLException ex) {
+            // Si ocurre algún error, hacemos un rollback
+            con.rollback();
+            throw ex;
+        } finally {
+            // Reestablecemos el AutoCommit al valor por defecto
+            con.setAutoCommit(true);
+        }
+    }
 }

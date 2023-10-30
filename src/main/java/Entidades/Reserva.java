@@ -25,6 +25,22 @@ public class Reserva {
     public Reserva(int idHuesped, int numeroHabitacion, LocalDate fechaInicio,
             LocalDate fechaFin, double monto, boolean estado) {
         this.huesped = new Huesped(idHuesped); // Creamos el objeto Huesped con el ID proporcionado
+        this.numeroHabitacion = numeroHabitacion;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.monto = monto;
+        this.estado = estado;
+    }
+
+    public Reserva(int idReserva, Huesped huesped, int numeroHabitacion,
+            LocalDate fechaInicio, LocalDate fechaFin, double monto, boolean estado) {
+        this.idReserva = idReserva;
+        this.huesped = huesped;
+        this.numeroHabitacion = numeroHabitacion;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.monto = monto;
+        this.estado = estado;
     }
 
     public Reserva() {
@@ -51,6 +67,10 @@ public class Reserva {
     }
 
     public void setDniHuesped(int dni) {
+        // Nos aseguramos de que el objeto Huesped no sea nulo
+        if (huesped == null) {
+            huesped = new Huesped(); // Si es nulo lo inicializamos
+        }
         huesped.setDni(dni);
     }
 
