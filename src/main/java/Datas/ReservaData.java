@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReservaData {
-
+    
     private Connection con = null;
-
+    
     public ReservaData() {
         con = Conexion.getConexion();
     }
@@ -22,7 +22,7 @@ public class ReservaData {
         String sql = "SELECT h.numero, h.piso, h.ocupada, th.nombre AS tipo_habitacion, th.capacidadMaxima, th.precioPorNoche FROM habitacion h "
                 + "INNER JOIN tipo_habitacion th ON h.codigo_tipo_habitacion = th.codigo "
                 + "WHERE h.numero NOT IN (SELECT numero_habitacion FROM reserva "
-                + "WHERE (fecha_inicio BETWEEN ? AND ? OR fecha_fin BETWEEN ? AND ?) AND ocupada = 1)";
+                + "WHERE (fecha_inicio BETWEEN ? AND ? OR fecha_fin BETWEEN ? AND ?) AND ocupada = 0)";
         List<Habitacion> habitacionesLibres = new ArrayList<>();
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setDate(1, Date.valueOf(fechaEntrada));
@@ -42,7 +42,7 @@ public class ReservaData {
                 double precioPorNoche = rs.getDouble("precioPorNoche");
                 // Establecemos el precio por noche del resultado de la consulta
                 habitacion.setPrecioPorNoche(precioPorNoche);
-
+                
                 habitacionesLibres.add(habitacion);
             }
         }
@@ -61,7 +61,7 @@ public class ReservaData {
         if (huesped == null) {
             // Si el huesped no existe, creamos uno nuevo
             huesped = new Huesped(nombre, apellido, dni, domicilio, correo, celular, true);
-
+            
             huespedData.guardarHuesped(huesped); // Creamos el nuevo huésped en la base de datos
         }
 
@@ -81,12 +81,12 @@ public class ReservaData {
             marcarHabitacionOcupada(numeroHabitacion); // Marcamos la habitación como ocupada
             return true; // La reserva se creó con éxito
         }
-
+        
         return false;
     }
 
     // Método adicional para marcar una habitación como ocupada
-    private void marcarHabitacionOcupada(int numeroHabitacion) throws SQLException {
+    public void marcarHabitacionOcupada(int numeroHabitacion) throws SQLException {
         String sql = "UPDATE habitacion SET ocupada = 1 "
                 + "WHERE numero = ?";
         try (PreparedStatement ps = con.prepareStatement(sql)) {
@@ -94,7 +94,7 @@ public class ReservaData {
             ps.executeUpdate();
         }
     }
-
+    
     public void modificarReserva(Reserva reserva, Huesped huesped,
             Habitacion habitacion, int dni) throws SQLException {
         // Modificamos la reserva en la tabla 'reserva'
@@ -111,7 +111,7 @@ public class ReservaData {
         ps.setInt(7, dni);
         ps.executeUpdate();
     }
-
+    
     public void bajaReserva(int dni) throws SQLException {
         // Damos de baja la reserva de la tabla 'reserva'
         String sql = "UPDATE reserva "
@@ -123,20 +123,19 @@ public class ReservaData {
     }
 
     // Método adicional para liberar una habitación
-    private void liberarHabitacion(int idReserva) throws SQLException {
-        String sql = "UPDATE habitaciones SET estado = 0 "
-                + "WHERE numero_habitacion = "
-                + "(SELECT numero_habitacion FROM reserva WHERE id_reserva = ?)";
+    public void liberarHabitacion(int numeroHabitacion) throws SQLException {
+        String sql = "UPDATE habitacion SET ocupada = 0 "
+                + "WHERE numero = ?";
         try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, idReserva);
+            ps.setInt(1, numeroHabitacion);
             ps.executeUpdate();
         }
     }
-
-    public void finReserva(int idReserva) throws SQLException {
+    
+    public void finReserva(int idReserva, int numeroHabitacion) throws SQLException {
         // Buscamos la reserva por su ID
         Reserva reserva = buscarReservaPorID(idReserva);
-
+        
         if (reserva != null && reserva.isEstado()) {
             String sql = "UPDATE reserva SET estado = 0 "
                     + "WHERE id_reserva = ?";
@@ -147,9 +146,9 @@ public class ReservaData {
         }
 
         // Luego liberamos la habitación asociada a la reserva
-        liberarHabitacion(idReserva);
+        liberarHabitacion(numeroHabitacion);
     }
-
+    
     public List<Reserva> buscarReservasPorHuesped(int dni) throws SQLException {
         //Creamos una lista para alamacenar las reservas encontradas
         List<Reserva> reservas = new ArrayList<>();
@@ -158,7 +157,7 @@ public class ReservaData {
         String sql = "SELECT id_reserva, dni_huesped, numero_habitacion, fecha_inicio, fecha_fin, monto, estado "
                 + "FROM reserva "
                 + "WHERE dni_huesped = ?";
-
+        
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery();
@@ -173,13 +172,13 @@ public class ReservaData {
                 reserva.setFechaFin(rs.getDate("fecha_fin").toLocalDate());
                 reserva.setMonto(rs.getDouble("monto"));
                 reserva.setEstado(rs.getBoolean("estado"));
-
+                
                 reservas.add(reserva);
             }
         }
         return reservas;
     }
-
+    
     public Reserva buscarReservaPorID(int idReserva) throws SQLException {
         String sql = "SELECT id_reserva, dni_huesped, numero_habitacion, fecha_inicio, fecha_fin, monto, estado "
                 + "FROM reserva "
@@ -188,7 +187,7 @@ public class ReservaData {
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, idReserva);
             ResultSet rs = ps.executeQuery();
-
+            
             if (rs.next()) {
                 reserva = new Reserva();
                 reserva.setIdReserva(rs.getInt("id_reserva"));
@@ -202,7 +201,7 @@ public class ReservaData {
         }
         return reserva;
     }
-
+    
     public Reserva buscarReservasPorFecha(LocalDate fechaEntrada,
             LocalDate fechaSalida) throws SQLException {
         // Buscamos una reserva en basea la fecha de entrada y salida en la tabla 'reserva'
@@ -236,7 +235,7 @@ public class ReservaData {
         }
         return reserva;
     }
-
+    
     public Huesped buscarHuespedPorDNI(int dni) throws SQLException {
         // Buscamos un huésped mediante el DNI en la tabla 'huesped'
         String sql = "SELECT id_huesped, nombre, apellido, dni, domicilio, correo, celular, estado "
@@ -263,11 +262,11 @@ public class ReservaData {
         }
         return huesped;
     }
-
+    
     public void actualizarReservas(List<Reserva> reservas) throws SQLException {
         // Deshabilitamos el AutoCommit para controlar las transacciones manualmente
         con.setAutoCommit(false);
-
+        
         try {
             for (Reserva reserva : reservas) {
                 // Modificamos la reserva en la tabla 'reserva'
@@ -283,7 +282,7 @@ public class ReservaData {
                 ps.setBoolean(6, reserva.isEstado());
                 ps.setInt(7, reserva.getIdReserva());
                 int filasActualizadas = ps.executeUpdate();
-
+                
                 if (filasActualizadas > 0) {
                     System.out.println("Reserva actualizada correctamente");
                 } else {
