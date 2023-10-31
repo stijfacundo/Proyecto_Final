@@ -1,16 +1,32 @@
 package Vistas;
 
+import Datas.ReservaData;
+import Entidades.Reserva;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
 
 public class ListadoReservas extends javax.swing.JInternalFrame {
 
+    private final ReservaData reservaData;
+
     public ListadoReservas() {
         initComponents();
-        
+
         // Establecemos el JInternalFrame sin bordes y cabecera
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bui = (BasicInternalFrameUI) this.getUI();
         bui.setNorthPane(null);
+
+        // Inicializamos las instancias necesarias
+        reservaData = new ReservaData();
+
+        cargarReservasEnTabla();
     }
 
     @SuppressWarnings("unchecked")
@@ -54,6 +70,11 @@ public class ListadoReservas extends javax.swing.JInternalFrame {
                 jtfDocumentoClienteActionPerformed(evt);
             }
         });
+        jtfDocumentoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfDocumentoClienteKeyTyped(evt);
+            }
+        });
 
         jlFechaIngreso.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlFechaIngreso.setForeground(new java.awt.Color(23, 23, 23));
@@ -62,6 +83,11 @@ public class ListadoReservas extends javax.swing.JInternalFrame {
         jdcFechaIngreso.setBackground(new java.awt.Color(230, 232, 235));
         jdcFechaIngreso.setForeground(new java.awt.Color(23, 23, 23));
         jdcFechaIngreso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jdcFechaIngreso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdcFechaIngresoPropertyChange(evt);
+            }
+        });
 
         jlFechaEgreso.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
@@ -70,6 +96,11 @@ public class ListadoReservas extends javax.swing.JInternalFrame {
         jdcFechaEgreso.setBackground(new java.awt.Color(230, 232, 235));
         jdcFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
         jdcFechaEgreso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jdcFechaEgreso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdcFechaEgresoPropertyChange(evt);
+            }
+        });
 
         jtReservas.setBackground(new java.awt.Color(230, 232, 235));
         jtReservas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -79,11 +110,11 @@ public class ListadoReservas extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Nro. Habitación", "Fecha de ingreso", "Fecha de egreso", "Monto", "Estado"
+                "ID", "Nro. Habitación", "Fecha de ingreso", "Fecha de egreso", "Monto", "Estado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, true, true, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -94,10 +125,20 @@ public class ListadoReservas extends javax.swing.JInternalFrame {
         jtReservas.setRowHeight(25);
         jtReservas.setSelectionBackground(new java.awt.Color(52, 52, 52));
         jtReservas.setSelectionForeground(new java.awt.Color(229, 229, 229));
+        jtReservas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtReservas.setShowGrid(true);
         jtReservas.getTableHeader().setResizingAllowed(false);
         jtReservas.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtReservas);
+        if (jtReservas.getColumnModel().getColumnCount() > 0) {
+            jtReservas.getColumnModel().getColumn(0).setResizable(false);
+            jtReservas.getColumnModel().getColumn(0).setPreferredWidth(10);
+            jtReservas.getColumnModel().getColumn(1).setResizable(false);
+            jtReservas.getColumnModel().getColumn(2).setResizable(false);
+            jtReservas.getColumnModel().getColumn(3).setResizable(false);
+            jtReservas.getColumnModel().getColumn(4).setResizable(false);
+            jtReservas.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -192,8 +233,47 @@ public class ListadoReservas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtfDocumentoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfDocumentoClienteActionPerformed
-        // TODO add your handling code here:
+        filtrarReservasPorDocumento();
     }//GEN-LAST:event_jtfDocumentoClienteActionPerformed
+
+    private void jdcFechaIngresoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdcFechaIngresoPropertyChange
+        if (evt.getPropertyName().equals("date")) {
+            LocalDate fechaIngreso = jdcFechaIngreso.getDate() != null
+                    ? jdcFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+                    : null;
+
+            LocalDate fechaEgreso = jdcFechaEgreso.getDate() != null
+                    ? jdcFechaEgreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+                    : null;
+
+            if (fechaIngreso != null && fechaEgreso != null) {
+                filtrarReservasPorFechas();
+            }
+        }
+    }//GEN-LAST:event_jdcFechaIngresoPropertyChange
+
+    private void jdcFechaEgresoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdcFechaEgresoPropertyChange
+        if (evt.getPropertyName().equals("date")) {
+            LocalDate fechaIngreso = jdcFechaIngreso.getDate() != null
+                    ? jdcFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+                    : null;
+
+            LocalDate fechaEgreso = jdcFechaEgreso.getDate() != null
+                    ? jdcFechaEgreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+                    : null;
+
+            if (fechaIngreso != null && fechaEgreso != null) {
+                filtrarReservasPorFechas();
+            }
+        }
+    }//GEN-LAST:event_jdcFechaEgresoPropertyChange
+
+    private void jtfDocumentoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfDocumentoClienteKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume los caracteres no numéricos
+        }
+    }//GEN-LAST:event_jtfDocumentoClienteKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -210,4 +290,80 @@ public class ListadoReservas extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtReservas;
     private javax.swing.JTextField jtfDocumentoCliente;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarReservasEnTabla() {
+        try {
+            List<Reserva> reservas = reservaData.cargarReservas();
+            DefaultTableModel modelo = (DefaultTableModel) jtReservas.getModel();
+            modelo.setRowCount(0);
+
+            for (Reserva reserva : reservas) {
+                String estado = reserva.isEstado() ? "Activa" : "Inactiva";
+                String montoConSigno = "$" + reserva.getMonto();
+                modelo.addRow(new Object[]{reserva.getIdReserva(), reserva.getNumeroHabitacion(),
+                    reserva.getFechaInicio(), reserva.getFechaFin(), montoConSigno, estado});
+
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error al cargar las reservas: " + ex.getMessage());
+        }
+    }
+
+    private void filtrarReservasPorDocumento() {
+        try {
+            int dni = Integer.parseInt(jtfDocumentoCliente.getText());
+            List<Reserva> reservas = reservaData.filtrarReservasPorDocumento(dni);
+
+            if (!esNumeroValido(jtfDocumentoCliente.getText())) {
+                JOptionPane.showMessageDialog(this, "El documento debe contener solo números.");
+                return; // Detiene la ejecución
+            }
+
+            DefaultTableModel modelo = (DefaultTableModel) jtReservas.getModel();
+            modelo.setRowCount(0);
+
+            for (Reserva reserva : reservas) {
+                String estado = reserva.isEstado() ? "Activa" : "Inactiva";
+                String montoConSigno = "$" + reserva.getMonto();
+                modelo.addRow(new Object[]{reserva.getIdReserva(), reserva.getNumeroHabitacion(),
+                    reserva.getFechaInicio(), reserva.getFechaFin(), montoConSigno, estado});
+            }
+        } catch (NumberFormatException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error al filtrar las reservas: " + ex.getMessage());
+        }
+    }
+
+    public void filtrarReservasPorFechas() {
+        try {
+            Date dateIngreso = jdcFechaIngreso.getDate();
+            Date dateEgreso = jdcFechaEgreso.getDate();
+
+            if (dateIngreso != null && dateEgreso != null) {
+                LocalDate fechaIngreso = dateIngreso.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                LocalDate fechaEgreso = dateEgreso.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+                List<Reserva> reservas = reservaData.filtrarReservasPorFechas(fechaIngreso, fechaEgreso);
+
+                DefaultTableModel modelo = (DefaultTableModel) jtReservas.getModel();
+                modelo.setRowCount(0); // Limpia la tabla antes de agregar las nuevas filas.
+
+                for (Reserva reserva : reservas) {
+                    String estado = reserva.isEstado() ? "Activa" : "Inactiva";
+                    String montoConSigno = "$" + reserva.getMonto();
+                    modelo.addRow(new Object[]{reserva.getIdReserva(), reserva.getNumeroHabitacion(),
+                        reserva.getFechaInicio(), reserva.getFechaFin(), montoConSigno, estado});
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Seleccione fechas válidas.");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error al filtrar las reservas: " + ex.getMessage());
+        } catch (IndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this, "Error, seleccione fechas válidas: " + ex.getMessage());
+        }
+    }
+
+    private boolean esNumeroValido(String texto) {
+        return texto.matches("\\d+"); // Acepta solo números
+    }
 }

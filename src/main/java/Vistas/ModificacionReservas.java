@@ -328,7 +328,7 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
                 String numeroHabitacionStr = String.valueOf(reserva.getNumeroHabitacion());
                 String fechaInicioStr = reserva.getFechaInicio().toString();
                 String fechaFinStr = reserva.getFechaFin().toString();
-                String montoStr = String.valueOf(reserva.getMonto());
+                String montoStr = "$" + String.valueOf(reserva.getMonto());
 
                 modelo.addRow(new Object[]{idReservaStr, numeroHabitacionStr,
                     fechaInicioStr, fechaFinStr, montoStr, estado});
@@ -361,7 +361,7 @@ public class ModificacionReservas extends javax.swing.JInternalFrame {
                     LocalDate fechaIngreso = LocalDate.parse(fechaIngresoStr);
                     String fechaEgresoStr = (String) modelo.getValueAt(fila, 3);
                     LocalDate fechaEgreso = LocalDate.parse(fechaEgresoStr);
-                    String montoStr = (String) modelo.getValueAt(fila, 4);
+                    String montoStr = ((String) modelo.getValueAt(fila, 4)).replace("$", "");
                     double monto = Double.parseDouble(montoStr);
                     String estadoTabla = (String) modelo.getValueAt(fila, 5);
                     boolean estado = !estadoTabla.equals("Activa");
