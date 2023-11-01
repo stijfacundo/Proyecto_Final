@@ -16,6 +16,8 @@ public class ListarHuesped extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bui = (BasicInternalFrameUI) this.getUI();
         bui.setNorthPane(null);
+
+        cargarTablaHuesped();
     }
 
     @SuppressWarnings("unchecked")
@@ -159,7 +161,32 @@ public class ListarHuesped extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTFNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNombreKeyReleased
+        cargarTablaHuesped();
+    }//GEN-LAST:event_jTFNombreKeyReleased
 
+    private void jTFNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNombreKeyTyped
+        // Consume los caracteres no alfabeticos
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFNombreKeyTyped
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLNombre;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPHeader;
+    private javax.swing.JPanel jPMenu;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTFNombre;
+    private javax.swing.JTable jtTabla;
+    // End of variables declaration//GEN-END:variables
+    // Método para alumnos curssando la materia seleccionada
+
+    public void cargarTablaHuesped() {
         HuespedData listaHuesped = new HuespedData();
 
         try {
@@ -185,27 +212,5 @@ public class ListarHuesped extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
         }
-    }//GEN-LAST:event_jTFNombreKeyReleased
-
-    private void jTFNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNombreKeyTyped
-        // Consume los caracteres no alfabeticos
-        char c = evt.getKeyChar();
-        if (!Character.isLetter(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTFNombreKeyTyped
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLNombre;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPHeader;
-    private javax.swing.JPanel jPMenu;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTFNombre;
-    private javax.swing.JTable jtTabla;
-    // End of variables declaration//GEN-END:variables
-    // Método para alumnos curssando la materia seleccionada
+    }
 }
