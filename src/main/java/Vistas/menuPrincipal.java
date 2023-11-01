@@ -9,8 +9,8 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private GestionHuesped crearHuesped;
     private ListarHuesped listarHuesped;
-    private AgregarHabitacion agregarHabitacion;
-    private habitaciones habitacion;
+    private CrearHabitacion crearHabitacion;
+    private ListarHabitacion listarHabitacion;
     private CreacionTipoHabitacion creacionTipoHabitacion;
     private ModificacionTipoHabitacion modificacionTipoHabitacion;
     private CreacionReservas creacionReservas;
@@ -19,8 +19,8 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private boolean crearHuespedOn = false;
     private boolean listarHuespedOn = false;
-    private boolean agregarHabitacionOn = false;
-    private boolean habitacionOn = false;
+    private boolean crearHabitacionOn = false;
+    private boolean listarHabitacionOn = false;
     private boolean agregarTipoHabitacionOn = false;
     private boolean tipoHabitacionOn = false;
     private boolean creacionReservasOn = false;
@@ -268,7 +268,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         jLCrearHabitacion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLCrearHabitacion.setForeground(new java.awt.Color(0, 0, 0));
         jLCrearHabitacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLCrearHabitacion.setText("Crear");
+        jLCrearHabitacion.setText("Gestion");
         jLCrearHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLCrearHabitacionMouseClicked(evt);
@@ -312,7 +312,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         jLModificarHabitacion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLModificarHabitacion.setForeground(new java.awt.Color(0, 0, 0));
         jLModificarHabitacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLModificarHabitacion.setText("Modificar");
+        jLModificarHabitacion.setText("Listar");
         jLModificarHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLModificarHabitacionMouseClicked(evt);
@@ -816,24 +816,24 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLCrearHuespedMouseExited
 
     private void jPCrearHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPCrearHabitacionMouseClicked
-        if (agregarHabitacionOn) {
+        if (crearHabitacionOn) {
             // La ventana está abierta, así que la cerramos
-            agregarHabitacion.dispose();
-            agregarHabitacionOn = false;
+            crearHabitacion.dispose();
+            crearHabitacionOn = false;
         } else {
             // La ventana está cerrada, así que la abrimos
             jDPPrograma.removeAll();
             jDPPrograma.repaint();
-            agregarHabitacion = new AgregarHabitacion();
+            crearHabitacion = new CrearHabitacion();
 
             // Centramos el JInternalFrame
-            centrarInternalFrame(agregarHabitacion);
+            centrarInternalFrame(crearHabitacion);
 
-            agregarHabitacion.setVisible(true);
-            jDPPrograma.add(agregarHabitacion);
-            jDPPrograma.moveToFront(agregarHabitacion);
+            crearHabitacion.setVisible(true);
+            jDPPrograma.add(crearHabitacion);
+            jDPPrograma.moveToFront(crearHabitacion);
 
-            agregarHabitacionOn = true;
+            crearHabitacionOn = true;
         }
     }//GEN-LAST:event_jPCrearHabitacionMouseClicked
 
@@ -846,24 +846,24 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPCrearHabitacionMouseExited
 
     private void jLCrearHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLCrearHabitacionMouseClicked
-        if (agregarHabitacionOn) {
+        if (crearHabitacionOn) {
             // La ventana está abierta, así que la cerramos
-            agregarHabitacion.dispose();
-            agregarHabitacionOn = false;
+            crearHabitacion.dispose();
+            crearHabitacionOn = false;
         } else {
             // La ventana está cerrada, así que la abrimos
             jDPPrograma.removeAll();
             jDPPrograma.repaint();
-            agregarHabitacion = new AgregarHabitacion();
+            crearHabitacion = new CrearHabitacion();
 
             // Centramos el JInternalFrame
-            centrarInternalFrame(agregarHabitacion);
+            centrarInternalFrame(crearHabitacion);
 
-            agregarHabitacion.setVisible(true);
-            jDPPrograma.add(agregarHabitacion);
-            jDPPrograma.moveToFront(agregarHabitacion);
+            crearHabitacion.setVisible(true);
+            jDPPrograma.add(crearHabitacion);
+            jDPPrograma.moveToFront(crearHabitacion);
 
-            agregarHabitacionOn = true;
+            crearHabitacionOn = true;
         }
     }//GEN-LAST:event_jLCrearHabitacionMouseClicked
 
@@ -876,24 +876,24 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLCrearHabitacionMouseExited
 
     private void jPModificarHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPModificarHabitacionMouseClicked
-        if (habitacionOn) {
+        if (listarHabitacionOn) {
             // La ventana está abierta, así que la cerramos
-            habitacion.dispose();
-            habitacionOn = false;
+            listarHabitacion.dispose();
+            listarHabitacionOn = false;
         } else {
             // La ventana está cerrada, así que la abrimos
             jDPPrograma.removeAll();
             jDPPrograma.repaint();
-            habitacion = new habitaciones();
+            listarHabitacion = new ListarHabitacion();
 
             // Centramos el JInternalFrame
-            centrarInternalFrame(habitacion);
+            centrarInternalFrame(listarHabitacion);
 
-            habitacion.setVisible(true);
-            jDPPrograma.add(habitacion);
-            jDPPrograma.moveToFront(habitacion);
+            listarHabitacion.setVisible(true);
+            jDPPrograma.add(listarHabitacion);
+            jDPPrograma.moveToFront(listarHabitacion);
 
-            habitacionOn = true;
+            listarHabitacionOn = true;
         }
     }//GEN-LAST:event_jPModificarHabitacionMouseClicked
 
@@ -906,24 +906,24 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPModificarHabitacionMouseExited
 
     private void jLModificarHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLModificarHabitacionMouseClicked
-        if (habitacionOn) {
+        if (listarHabitacionOn) {
             // La ventana está abierta, así que la cerramos
-            habitacion.dispose();
-            habitacionOn = false;
+            listarHabitacion.dispose();
+            listarHabitacionOn = false;
         } else {
             // La ventana está cerrada, así que la abrimos
             jDPPrograma.removeAll();
             jDPPrograma.repaint();
-            habitacion = new habitaciones();
+            listarHabitacion = new ListarHabitacion();
 
             // Centramos el JInternalFrame
-            centrarInternalFrame(habitacion);
+            centrarInternalFrame(listarHabitacion);
 
-            habitacion.setVisible(true);
-            jDPPrograma.add(habitacion);
-            jDPPrograma.moveToFront(habitacion);
+            listarHabitacion.setVisible(true);
+            jDPPrograma.add(listarHabitacion);
+            jDPPrograma.moveToFront(listarHabitacion);
 
-            habitacionOn = true;
+            listarHabitacionOn = true;
         }
     }//GEN-LAST:event_jLModificarHabitacionMouseClicked
 
