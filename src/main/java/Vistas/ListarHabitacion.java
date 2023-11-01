@@ -222,11 +222,6 @@ public class ListarHabitacion extends javax.swing.JInternalFrame {
             int numero = Integer.parseInt(jTFNumero.getText());
             List<Habitacion> habitaciones = habitacionData.listarHabitacionxNro(numero);
 
-            if (!esNumeroValido(jTFNumero.getText())) {
-                JOptionPane.showMessageDialog(this, "Ingrese solamente números.");
-                return; // Detiene la ejecución
-            }
-
             DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
             modelo.setRowCount(0);
 
@@ -242,9 +237,5 @@ public class ListarHabitacion extends javax.swing.JInternalFrame {
         } catch (NumberFormatException | SQLException ex) {
             JOptionPane.showMessageDialog(this, "Error al filtrar las reservas: " + ex.getMessage());
         }
-    }
-
-    private boolean esNumeroValido(String texto) {
-        return texto.matches("\\d+"); // Acepta solo números
     }
 }
