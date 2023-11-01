@@ -3,11 +3,14 @@ package Vistas;
 import Datas.HabitacionData;
 import Entidades.Habitacion;
 import java.sql.SQLException;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 public class ListarHabitacion extends javax.swing.JInternalFrame {
+
+    HabitacionData habitacionData;
 
     public ListarHabitacion() {
         initComponents();
@@ -16,7 +19,9 @@ public class ListarHabitacion extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bui = (BasicInternalFrameUI) this.getUI();
         bui.setNorthPane(null);
-        
+
+        habitacionData = new HabitacionData();
+
         cargarTablaHabitacion();
     }
 
@@ -160,11 +165,6 @@ public class ListarHabitacion extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTFNumeroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNumeroKeyReleased
-
-        cargarTablaHabitacion();
-    }//GEN-LAST:event_jTFNumeroKeyReleased
-
     private void jTFNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNumeroKeyTyped
         // Consume los caracteres no numericos
         char c = evt.getKeyChar();
@@ -172,6 +172,14 @@ public class ListarHabitacion extends javax.swing.JInternalFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jTFNumeroKeyTyped
+
+    private void jTFNumeroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNumeroKeyReleased
+        if (!jTFNumero.getText().equals("")) {
+            filtrarHabitacionesPorNumero();
+        } else {
+            cargarTablaHabitacion();
+        }
+    }//GEN-LAST:event_jTFNumeroKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -188,8 +196,6 @@ public class ListarHabitacion extends javax.swing.JInternalFrame {
     // Método para alumnos curssando la materia seleccionada
 
     public void cargarTablaHabitacion() {
-        HabitacionData listaHabitacion = new HabitacionData();
-
         try {
             DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
 
@@ -197,19 +203,48 @@ public class ListarHabitacion extends javax.swing.JInternalFrame {
             modelo.setRowCount(0);
 
             //Cargamos los huespedes a la tabla
-            for (Habitacion habitacion : listaHabitacion.listarHabitacion()) {
-                if (habitacion.getNroHabitacion() == Integer.parseInt(jTFNumero.getText())) {
-                    modelo.addRow(new Object[]{
-                        habitacion.getNroHabitacion(),
-                        habitacion.getPiso(),
-                        habitacion.getOcupada(),
-                        habitacion.getcodigoTipoHabitacion(),
-                        habitacion.getEstado()
-                    });
-                }
+            for (Habitacion habitacion : habitacionData.listarHabitacion()) {
+                modelo.addRow(new Object[]{
+                    habitacion.getNroHabitacion(),
+                    habitacion.getPiso(),
+                    habitacion.getOcupada(),
+                    habitacion.getcodigoTipoHabitacion(),
+                    habitacion.getEstado()
+                });
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
         }
+    }
+
+    private void filtrarHabitacionesPorNumero() {
+        try {
+            int numero = Integer.parseInt(jTFNumero.getText());
+            List<Habitacion> habitaciones = habitacionData.listarHabitacionxNro(numero);
+
+            if (!esNumeroValido(jTFNumero.getText())) {
+                JOptionPane.showMessageDialog(this, "Ingrese solamente números.");
+                return; // Detiene la ejecución
+            }
+
+            DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
+            modelo.setRowCount(0);
+
+            for (Habitacion habitacion : habitaciones) {
+                modelo.addRow(new Object[]{
+                    habitacion.getNroHabitacion(),
+                    habitacion.getPiso(),
+                    habitacion.getOcupada(),
+                    habitacion.getcodigoTipoHabitacion(),
+                    habitacion.getEstado()
+                });
+            }
+        } catch (NumberFormatException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error al filtrar las reservas: " + ex.getMessage());
+        }
+    }
+
+    private boolean esNumeroValido(String texto) {
+        return texto.matches("\\d+"); // Acepta solo números
     }
 }

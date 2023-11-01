@@ -144,22 +144,24 @@ public class HabitacionData {
         return habitaciones;
     }
 
-    public List<Habitacion> listarHabitacionxNro() throws SQLException {
-
-        String sql = "SELECT numero, piso, ocupada, codigo_tipo_habitacion, estado FROM habitacion h JOIN tipo_habitacion t ON h.codigo_tipo_habitacion = t.codigo;";
+    public List<Habitacion> listarHabitacionxNro(int numero) throws SQLException {
+        String sql = "SELECT * "
+                + "FROM habitacion h JOIN tipo_habitacion t ON h.codigo_tipo_habitacion = t.codigo "
+                + "WHERE numero = ?";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ResultSet rs = ps.executeQuery();
+            ps.setInt(1, numero);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Habitacion habitacion = new Habitacion();
+                    habitacion.setNroHabitacion(rs.getInt("numero"));
+                    habitacion.setPiso(rs.getInt("piso"));
+                    habitacion.setOcupada(rs.getBoolean("ocupada"));
+                    habitacion.setcodigoTipoHabitacion(rs.getString("codigo_tipo_habitacion"));
+                    habitacion.setEstado(rs.getBoolean("estado"));
 
-            while (rs.next()) {
-                Habitacion habitacion = new Habitacion();
-                habitacion.setNroHabitacion(rs.getInt("numero"));
-                habitacion.setPiso(rs.getInt("piso"));
-                habitacion.setOcupada(rs.getBoolean("ocupada"));
-                habitacion.setcodigoTipoHabitacion(rs.getString("codigo_tipo_habitacion"));
-                habitacion.setEstado(rs.getBoolean("estado"));
-
-                habitaciones.add(habitacion);
+                    habitaciones.add(habitacion);
+                }
             }
         }
         return habitaciones;
