@@ -40,20 +40,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiCrearHabitacionesActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jmiAdministrarTiposHabitaciones">
+            <MenuItem class="javax.swing.JMenuItem" name="jmiCreacionTipoHabitacion">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Administrar tipos de habitaciones"/>
+                <Property name="text" type="java.lang.String" value="Crear tipos de habitaci&#xf3;n"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiAdministrarTiposHabitacionesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiCreacionTipoHabitacionActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jmiCrearTiposHabitaciones">
+            <MenuItem class="javax.swing.JMenuItem" name="jmiModificacionTipoHabitacion">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Crear tipos de habitaciones"/>
+                <Property name="text" type="java.lang.String" value="Modificar tipos de habitaci&#xf3;n"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiCrearTiposHabitacionesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiModificacionTipoHabitacionActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -129,7 +129,7 @@
     <Container class="javax.swing.JDesktopPane" name="jdpEscritorio">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f2" green="f2" red="f2" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
 

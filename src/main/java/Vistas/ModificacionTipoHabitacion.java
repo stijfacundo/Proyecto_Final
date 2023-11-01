@@ -1,9 +1,16 @@
 package Vistas;
 
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 public class ModificacionTipoHabitacion extends javax.swing.JInternalFrame {
 
     public ModificacionTipoHabitacion() {
         initComponents();
+
+        // Establecemos el JInternalFrame sin bordes y cabecera
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI bui = (BasicInternalFrameUI) this.getUI();
+        bui.setNorthPane(null);
     }
 
     @SuppressWarnings("unchecked")

@@ -12,8 +12,8 @@ public class InicioTesting extends javax.swing.JFrame {
     private ListadoReservas listadoReservas;
     private habitaciones habitaciones;
     private AgregarHabitacion agregarHabitacion;
-    private TipoHabitacion tipoHabitacion;
-    private AgregarTipoHabitacion agregarTipoHabitacion;
+    private CreacionTipoHabitacion creacionTipoHabitacion;
+    private ModificacionTipoHabitacion modificacionTipoHabitacion;
     private GestionHuesped altaHuesped;
 
     public InicioTesting() {
@@ -31,8 +31,8 @@ public class InicioTesting extends javax.swing.JFrame {
         jmHabitaciones = new javax.swing.JMenu();
         jmiAdministrarHabitaciones = new javax.swing.JMenuItem();
         jmiCrearHabitaciones = new javax.swing.JMenuItem();
-        jmiAdministrarTiposHabitaciones = new javax.swing.JMenuItem();
-        jmiCrearTiposHabitaciones = new javax.swing.JMenuItem();
+        jmiCreacionTipoHabitacion = new javax.swing.JMenuItem();
+        jmiModificacionTipoHabitacion = new javax.swing.JMenuItem();
         jmReservas = new javax.swing.JMenu();
         jmiCreacionReservas = new javax.swing.JMenuItem();
         jmiModificacionReservas = new javax.swing.JMenuItem();
@@ -41,7 +41,7 @@ public class InicioTesting extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jdpEscritorio.setBackground(new java.awt.Color(242, 242, 242));
+        jdpEscritorio.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jdpEscritorioLayout = new javax.swing.GroupLayout(jdpEscritorio);
         jdpEscritorio.setLayout(jdpEscritorioLayout);
@@ -84,21 +84,21 @@ public class InicioTesting extends javax.swing.JFrame {
         });
         jmHabitaciones.add(jmiCrearHabitaciones);
 
-        jmiAdministrarTiposHabitaciones.setText("Administrar tipos de habitaciones");
-        jmiAdministrarTiposHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+        jmiCreacionTipoHabitacion.setText("Crear tipos de habitación");
+        jmiCreacionTipoHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiAdministrarTiposHabitacionesActionPerformed(evt);
+                jmiCreacionTipoHabitacionActionPerformed(evt);
             }
         });
-        jmHabitaciones.add(jmiAdministrarTiposHabitaciones);
+        jmHabitaciones.add(jmiCreacionTipoHabitacion);
 
-        jmiCrearTiposHabitaciones.setText("Crear tipos de habitaciones");
-        jmiCrearTiposHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+        jmiModificacionTipoHabitacion.setText("Modificar tipos de habitación");
+        jmiModificacionTipoHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiCrearTiposHabitacionesActionPerformed(evt);
+                jmiModificacionTipoHabitacionActionPerformed(evt);
             }
         });
-        jmHabitaciones.add(jmiCrearTiposHabitaciones);
+        jmHabitaciones.add(jmiModificacionTipoHabitacion);
 
         jMenuBar1.add(jmHabitaciones);
 
@@ -212,31 +212,31 @@ public class InicioTesting extends javax.swing.JFrame {
         jdpEscritorio.moveToFront(listadoReservas);
     }//GEN-LAST:event_jmiListadoReservasActionPerformed
 
-    private void jmiAdministrarTiposHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAdministrarTiposHabitacionesActionPerformed
+    private void jmiCreacionTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCreacionTipoHabitacionActionPerformed
         jdpEscritorio.removeAll();
         jdpEscritorio.repaint();
-        tipoHabitacion = new TipoHabitacion();
+        creacionTipoHabitacion = new CreacionTipoHabitacion();
 
         // Centramos el JInternalFrame
-        centrarInternalFrame(tipoHabitacion);
+        centrarInternalFrame(creacionTipoHabitacion);
 
-        tipoHabitacion.setVisible(true);
-        jdpEscritorio.add(tipoHabitacion);
-        jdpEscritorio.moveToFront(tipoHabitacion);
-    }//GEN-LAST:event_jmiAdministrarTiposHabitacionesActionPerformed
+        creacionTipoHabitacion.setVisible(true);
+        jdpEscritorio.add(creacionTipoHabitacion);
+        jdpEscritorio.moveToFront(creacionTipoHabitacion);
+    }//GEN-LAST:event_jmiCreacionTipoHabitacionActionPerformed
 
-    private void jmiCrearTiposHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCrearTiposHabitacionesActionPerformed
+    private void jmiModificacionTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiModificacionTipoHabitacionActionPerformed
         jdpEscritorio.removeAll();
         jdpEscritorio.repaint();
-        agregarTipoHabitacion = new AgregarTipoHabitacion();
+        modificacionTipoHabitacion = new ModificacionTipoHabitacion();
 
         // Centramos el JInternalFrame
-        centrarInternalFrame(agregarTipoHabitacion);
+        centrarInternalFrame(modificacionTipoHabitacion);
 
-        agregarTipoHabitacion.setVisible(true);
-        jdpEscritorio.add(agregarTipoHabitacion);
-        jdpEscritorio.moveToFront(agregarTipoHabitacion);
-    }//GEN-LAST:event_jmiCrearTiposHabitacionesActionPerformed
+        modificacionTipoHabitacion.setVisible(true);
+        jdpEscritorio.add(modificacionTipoHabitacion);
+        jdpEscritorio.moveToFront(modificacionTipoHabitacion);
+    }//GEN-LAST:event_jmiModificacionTipoHabitacionActionPerformed
 
     private void jmiCrearHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCrearHabitacionesActionPerformed
         jdpEscritorio.removeAll();
@@ -272,13 +272,13 @@ public class InicioTesting extends javax.swing.JFrame {
     private javax.swing.JMenu jmHabitaciones;
     private javax.swing.JMenu jmReservas;
     private javax.swing.JMenuItem jmiAdministrarHabitaciones;
-    private javax.swing.JMenuItem jmiAdministrarTiposHabitaciones;
     private javax.swing.JMenuItem jmiClientes;
     private javax.swing.JMenuItem jmiCreacionReservas;
+    private javax.swing.JMenuItem jmiCreacionTipoHabitacion;
     private javax.swing.JMenuItem jmiCrearHabitaciones;
-    private javax.swing.JMenuItem jmiCrearTiposHabitaciones;
     private javax.swing.JMenuItem jmiListadoReservas;
     private javax.swing.JMenuItem jmiModificacionReservas;
+    private javax.swing.JMenuItem jmiModificacionTipoHabitacion;
     // End of variables declaration//GEN-END:variables
 
     private void centrarInternalFrame(JInternalFrame frame) {
