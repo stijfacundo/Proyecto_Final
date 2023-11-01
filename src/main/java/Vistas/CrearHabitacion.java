@@ -63,10 +63,15 @@ public class CrearHabitacion extends javax.swing.JInternalFrame {
 
         jLCodigo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLCodigo.setForeground(new java.awt.Color(0, 0, 0));
-        jLCodigo.setText("Codigo");
+        jLCodigo.setText("Codigo de tipo de habitacion");
 
         jTFCodigo.setBackground(new java.awt.Color(230, 232, 235));
         jTFCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jTFCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFCodigoActionPerformed(evt);
+            }
+        });
         jTFCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFCodigoKeyTyped(evt);
@@ -272,13 +277,13 @@ public class CrearHabitacion extends javax.swing.JInternalFrame {
                 //Habilitamos la edicion de todos los campos
                 jTFNumero.enable(true);
                 jTFPiso.enable(true);
-                jTFCodigo.enable(false);
+                jTFCodigo.enable(true);
 
                 //Guardamos los nuevos valores
                 jTFNumero.setText(String.valueOf(habitacion.getNroHabitacion()));
                 jTFPiso.setText(String.valueOf(habitacion.getPiso()));
                 jTFCodigo.setText(String.valueOf(habitacion.getcodigoTipoHabitacion()));
-                jRBOcupada.setSelected(habitacion.isEstado());
+                jRBOcupada.setSelected(habitacion.isOcupada());
                 jRBEstado.setSelected(habitacion.isEstado());
 
             } else {
@@ -338,11 +343,11 @@ public class CrearHabitacion extends javax.swing.JInternalFrame {
                     // Si el huesped existe, modificamos los datos
                     habitacionExistente.setNroHabitacion(Integer.parseInt(jTFNumero.getText()));
                     habitacionExistente.setPiso(Integer.parseInt(jTFPiso.getText()));
+                    habitacionExistente.setOcupada(jRBOcupada.isSelected());
                     habitacionExistente.setcodigoTipoHabitacion(jTFCodigo.getText());
-                    habitacionExistente.setEstado(jRBOcupada.isSelected());
                     habitacionExistente.setEstado(jRBEstado.isSelected());
 
-                    habitacionData.modificarHabitacion(habitacionExistente);
+                    habitacionData.modificarHabitacion(habitacionExistente, numeroBuscado);
                     JOptionPane.showMessageDialog(this, "Habitacion modificada exitosamente.");
                     //Limpiamos los campos
                     limpiarcampos();
@@ -351,9 +356,10 @@ public class CrearHabitacion extends javax.swing.JInternalFrame {
                     Habitacion habitacionNueva = new Habitacion();
                     habitacionNueva.setNroHabitacion(Integer.parseInt(jTFNumero.getText()));
                     habitacionNueva.setPiso(Integer.parseInt(jTFPiso.getText()));
+                    habitacionNueva.setOcupada(jRBOcupada.isSelected());
                     habitacionNueva.setcodigoTipoHabitacion(jTFCodigo.getText());
-                    habitacionNueva.setEstado(jRBOcupada.isSelected());
                     habitacionNueva.setEstado(jRBEstado.isSelected());
+                    
                     habitacionData.guardarHabitacion(habitacionNueva);
                     JOptionPane.showMessageDialog(this, "Habitacion creada exitosamente.");
                     //Limpiamos los campos
@@ -366,6 +372,10 @@ public class CrearHabitacion extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
         }
     }//GEN-LAST:event_jBguardarActionPerformed
+
+    private void jTFCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFCodigoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

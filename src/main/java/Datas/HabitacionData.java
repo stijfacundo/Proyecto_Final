@@ -25,7 +25,7 @@ public class HabitacionData {
         try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, habitacion.getNroHabitacion());
             ps.setInt(2, habitacion.getPiso());
-            ps.setBoolean(3, habitacion.isEstado());
+            ps.setBoolean(3, habitacion.isOcupada());
             ps.setString(4, habitacion.getcodigoTipoHabitacion());
             ps.setBoolean(5, habitacion.isEstado());
             ps.executeUpdate();
@@ -39,7 +39,7 @@ public class HabitacionData {
 
     public Habitacion buscarHabitacionPorNro(int nroHabitacion) throws SQLException {
 
-        String sql = "SELECT id_habitacion, numero, piso,  ocupada, codigo_tipo_habitacion FROM habitacion WHERE numero = ?";
+        String sql = "SELECT id_habitacion, numero, piso,  ocupada, codigo_tipo_habitacion, estado FROM habitacion WHERE numero = ?";
         Habitacion habitacion = null;
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, nroHabitacion);
@@ -52,6 +52,7 @@ public class HabitacionData {
                 habitacion.setPiso(rs.getInt("piso"));
                 habitacion.setOcupada(rs.getBoolean("ocupada"));
                 habitacion.setcodigoTipoHabitacion(rs.getString("codigo_tipo_habitacion"));
+                habitacion.setEstado(rs.getBoolean("estado"));
 
             }
         }
@@ -107,7 +108,7 @@ public class HabitacionData {
         ps.executeUpdate();
     }
 
-    public void modificarHabitacion(Habitacion habitacion) throws SQLException {
+    public void modificarHabitacion(Habitacion habitacion, int numeroBuscado) throws SQLException {
 
         String sql = "UPDATE habitacion "
                 + "SET numero = ?, piso = ?, ocupada = ?, codigo_tipo_habitacion = ?, estado = ? "
@@ -118,6 +119,7 @@ public class HabitacionData {
         ps.setBoolean(3, habitacion.isOcupada());
         ps.setString(4, habitacion.getcodigoTipoHabitacion());
         ps.setBoolean(5, habitacion.isEstado());
+        ps.setInt(6, numeroBuscado);
         ps.executeUpdate();
     }
 
