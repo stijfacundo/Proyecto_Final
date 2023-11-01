@@ -2,6 +2,8 @@ package Datas;
 
 import Entidades.TipoHabitacion;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TipoHabitacionData {
 
@@ -110,6 +112,68 @@ public class TipoHabitacionData {
             int filasAfectadas = ps.executeUpdate();
 
             return filasAfectadas > 0;
+        }
+    }
+
+    public List<TipoHabitacion> obtenerTodosLosTiposHabitacion() throws SQLException {
+        List<TipoHabitacion> tiposHabitacion = new ArrayList<>();
+
+        String sql = "SELECT * FROM tipo_habitacion";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            int idTipoHabitacion = rs.getInt("id_tipo_habitacion");
+            String codigo = rs.getString("codigo");
+            String nombre = rs.getString("nombre");
+            int capacidadMaxima = rs.getInt("capacidadMaxima");
+            int cantidadCamas = rs.getInt("cantidadCamas");
+            String tipoCamas = rs.getString("tipoCamas");
+            double precioPorNoche = rs.getDouble("precioPorNoche");
+
+            TipoHabitacion tipo = new TipoHabitacion(idTipoHabitacion, codigo, nombre, capacidadMaxima, cantidadCamas, tipoCamas, precioPorNoche);
+            tiposHabitacion.add(tipo);
+        }
+
+        return tiposHabitacion;
+    }
+
+    public void actualizarTipoHabitacion(List<TipoHabitacion> tipos) throws SQLException {
+        // Deshabilitamos el AutoCommit para controlar las transacciones manualmente
+        con.setAutoCommit(false);
+
+        try {
+            for (TipoHabitacion tipo : tipos) {
+                // Modificamos el tipo de habitación en la tabla 'tipo_habitacion'
+                String sql = "UPDATE tipo_habitacion "
+                        + "SET codigo = ?, nombre = ?, capacidadMaxima = ?, cantidadCamas = ?, tipoCamas = ?, precioPorNoche = ? "
+                        + "WHERE codigo = ?";
+                PreparedStatement ps = con.prepareStatement(sql);
+                ps.setString(1, tipo.getCodigo());
+                ps.setString(2, tipo.getNombre());
+                ps.setInt(3, tipo.getCapacidadMaxima());
+                ps.setInt(4, tipo.getCantidadCamas());
+                ps.setString(5, tipo.getTipoCama());
+                ps.setDouble(6, tipo.getPrecioPorNoche());
+                ps.setString(7, tipo.getCodigo());
+                int filasActualizadas = ps.executeUpdate();
+
+                if (filasActualizadas > 0) {
+                    System.out.println("Tipo de habitación actualizado correctamente");
+                } else {
+                    System.out.println("No se ha actualizado ninguna fila en la base de datos.");
+                }
+            }
+
+            // Confirmamos la transacción
+            con.commit();
+        } catch (SQLException ex) {
+            // Si ocurre algún error, hacemos un rollback
+            con.rollback();
+            throw ex;
+        } finally {
+            // Reestablecemos el AutoCommit al valor por defecto
+            con.setAutoCommit(true);
         }
     }
 }
