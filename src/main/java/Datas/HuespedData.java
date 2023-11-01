@@ -38,7 +38,7 @@ public class HuespedData {
         }
     }
 
-    public void modificarHuesped(Huesped huesped) throws SQLException {
+    public void modificarHuesped(Huesped huesped, int dniBuscado) throws SQLException {
         // Modificamos el huesped en la tabla 'huesped'
         String sql = "UPDATE huesped SET nombre = ?, apellido = ?, dni = ?, domicilio = ?, correo = ?, celular = ?, estado = ? "
                 + "WHERE dni = ?";
@@ -50,7 +50,7 @@ public class HuespedData {
         ps.setString(5, huesped.getCorreo());
         ps.setString(6, huesped.getCelular());
         ps.setBoolean(7, huesped.isEstado());
-        ps.setInt(8, huesped.getIdHuesped());
+        ps.setInt(8, dniBuscado);
         ps.executeUpdate();
     }
 

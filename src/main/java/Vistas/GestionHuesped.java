@@ -330,7 +330,7 @@ public class GestionHuesped extends javax.swing.JInternalFrame {
                     huespedExistente.setCelular(jTFcelular.getText());
                     huespedExistente.setEstado(jRBestado.isSelected());
 
-                    huespedData.modificarHuesped(huespedExistente);
+                    huespedData.modificarHuesped(huespedExistente, dniBuscado);
                     JOptionPane.showMessageDialog(this, "Huesped modificado exitosamente.");
                     //Limpiamos los campos
                     limpiarcampos();
