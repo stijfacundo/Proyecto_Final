@@ -16,6 +16,8 @@ public class ListarHabitacion extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bui = (BasicInternalFrameUI) this.getUI();
         bui.setNorthPane(null);
+        
+        cargarTablaHabitacion();
     }
 
     @SuppressWarnings("unchecked")
@@ -160,29 +162,7 @@ public class ListarHabitacion extends javax.swing.JInternalFrame {
 
     private void jTFNumeroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNumeroKeyReleased
 
-        HabitacionData listaHabitacion = new HabitacionData();
-
-        try {
-            DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
-
-            //Colocamos las filas en blanco
-            modelo.setRowCount(0);
-
-            //Cargamos los huespedes a la tabla
-            for (Habitacion habitacion : listaHabitacion.listarHabitacion()) {
-                if (habitacion.getNroHabitacion() == Integer.parseInt(jTFNumero.getText())) {
-                    modelo.addRow(new Object[]{
-                        habitacion.getNroHabitacion(),
-                        habitacion.getPiso(),
-                        habitacion.getOcupada(),
-                        habitacion.getcodigoTipoHabitacion(),
-                        habitacion.getEstado()
-                    });
-                }
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
-        }
+        cargarTablaHabitacion();
     }//GEN-LAST:event_jTFNumeroKeyReleased
 
     private void jTFNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNumeroKeyTyped
@@ -206,4 +186,30 @@ public class ListarHabitacion extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtTabla;
     // End of variables declaration//GEN-END:variables
     // Método para alumnos curssando la materia seleccionada
+
+    public void cargarTablaHabitacion() {
+        HabitacionData listaHabitacion = new HabitacionData();
+
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
+
+            //Colocamos las filas en blanco
+            modelo.setRowCount(0);
+
+            //Cargamos los huespedes a la tabla
+            for (Habitacion habitacion : listaHabitacion.listarHabitacion()) {
+                if (habitacion.getNroHabitacion() == Integer.parseInt(jTFNumero.getText())) {
+                    modelo.addRow(new Object[]{
+                        habitacion.getNroHabitacion(),
+                        habitacion.getPiso(),
+                        habitacion.getOcupada(),
+                        habitacion.getcodigoTipoHabitacion(),
+                        habitacion.getEstado()
+                    });
+                }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+        }
+    }
 }
