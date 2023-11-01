@@ -10,8 +10,8 @@ public class InicioTesting extends javax.swing.JFrame {
     private CreacionReservas creacionReservas;
     private ModificacionReservas modificacionReservas;
     private ListadoReservas listadoReservas;
-    private habitaciones habitaciones;
-    private AgregarHabitacion agregarHabitacion;
+    private CrearHabitacion crearHabitacion;
+    private ListarHabitacion listarHabitacion;
     private CreacionTipoHabitacion creacionTipoHabitacion;
     private ModificacionTipoHabitacion modificacionTipoHabitacion;
     private GestionHuesped altaHuesped;
@@ -176,14 +176,14 @@ public class InicioTesting extends javax.swing.JFrame {
     private void jmiAdministrarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAdministrarHabitacionesActionPerformed
         jdpEscritorio.removeAll();
         jdpEscritorio.repaint();
-        habitaciones = new habitaciones();
+        listarHabitacion = new ListarHabitacion();
 
         // Centramos el JInternalFrame
-        centrarInternalFrame(habitaciones);
+        centrarInternalFrame(listarHabitacion);
 
-        habitaciones.setVisible(true);
-        jdpEscritorio.add(habitaciones);
-        jdpEscritorio.moveToFront(habitaciones);
+        listarHabitacion.setVisible(true);
+        jdpEscritorio.add(listarHabitacion);
+        jdpEscritorio.moveToFront(listarHabitacion);
     }//GEN-LAST:event_jmiAdministrarHabitacionesActionPerformed
 
     private void jmiClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiClientesActionPerformed
@@ -241,14 +241,14 @@ public class InicioTesting extends javax.swing.JFrame {
     private void jmiCrearHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCrearHabitacionesActionPerformed
         jdpEscritorio.removeAll();
         jdpEscritorio.repaint();
-        agregarHabitacion = new AgregarHabitacion();
+        crearHabitacion = new CrearHabitacion();
 
         // Centramos el JInternalFrame
-        centrarInternalFrame(agregarHabitacion);
+        centrarInternalFrame(crearHabitacion);
 
-        agregarHabitacion.setVisible(true);
-        jdpEscritorio.add(agregarHabitacion);
-        jdpEscritorio.moveToFront(agregarHabitacion);
+        crearHabitacion.setVisible(true);
+        jdpEscritorio.add(crearHabitacion);
+        jdpEscritorio.moveToFront(crearHabitacion);
     }//GEN-LAST:event_jmiCrearHabitacionesActionPerformed
 
     public static void main(String args[]) {

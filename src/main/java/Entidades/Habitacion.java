@@ -14,7 +14,7 @@ public class Habitacion {
     public Habitacion() {
     }
 
-    public Habitacion(int nroHabitacion, int piso, boolean ocupada, String codigoTipoHabitacion) {
+    public Habitacion(int nroHabitacion, int piso, boolean ocupada, String codigoTipoHabitacion, boolean estado) {
         this.nroHabitacion = nroHabitacion;
         this.piso = piso;
         this.ocupada = ocupada;
@@ -23,7 +23,7 @@ public class Habitacion {
         
     }
 
-    public Habitacion(int idHabitacion, int nroHabitacion, int piso, boolean ocupada, String codigoTipoHabitacion) {
+    public Habitacion(int idHabitacion, int nroHabitacion, int piso, boolean ocupada, String codigoTipoHabitacion, boolean estado) {
         this.idHabitacion = idHabitacion;
         this.nroHabitacion = nroHabitacion;
         this.piso = piso;
