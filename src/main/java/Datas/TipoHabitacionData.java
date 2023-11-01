@@ -11,7 +11,7 @@ public class TipoHabitacionData {
         con = Conexion.getConexion();
     }
 
-    public void busquedaDeHabitacionPorCapacidad(int capacidadMaxima) throws SQLException {
+    public void busquedaTipoHabitacionPorCapacidad(int capacidadMaxima) throws SQLException {
         // Buscamos el tipo de habitacion acorde a su capacidad maxima
         String sql = "SELECT id_tipo_habitacion, codigo, nombre, capacidadMaxima, cantidadCamas, tipoCamas, PrecioPorNoche FROM tipo_habitacion WHERE capacidadMaxima >= ?";
         TipoHabitacion tipoHabitacion = null;
@@ -33,7 +33,7 @@ public class TipoHabitacionData {
         }
     }
 
-    public void busquedaDeHabitacionPorNombre(String nombre) throws SQLException {
+    public TipoHabitacion busquedaTipoHabitacionPorNombre(String nombre) throws SQLException {
         // Buscamos el tipo de habitacion acorde por nombre
         String sql = "SELECT id_tipo_habitacion, codigo, nombre, capacidadMaxima, cantidadCamas, tipoCamas, PrecioPorNoche FROM tipo_habitacion WHERE nombre = ?";
         TipoHabitacion tipoHabitacion = null;
@@ -53,6 +53,7 @@ public class TipoHabitacionData {
                 tipoHabitacion.setPrecioPorNoche(rs.getDouble("PrecioPorNoche"));
             }
         }
+        return tipoHabitacion;
     }
 
     public void altaTipoHabitacion(TipoHabitacion tipohabitacion) throws SQLException {
@@ -92,5 +93,23 @@ public class TipoHabitacionData {
         ps.setDouble(6, tipohabitacion.getPrecioPorNoche());
         ps.setString(7, codigo);
         ps.executeUpdate();
+    }
+
+    // Método para crear un tipo de habitación
+    public boolean crearTipoHabitacion(String codigo, String nombre, int capacidadMaxima, int cantidadCamas,
+            String tiposCamas, double precioPorNoche) throws SQLException {
+        String sql = "INSERT INTO tipo_habitacion (codigo, nombre, capacidadMaxima, cantidadCamas, tipoCamas, precioPorNoche) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            ps.setString(1, codigo);
+            ps.setString(2, nombre);
+            ps.setInt(3, capacidadMaxima);
+            ps.setInt(4, cantidadCamas);
+            ps.setString(5, tiposCamas);
+            ps.setDouble(6, precioPorNoche);
+            int filasAfectadas = ps.executeUpdate();
+
+            return filasAfectadas > 0;
+        }
     }
 }

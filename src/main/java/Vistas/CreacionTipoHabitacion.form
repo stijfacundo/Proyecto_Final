@@ -107,9 +107,9 @@
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jbBuscarCliente" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jbLimpiarCampos" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jbLimpiar" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jbGuardarTipoHabitacion" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jlDocumentoCliente" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jlApellidoCliente" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -117,12 +117,12 @@
                           <Component id="jlDomicilioCliente" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jlCorreoElectronicoCliente" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jlCelularCliente" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtfDocumentoCliente" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jtfNombreCliente" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jtfApellidoCliente" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jtfDomicilioCliente" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jtfCorreoElectronicoCliente" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jtfCelularCliente" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
+                          <Component id="jtfCodigoTipoHabitacion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtfNombreTipoHabitacion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtfCapacidadMaximaTipoHabitacion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtfCantidadCamasTipoHabitacion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtfTiposCamasTipoHabitacion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtfPrecioPorNocheTipoHabitacion" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="18" max="32767" attributes="0"/>
                   </Group>
@@ -134,31 +134,31 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jlDocumentoCliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Component id="jtfDocumentoCliente" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="jtfCodigoTipoHabitacion" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jlNombreCliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jtfNombreCliente" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfNombreTipoHabitacion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jlApellidoCliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jtfApellidoCliente" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfCapacidadMaximaTipoHabitacion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jlDomicilioCliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jtfDomicilioCliente" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfCantidadCamasTipoHabitacion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jlCorreoElectronicoCliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jtfCorreoElectronicoCliente" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfTiposCamasTipoHabitacion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jlCelularCliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jtfCelularCliente" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfPrecioPorNocheTipoHabitacion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jbBuscarCliente" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jbLimpiar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jbLimpiarCampos" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jbGuardarTipoHabitacion" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="11" max="32767" attributes="0"/>
                   </Group>
@@ -177,7 +177,7 @@
                 <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtfDocumentoCliente">
+            <Component class="javax.swing.JTextField" name="jtfCodigoTipoHabitacion">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="eb" green="e8" red="e6" type="rgb"/>
@@ -199,8 +199,11 @@
                   <Dimension value="[64, 30]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtfCodigoTipoHabitacionKeyTyped"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jbBuscarCliente">
+            <Component class="javax.swing.JButton" name="jbLimpiarCampos">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -211,7 +214,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="17" green="17" red="17" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Buscar"/>
+                <Property name="text" type="java.lang.String" value="Limpiar"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                     <LineBorder/>
@@ -221,6 +224,9 @@
                   <Dimension value="[60, 30]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbLimpiarCamposActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jlNombreCliente">
               <Properties>
@@ -241,10 +247,10 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="17" green="17" red="17" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cantidad de personas"/>
+                <Property name="text" type="java.lang.String" value="Capacidad m&#xe1;xima"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtfNombreCliente">
+            <Component class="javax.swing.JTextField" name="jtfNombreTipoHabitacion">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="eb" green="e8" red="e6" type="rgb"/>
@@ -266,8 +272,11 @@
                   <Dimension value="[64, 30]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtfNombreTipoHabitacionKeyTyped"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtfApellidoCliente">
+            <Component class="javax.swing.JTextField" name="jtfCapacidadMaximaTipoHabitacion">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="eb" green="e8" red="e6" type="rgb"/>
@@ -289,6 +298,9 @@
                   <Dimension value="[64, 30]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtfCapacidadMaximaTipoHabitacionKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jlDomicilioCliente">
               <Properties>
@@ -301,7 +313,7 @@
                 <Property name="text" type="java.lang.String" value="Cantidad de camas"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtfDomicilioCliente">
+            <Component class="javax.swing.JTextField" name="jtfCantidadCamasTipoHabitacion">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="eb" green="e8" red="e6" type="rgb"/>
@@ -323,6 +335,9 @@
                   <Dimension value="[64, 30]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtfCantidadCamasTipoHabitacionKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jlCorreoElectronicoCliente">
               <Properties>
@@ -335,7 +350,7 @@
                 <Property name="text" type="java.lang.String" value="Tipos de camas"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtfCorreoElectronicoCliente">
+            <Component class="javax.swing.JTextField" name="jtfTiposCamasTipoHabitacion">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="eb" green="e8" red="e6" type="rgb"/>
@@ -357,6 +372,9 @@
                   <Dimension value="[64, 30]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtfTiposCamasTipoHabitacionKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jlCelularCliente">
               <Properties>
@@ -369,7 +387,7 @@
                 <Property name="text" type="java.lang.String" value="Precio por noche"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtfCelularCliente">
+            <Component class="javax.swing.JTextField" name="jtfPrecioPorNocheTipoHabitacion">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="eb" green="e8" red="e6" type="rgb"/>
@@ -391,8 +409,11 @@
                   <Dimension value="[64, 30]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtfPrecioPorNocheTipoHabitacionKeyTyped"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jbLimpiar">
+            <Component class="javax.swing.JButton" name="jbGuardarTipoHabitacion">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -403,13 +424,16 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="17" green="17" red="17" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Limpiar"/>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                     <LineBorder/>
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbGuardarTipoHabitacionActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

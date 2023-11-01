@@ -1,5 +1,8 @@
 package Vistas;
 
+import Datas.TipoHabitacionData;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class CreacionTipoHabitacion extends javax.swing.JInternalFrame {
@@ -22,19 +25,19 @@ public class CreacionTipoHabitacion extends javax.swing.JInternalFrame {
         jlDescripcionCreacionTipoHabitacion = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jlDocumentoCliente = new javax.swing.JLabel();
-        jtfDocumentoCliente = new javax.swing.JTextField();
-        jbBuscarCliente = new javax.swing.JButton();
+        jtfCodigoTipoHabitacion = new javax.swing.JTextField();
+        jbLimpiarCampos = new javax.swing.JButton();
         jlNombreCliente = new javax.swing.JLabel();
         jlApellidoCliente = new javax.swing.JLabel();
-        jtfNombreCliente = new javax.swing.JTextField();
-        jtfApellidoCliente = new javax.swing.JTextField();
+        jtfNombreTipoHabitacion = new javax.swing.JTextField();
+        jtfCapacidadMaximaTipoHabitacion = new javax.swing.JTextField();
         jlDomicilioCliente = new javax.swing.JLabel();
-        jtfDomicilioCliente = new javax.swing.JTextField();
+        jtfCantidadCamasTipoHabitacion = new javax.swing.JTextField();
         jlCorreoElectronicoCliente = new javax.swing.JLabel();
-        jtfCorreoElectronicoCliente = new javax.swing.JTextField();
+        jtfTiposCamasTipoHabitacion = new javax.swing.JTextField();
         jlCelularCliente = new javax.swing.JLabel();
-        jtfCelularCliente = new javax.swing.JTextField();
-        jbLimpiar = new javax.swing.JButton();
+        jtfPrecioPorNocheTipoHabitacion = new javax.swing.JTextField();
+        jbGuardarTipoHabitacion = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -52,18 +55,28 @@ public class CreacionTipoHabitacion extends javax.swing.JInternalFrame {
         jlDocumentoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlDocumentoCliente.setText("Código");
 
-        jtfDocumentoCliente.setBackground(new java.awt.Color(230, 232, 235));
-        jtfDocumentoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jtfDocumentoCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jtfDocumentoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
-        jtfDocumentoCliente.setPreferredSize(new java.awt.Dimension(64, 30));
+        jtfCodigoTipoHabitacion.setBackground(new java.awt.Color(230, 232, 235));
+        jtfCodigoTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtfCodigoTipoHabitacion.setForeground(new java.awt.Color(23, 23, 23));
+        jtfCodigoTipoHabitacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jtfCodigoTipoHabitacion.setPreferredSize(new java.awt.Dimension(64, 30));
+        jtfCodigoTipoHabitacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfCodigoTipoHabitacionKeyTyped(evt);
+            }
+        });
 
-        jbBuscarCliente.setBackground(new java.awt.Color(255, 255, 255));
-        jbBuscarCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jbBuscarCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jbBuscarCliente.setText("Buscar");
-        jbBuscarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jbBuscarCliente.setPreferredSize(new java.awt.Dimension(60, 30));
+        jbLimpiarCampos.setBackground(new java.awt.Color(255, 255, 255));
+        jbLimpiarCampos.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jbLimpiarCampos.setForeground(new java.awt.Color(23, 23, 23));
+        jbLimpiarCampos.setText("Limpiar");
+        jbLimpiarCampos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbLimpiarCampos.setPreferredSize(new java.awt.Dimension(60, 30));
+        jbLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimpiarCamposActionPerformed(evt);
+            }
+        });
 
         jlNombreCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlNombreCliente.setForeground(new java.awt.Color(23, 23, 23));
@@ -71,55 +84,85 @@ public class CreacionTipoHabitacion extends javax.swing.JInternalFrame {
 
         jlApellidoCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlApellidoCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jlApellidoCliente.setText("Cantidad de personas");
+        jlApellidoCliente.setText("Capacidad máxima");
 
-        jtfNombreCliente.setBackground(new java.awt.Color(230, 232, 235));
-        jtfNombreCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jtfNombreCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jtfNombreCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
-        jtfNombreCliente.setPreferredSize(new java.awt.Dimension(64, 30));
+        jtfNombreTipoHabitacion.setBackground(new java.awt.Color(230, 232, 235));
+        jtfNombreTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtfNombreTipoHabitacion.setForeground(new java.awt.Color(23, 23, 23));
+        jtfNombreTipoHabitacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jtfNombreTipoHabitacion.setPreferredSize(new java.awt.Dimension(64, 30));
+        jtfNombreTipoHabitacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfNombreTipoHabitacionKeyTyped(evt);
+            }
+        });
 
-        jtfApellidoCliente.setBackground(new java.awt.Color(230, 232, 235));
-        jtfApellidoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jtfApellidoCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jtfApellidoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
-        jtfApellidoCliente.setPreferredSize(new java.awt.Dimension(64, 30));
+        jtfCapacidadMaximaTipoHabitacion.setBackground(new java.awt.Color(230, 232, 235));
+        jtfCapacidadMaximaTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtfCapacidadMaximaTipoHabitacion.setForeground(new java.awt.Color(23, 23, 23));
+        jtfCapacidadMaximaTipoHabitacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jtfCapacidadMaximaTipoHabitacion.setPreferredSize(new java.awt.Dimension(64, 30));
+        jtfCapacidadMaximaTipoHabitacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfCapacidadMaximaTipoHabitacionKeyTyped(evt);
+            }
+        });
 
         jlDomicilioCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlDomicilioCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlDomicilioCliente.setText("Cantidad de camas");
 
-        jtfDomicilioCliente.setBackground(new java.awt.Color(230, 232, 235));
-        jtfDomicilioCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jtfDomicilioCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jtfDomicilioCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
-        jtfDomicilioCliente.setPreferredSize(new java.awt.Dimension(64, 30));
+        jtfCantidadCamasTipoHabitacion.setBackground(new java.awt.Color(230, 232, 235));
+        jtfCantidadCamasTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtfCantidadCamasTipoHabitacion.setForeground(new java.awt.Color(23, 23, 23));
+        jtfCantidadCamasTipoHabitacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jtfCantidadCamasTipoHabitacion.setPreferredSize(new java.awt.Dimension(64, 30));
+        jtfCantidadCamasTipoHabitacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfCantidadCamasTipoHabitacionKeyTyped(evt);
+            }
+        });
 
         jlCorreoElectronicoCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlCorreoElectronicoCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlCorreoElectronicoCliente.setText("Tipos de camas");
 
-        jtfCorreoElectronicoCliente.setBackground(new java.awt.Color(230, 232, 235));
-        jtfCorreoElectronicoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jtfCorreoElectronicoCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jtfCorreoElectronicoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
-        jtfCorreoElectronicoCliente.setPreferredSize(new java.awt.Dimension(64, 30));
+        jtfTiposCamasTipoHabitacion.setBackground(new java.awt.Color(230, 232, 235));
+        jtfTiposCamasTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtfTiposCamasTipoHabitacion.setForeground(new java.awt.Color(23, 23, 23));
+        jtfTiposCamasTipoHabitacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jtfTiposCamasTipoHabitacion.setPreferredSize(new java.awt.Dimension(64, 30));
+        jtfTiposCamasTipoHabitacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfTiposCamasTipoHabitacionKeyTyped(evt);
+            }
+        });
 
         jlCelularCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlCelularCliente.setForeground(new java.awt.Color(23, 23, 23));
         jlCelularCliente.setText("Precio por noche");
 
-        jtfCelularCliente.setBackground(new java.awt.Color(230, 232, 235));
-        jtfCelularCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jtfCelularCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jtfCelularCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
-        jtfCelularCliente.setPreferredSize(new java.awt.Dimension(64, 30));
+        jtfPrecioPorNocheTipoHabitacion.setBackground(new java.awt.Color(230, 232, 235));
+        jtfPrecioPorNocheTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtfPrecioPorNocheTipoHabitacion.setForeground(new java.awt.Color(23, 23, 23));
+        jtfPrecioPorNocheTipoHabitacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jtfPrecioPorNocheTipoHabitacion.setPreferredSize(new java.awt.Dimension(64, 30));
+        jtfPrecioPorNocheTipoHabitacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfPrecioPorNocheTipoHabitacionKeyTyped(evt);
+            }
+        });
 
-        jbLimpiar.setBackground(new java.awt.Color(255, 255, 255));
-        jbLimpiar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jbLimpiar.setForeground(new java.awt.Color(23, 23, 23));
-        jbLimpiar.setText("Limpiar");
-        jbLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbGuardarTipoHabitacion.setBackground(new java.awt.Color(255, 255, 255));
+        jbGuardarTipoHabitacion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jbGuardarTipoHabitacion.setForeground(new java.awt.Color(23, 23, 23));
+        jbGuardarTipoHabitacion.setText("Guardar");
+        jbGuardarTipoHabitacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbGuardarTipoHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarTipoHabitacionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -129,21 +172,21 @@ public class CreacionTipoHabitacion extends javax.swing.JInternalFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jbBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbLimpiarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbGuardarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jlDocumentoCliente, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlApellidoCliente, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlNombreCliente, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlDomicilioCliente, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlCorreoElectronicoCliente, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlCelularCliente, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtfNombreCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtfApellidoCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtfDomicilioCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtfCorreoElectronicoCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtfCelularCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfCodigoTipoHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtfNombreTipoHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtfCapacidadMaximaTipoHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtfCantidadCamasTipoHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtfTiposCamasTipoHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtfPrecioPorNocheTipoHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -152,31 +195,31 @@ public class CreacionTipoHabitacion extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jlDocumentoCliente)
                 .addGap(8, 8, 8)
-                .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfCodigoTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlNombreCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfNombreTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlApellidoCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfCapacidadMaximaTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlDomicilioCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfDomicilioCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfCantidadCamasTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlCorreoElectronicoCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfCorreoElectronicoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfTiposCamasTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlCelularCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfCelularCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfPrecioPorNocheTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbLimpiarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbGuardarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
@@ -221,12 +264,124 @@ public class CreacionTipoHabitacion extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbGuardarTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarTipoHabitacionActionPerformed
+        try {
+            if (jtfCodigoTipoHabitacion.getText().isEmpty() || jtfNombreTipoHabitacion.getText().isEmpty()
+                    || jtfCapacidadMaximaTipoHabitacion.getText().isEmpty() || jtfCantidadCamasTipoHabitacion.getText().isEmpty()
+                    || jtfTiposCamasTipoHabitacion.getText().isEmpty() || jtfPrecioPorNocheTipoHabitacion.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor, completa todos los campos antes de crear un tipo de habitación.");
+                return;
+            }
+
+            String codigo = jtfCodigoTipoHabitacion.getText();
+            String nombre = jtfNombreTipoHabitacion.getText();
+            int capacidadMaxima = Integer.parseInt(jtfCapacidadMaximaTipoHabitacion.getText());
+            int cantidadCamas = Integer.parseInt(jtfCantidadCamasTipoHabitacion.getText());
+            String tiposCamas = jtfTiposCamasTipoHabitacion.getText();
+            double precioPorNoche = Double.parseDouble(jtfPrecioPorNocheTipoHabitacion.getText());
+
+            // Validamos los datos antes de crear el tipo de habitación
+            if (!esTextoNumerosSimbolosValido(codigo)) {
+                JOptionPane.showMessageDialog(this, "El código debe contener letras, números y símbolos.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esTextoValido(nombre)) {
+                JOptionPane.showMessageDialog(this, "El nombre debe contener solo letras y espacios.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esNumeroValido(jtfCapacidadMaximaTipoHabitacion.getText())) {
+                JOptionPane.showMessageDialog(this, "La capacidad máxima debe contener solo números.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esNumeroValido(jtfCantidadCamasTipoHabitacion.getText())) {
+                JOptionPane.showMessageDialog(this, "La cantidad de camas debe contener solo números.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esTextoNumerosSimbolosValido(tiposCamas)) {
+                JOptionPane.showMessageDialog(this, "Los tipos de camas deben contener letras, números y símbolos.");
+                return; // Detiene la ejecución
+            }
+
+            if (!esNumeroValido(jtfPrecioPorNocheTipoHabitacion.getText())) {
+                JOptionPane.showMessageDialog(this, "El precio por noche debe contener solo números.");
+                return; // Detiene la ejecución
+            }
+
+            // Llamamos al método de la clase TipoHabitacionData para crear el tipo de habitación
+            TipoHabitacionData tipoHabitacionData = new TipoHabitacionData();
+            boolean creacionExitosa = tipoHabitacionData.crearTipoHabitacion(codigo, nombre, capacidadMaxima, cantidadCamas, tiposCamas, precioPorNoche);
+
+            if (creacionExitosa) {
+                JOptionPane.showMessageDialog(this, "Tipo de habitación creado con éxito.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al crear el tipo de habitación.");
+            }
+
+            // Limpiamos los campos tras la creación del tipo de habitación
+            limpiarCampos();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Ingrese un valor numérico válido: " + ex.getMessage());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error al crear un tipo de habitación: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_jbGuardarTipoHabitacionActionPerformed
+
+    private void jbLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarCamposActionPerformed
+        limpiarCampos();
+    }//GEN-LAST:event_jbLimpiarCamposActionPerformed
+
+    private void jtfCodigoTipoHabitacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCodigoTipoHabitacionKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetterOrDigit(c) && !Character.isDefined(c)) {
+            evt.consume(); // Consume los caracteres no permitidos
+        }
+    }//GEN-LAST:event_jtfCodigoTipoHabitacionKeyTyped
+
+    private void jtfNombreTipoHabitacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfNombreTipoHabitacionKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume(); // Consume los caracteres no alfabéticos
+        }
+    }//GEN-LAST:event_jtfNombreTipoHabitacionKeyTyped
+
+    private void jtfCapacidadMaximaTipoHabitacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCapacidadMaximaTipoHabitacionKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume los caracteres no numéricos
+        }
+    }//GEN-LAST:event_jtfCapacidadMaximaTipoHabitacionKeyTyped
+
+    private void jtfCantidadCamasTipoHabitacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCantidadCamasTipoHabitacionKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume los caracteres no numéricos
+        }
+    }//GEN-LAST:event_jtfCantidadCamasTipoHabitacionKeyTyped
+
+    private void jtfTiposCamasTipoHabitacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfTiposCamasTipoHabitacionKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetterOrDigit(c) && !Character.isDefined(c)) {
+            evt.consume(); // Consume los caracteres no permitidos
+        }
+    }//GEN-LAST:event_jtfTiposCamasTipoHabitacionKeyTyped
+
+    private void jtfPrecioPorNocheTipoHabitacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfPrecioPorNocheTipoHabitacionKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != '.') {
+            evt.consume(); // Consume los caracteres no permitidos
+        }
+    }//GEN-LAST:event_jtfPrecioPorNocheTipoHabitacionKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton jbBuscarCliente;
-    private javax.swing.JButton jbLimpiar;
+    private javax.swing.JButton jbGuardarTipoHabitacion;
+    private javax.swing.JButton jbLimpiarCampos;
     private javax.swing.JLabel jlApellidoCliente;
     private javax.swing.JLabel jlCelularCliente;
     private javax.swing.JLabel jlCorreoElectronicoCliente;
@@ -235,11 +390,32 @@ public class CreacionTipoHabitacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jlDocumentoCliente;
     private javax.swing.JLabel jlDomicilioCliente;
     private javax.swing.JLabel jlNombreCliente;
-    private javax.swing.JTextField jtfApellidoCliente;
-    private javax.swing.JTextField jtfCelularCliente;
-    private javax.swing.JTextField jtfCorreoElectronicoCliente;
-    private javax.swing.JTextField jtfDocumentoCliente;
-    private javax.swing.JTextField jtfDomicilioCliente;
-    private javax.swing.JTextField jtfNombreCliente;
+    private javax.swing.JTextField jtfCantidadCamasTipoHabitacion;
+    private javax.swing.JTextField jtfCapacidadMaximaTipoHabitacion;
+    private javax.swing.JTextField jtfCodigoTipoHabitacion;
+    private javax.swing.JTextField jtfNombreTipoHabitacion;
+    private javax.swing.JTextField jtfPrecioPorNocheTipoHabitacion;
+    private javax.swing.JTextField jtfTiposCamasTipoHabitacion;
     // End of variables declaration//GEN-END:variables
+
+    private void limpiarCampos() {
+        jtfCodigoTipoHabitacion.setText("");
+        jtfNombreTipoHabitacion.setText("");
+        jtfCapacidadMaximaTipoHabitacion.setText("");
+        jtfCantidadCamasTipoHabitacion.setText("");
+        jtfTiposCamasTipoHabitacion.setText("");
+        jtfPrecioPorNocheTipoHabitacion.setText("");
+    }
+
+    private boolean esNumeroValido(String texto) {
+        return texto.matches("\\d+"); // Acepta solo números
+    }
+
+    private boolean esTextoValido(String texto) {
+        return texto.matches("^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+$"); // Acepta solo letras y espacios
+    }
+
+    private boolean esTextoNumerosSimbolosValido(String texto) {
+        return texto.matches("^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9\\s\\p{Punct}]+$"); // Acepta letras, números y símbolos
+    }
 }
