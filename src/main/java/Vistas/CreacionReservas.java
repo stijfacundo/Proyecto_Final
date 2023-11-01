@@ -60,42 +60,47 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jtfCorreoElectronicoCliente = new javax.swing.JTextField();
         jlCelularCliente = new javax.swing.JLabel();
         jtfCelularCliente = new javax.swing.JTextField();
+        jbLimpiar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jdcFechaIngreso = new com.toedter.calendar.JDateChooser();
-        jdcFechaEgreso = new com.toedter.calendar.JDateChooser();
-        jlFechaIngreso = new javax.swing.JLabel();
-        jlFechaEgreso = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtHabitaciones = new javax.swing.JTable();
         jlCostoTotal = new javax.swing.JLabel();
         jlCostoTotalNro = new javax.swing.JLabel();
-        jbRealizarReserva = new javax.swing.JButton();
-        jbLimpiar = new javax.swing.JButton();
         jlCreacionReservas = new javax.swing.JLabel();
         jlDescripcionCreacionReservas = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jdcFechaIngreso = new com.toedter.calendar.JDateChooser();
+        jlFechaIngreso = new javax.swing.JLabel();
+        jdcFechaEgreso = new com.toedter.calendar.JDateChooser();
+        jlFechaEgreso = new javax.swing.JLabel();
+        jbRealizarReserva = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jlDocumentoCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jlDocumentoCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jlDocumentoCliente.setText("Documento del cliente");
+        jlDocumentoCliente.setText("DNI");
 
         jtfDocumentoCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfDocumentoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfDocumentoCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jtfDocumentoCliente.setBorder(null);
+        jtfDocumentoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jtfDocumentoCliente.setPreferredSize(new java.awt.Dimension(64, 30));
         jtfDocumentoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtfDocumentoClienteKeyTyped(evt);
             }
         });
 
-        jbBuscarCliente.setBackground(new java.awt.Color(230, 232, 235));
+        jbBuscarCliente.setBackground(new java.awt.Color(255, 255, 255));
         jbBuscarCliente.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jbBuscarCliente.setForeground(new java.awt.Color(23, 23, 23));
         jbBuscarCliente.setText("Buscar");
+        jbBuscarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbBuscarCliente.setPreferredSize(new java.awt.Dimension(60, 30));
         jbBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBuscarClienteActionPerformed(evt);
@@ -113,7 +118,8 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jtfNombreCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfNombreCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfNombreCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jtfNombreCliente.setBorder(null);
+        jtfNombreCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jtfNombreCliente.setPreferredSize(new java.awt.Dimension(64, 30));
         jtfNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtfNombreClienteKeyTyped(evt);
@@ -123,7 +129,8 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jtfApellidoCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfApellidoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfApellidoCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jtfApellidoCliente.setBorder(null);
+        jtfApellidoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jtfApellidoCliente.setPreferredSize(new java.awt.Dimension(64, 30));
         jtfApellidoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtfApellidoClienteKeyTyped(evt);
@@ -137,7 +144,8 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jtfDomicilioCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfDomicilioCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfDomicilioCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jtfDomicilioCliente.setBorder(null);
+        jtfDomicilioCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jtfDomicilioCliente.setPreferredSize(new java.awt.Dimension(64, 30));
         jtfDomicilioCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtfDomicilioClienteKeyTyped(evt);
@@ -151,7 +159,8 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jtfCorreoElectronicoCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfCorreoElectronicoCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfCorreoElectronicoCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jtfCorreoElectronicoCliente.setBorder(null);
+        jtfCorreoElectronicoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jtfCorreoElectronicoCliente.setPreferredSize(new java.awt.Dimension(64, 30));
         jtfCorreoElectronicoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtfCorreoElectronicoClienteKeyTyped(evt);
@@ -165,10 +174,22 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jtfCelularCliente.setBackground(new java.awt.Color(230, 232, 235));
         jtfCelularCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfCelularCliente.setForeground(new java.awt.Color(23, 23, 23));
-        jtfCelularCliente.setBorder(null);
+        jtfCelularCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 232, 235), 6));
+        jtfCelularCliente.setPreferredSize(new java.awt.Dimension(64, 30));
         jtfCelularCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtfCelularClienteKeyTyped(evt);
+            }
+        });
+
+        jbLimpiar.setBackground(new java.awt.Color(255, 255, 255));
+        jbLimpiar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jbLimpiar.setForeground(new java.awt.Color(23, 23, 23));
+        jbLimpiar.setText("Limpiar");
+        jbLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimpiarActionPerformed(evt);
             }
         });
 
@@ -177,89 +198,63 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlNombreCliente)
-                    .addComponent(jlDomicilioCliente)
-                    .addComponent(jlCorreoElectronicoCliente)
-                    .addComponent(jlCelularCliente)
+                .addGap(14, 14, 14)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jtfCelularCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(jtfCorreoElectronicoCliente, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfDomicilioCliente, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlDocumentoCliente, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlApellidoCliente, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfNombreCliente, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfApellidoCliente, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbBuscarCliente)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addComponent(jbBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlDocumentoCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlApellidoCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlNombreCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlDomicilioCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlCorreoElectronicoCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlCelularCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtfNombreCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtfApellidoCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtfDomicilioCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtfCorreoElectronicoCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtfCelularCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jlDocumentoCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(8, 8, 8)
+                .addComponent(jtfDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlNombreCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jtfNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlApellidoCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jtfApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlDomicilioCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfDomicilioCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jtfDomicilioCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlCorreoElectronicoCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfCorreoElectronicoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jtfCorreoElectronicoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlCelularCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfCelularCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jtfCelularCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jdcFechaIngreso.setBackground(new java.awt.Color(230, 232, 235));
-        jdcFechaIngreso.setForeground(new java.awt.Color(23, 23, 23));
-        jdcFechaIngreso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jdcFechaIngreso.setMinSelectableDate(fechaActual);
-        jdcFechaIngreso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jdcFechaIngresoPropertyChange(evt);
-            }
-        });
-
-        jdcFechaEgreso.setBackground(new java.awt.Color(230, 232, 235));
-        jdcFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
-        jdcFechaEgreso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jdcFechaEgreso.setMinSelectableDate(fechaActual);
-        jdcFechaEgreso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jdcFechaEgresoPropertyChange(evt);
-            }
-        });
-
-        jlFechaIngreso.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jlFechaIngreso.setForeground(new java.awt.Color(23, 23, 23));
-        jlFechaIngreso.setText("Fecha de ingreso");
-
-        jlFechaEgreso.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jlFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
-        jlFechaEgreso.setText("Fecha de egreso");
-
-        jtHabitaciones.setBackground(new java.awt.Color(230, 232, 235));
+        jtHabitaciones.setBackground(new java.awt.Color(255, 255, 255));
         jtHabitaciones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtHabitaciones.setForeground(new java.awt.Color(23, 23, 23));
         jtHabitaciones.setModel(new javax.swing.table.DefaultTableModel(
@@ -313,6 +308,72 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlCostoTotalNro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlCostoTotalNro.setText("$0");
 
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(282, 282, 282)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jlCostoTotal)
+                        .addGap(29, 29, 29))
+                    .addComponent(jlCostoTotalNro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addGap(31, 31, 31)
+                .addComponent(jlCostoTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlCostoTotalNro, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jlCreacionReservas.setFont(new java.awt.Font("Segoe UI Semibold", 0, 20)); // NOI18N
+        jlCreacionReservas.setForeground(new java.awt.Color(23, 23, 23));
+        jlCreacionReservas.setText("Creación de nuevas reservas");
+
+        jlDescripcionCreacionReservas.setForeground(new java.awt.Color(23, 23, 23));
+        jlDescripcionCreacionReservas.setText("Puede realizar la creación de nuevas reservas mediante el DNI del cliente");
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jdcFechaIngreso.setBackground(new java.awt.Color(230, 232, 235));
+        jdcFechaIngreso.setForeground(new java.awt.Color(255, 255, 255));
+        jdcFechaIngreso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jdcFechaIngreso.setMinSelectableDate(fechaActual);
+        jdcFechaIngreso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdcFechaIngresoPropertyChange(evt);
+            }
+        });
+
+        jlFechaIngreso.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jlFechaIngreso.setForeground(new java.awt.Color(23, 23, 23));
+        jlFechaIngreso.setText("Fecha de ingreso");
+
+        jdcFechaEgreso.setBackground(new java.awt.Color(230, 232, 235));
+        jdcFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
+        jdcFechaEgreso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jdcFechaEgreso.setMinSelectableDate(fechaActual);
+        jdcFechaEgreso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdcFechaEgresoPropertyChange(evt);
+            }
+        });
+
+        jlFechaEgreso.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jlFechaEgreso.setForeground(new java.awt.Color(23, 23, 23));
+        jlFechaEgreso.setText("Fecha de egreso");
+
         jbRealizarReserva.setBackground(new java.awt.Color(230, 232, 235));
         jbRealizarReserva.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jbRealizarReserva.setForeground(new java.awt.Color(23, 23, 23));
@@ -323,84 +384,43 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        jbLimpiar.setBackground(new java.awt.Color(230, 232, 235));
-        jbLimpiar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jbLimpiar.setForeground(new java.awt.Color(23, 23, 23));
-        jbLimpiar.setText("Limpiar");
-        jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbLimpiarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jlCostoTotal)
-                        .addGap(266, 266, 266))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jbLimpiar)
-                        .addGap(52, 52, 52)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbRealizarReserva)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGap(23, 23, 23)
+                            .addComponent(jlFechaEgreso))
+                        .addComponent(jdcFechaEgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jdcFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addComponent(jlFechaIngreso)
-                                .addGap(25, 25, 25)))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jlFechaEgreso))
-                            .addComponent(jdcFechaEgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(74, 74, 74))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbRealizarReserva)
-                            .addComponent(jlCostoTotalNro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(237, 237, 237))))
+                                .addGap(25, 25, 25)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jlFechaIngreso)
-                                .addComponent(jlFechaEgreso))
-                            .addGap(5, 5, 5)
-                            .addComponent(jdcFechaEgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jdcFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jbLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jlCostoTotal)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jlFechaIngreso)
+                        .addGap(33, 33, 33))
+                    .addComponent(jdcFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlCostoTotalNro, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlFechaEgreso)
+                .addGap(5, 5, 5)
+                .addComponent(jdcFechaEgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jbRealizarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
-
-        jlCreacionReservas.setFont(new java.awt.Font("Segoe UI Semibold", 0, 20)); // NOI18N
-        jlCreacionReservas.setForeground(new java.awt.Color(23, 23, 23));
-        jlCreacionReservas.setText("Creación de nuevas reservas");
-
-        jlDescripcionCreacionReservas.setForeground(new java.awt.Color(23, 23, 23));
-        jlDescripcionCreacionReservas.setText("Puede realizar la creación de nuevas reservas mediante el DNI del cliente");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -408,28 +428,34 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlDescripcionCreacionReservas)
-                    .addComponent(jlCreacionReservas))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlDescripcionCreacionReservas)
+                            .addComponent(jlCreacionReservas))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addContainerGap()
                 .addComponent(jlCreacionReservas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlDescripcionCreacionReservas)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -618,6 +644,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbBuscarCliente;
     private javax.swing.JButton jbLimpiar;

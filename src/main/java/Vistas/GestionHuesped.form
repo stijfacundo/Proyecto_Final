@@ -61,7 +61,7 @@
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPmenuPrincipal" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="77" max="32767" attributes="0"/>
+                  <EmptySpace pref="91" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -83,40 +83,46 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLestado" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRBestado" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jlDNI" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLcelular" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jlcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jldomicilio" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLnombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLapellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jBguardar" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jbBuscar" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jbLimpiar" min="-2" pref="70" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="jTFcelular" alignment="1" min="-2" pref="248" max="-2" attributes="0"/>
-                          <Component id="jTFcorreo" alignment="1" min="-2" pref="248" max="-2" attributes="0"/>
-                          <Component id="jTFdomicilio" alignment="1" min="-2" pref="248" max="-2" attributes="0"/>
-                          <Component id="jTFDNI" alignment="1" min="-2" pref="248" max="-2" attributes="0"/>
-                          <Component id="jTFapellido" alignment="1" min="-2" pref="248" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jTFnombre" alignment="1" min="-2" pref="248" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="jLestado" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRBestado" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlDNI" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLcelular" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jldomicilio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLnombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLapellido" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jBguardar" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jbBuscar" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jbLimpiar" min="-2" pref="70" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="jTFcelular" alignment="1" min="-2" pref="248" max="-2" attributes="0"/>
+                              <Component id="jTFcorreo" alignment="1" min="-2" pref="248" max="-2" attributes="0"/>
+                              <Component id="jTFdomicilio" alignment="1" min="-2" pref="248" max="-2" attributes="0"/>
+                              <Component id="jTFDNI" alignment="1" min="-2" pref="248" max="-2" attributes="0"/>
+                              <Component id="jTFapellido" alignment="1" min="-2" pref="248" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="21" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Component id="jlDNI" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jTFDNI" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLnombre" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTFnombre" min="-2" pref="30" max="-2" attributes="0"/>
@@ -124,11 +130,7 @@
                       <Component id="jLapellido" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTFapellido" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jlDNI" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTFDNI" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jldomicilio" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTFdomicilio" min="-2" pref="30" max="-2" attributes="0"/>
@@ -147,12 +149,12 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jBguardar" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                               <Component id="jbLimpiar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jbBuscar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                      <EmptySpace pref="22" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
