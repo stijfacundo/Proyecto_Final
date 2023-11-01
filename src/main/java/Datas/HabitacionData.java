@@ -125,15 +125,18 @@ public class HabitacionData {
 
     public List<Habitacion> listarHabitacion() throws SQLException {
 
-        String sql = "SELECT codigo_tipo_habitacion FROM habitacion";
+        String sql = "SELECT numero, piso, ocupada, codigo_tipo_habitacion, estado FROM habitacion";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Habitacion habitacion = new Habitacion();
-
+                habitacion.setNroHabitacion(rs.getInt("numero"));
+                habitacion.setPiso(rs.getInt("piso"));
+                habitacion.setOcupada(rs.getBoolean("ocupada"));
                 habitacion.setcodigoTipoHabitacion(rs.getString("codigo_tipo_habitacion"));
+                habitacion.setEstado(rs.getBoolean("estado"));
 
                 habitaciones.add(habitacion);
             }
