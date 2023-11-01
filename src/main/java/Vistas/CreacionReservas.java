@@ -341,7 +341,7 @@ public class CreacionReservas extends javax.swing.JInternalFrame {
         jlCreacionReservas.setText("Creación de nuevas reservas");
 
         jlDescripcionCreacionReservas.setForeground(new java.awt.Color(23, 23, 23));
-        jlDescripcionCreacionReservas.setText("Puede realizar la creación de nuevas reservas mediante el DNI del cliente");
+        jlDescripcionCreacionReservas.setText("Puede realizar la creación de nuevas reservas mediante la búsqueda del cliente mediante su DNI");
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

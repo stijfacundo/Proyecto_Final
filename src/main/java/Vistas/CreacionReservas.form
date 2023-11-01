@@ -594,7 +594,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="17" green="17" red="17" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Puede realizar la creaci&#xf3;n de nuevas reservas mediante el DNI del cliente"/>
+            <Property name="text" type="java.lang.String" value="Puede realizar la creaci&#xf3;n de nuevas reservas mediante la b&#xfa;squeda del cliente mediante su DNI"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel4">
